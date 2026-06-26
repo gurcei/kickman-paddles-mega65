@@ -1,0 +1,5307 @@
+2000 78       sei 
+2001 d8       cld 
+2002 a2 ff    ldx #$ff
+2004 86 f4    stx $f4
+2006 9a       txs 
+2007 a2 2f    ldx #$2f
+2009 bd 78 ef lda $ef78,x
+200c 9d ff cf sta $cfff,x
+200f ca       dex 
+2010 d0 f7    bne $2009
+2012 a2 19    ldx #$19
+2014 bd a7 ef lda $efa7,x
+2017 9d ff d3 sta $d3ff,x
+201a ca       dex 
+201b d0 f7    bne $2014
+201d 8a       txa 
+201e 95 02    sta $02,x
+2020 9d 00 02 sta $0200,x
+2023 9d 00 03 sta $0300,x
+2026 e8       inx 
+2027 10 f5    bpl $201e
+2029 a9 08    lda #$08
+202b 85 0c    sta $0c
+202d a9 1f    lda #$1f
+202f 85 c9    sta $c9
+2031 20 3b e3 jsr $e33b
+2034 a9 03    lda #$03
+2036 85 2e    sta $2e
+2038 20 4b e3 jsr $e34b
+203b a9 c8    lda #$c8
+203d 8d 00 d0 sta $d000
+2040 8d 02 d0 sta $d002
+2043 a9 c4    lda #$c4
+2045 8d 01 d0 sta $d001
+2048 a9 da    lda #$da
+204a 8d 03 d0 sta $d003
+204d a9 00    lda #$00
+204f 8d 1d d0 sta $d01d
+2052 a9 01    lda #$01
+2054 8d 20 d0 sta $d020
+2057 8d 21 d0 sta $d021
+205a a2 f6    ldx #$f6
+205c a0 f4    ldy #$f4
+205e 20 67 f4 jsr $f467
+2061 a2 65    ldx #$65
+2063 a0 f5    ldy #$f5
+2065 20 67 f4 jsr $f467
+2068 a9 00    lda #$00
+206a 8d 18 d4 sta $d418
+206d ad 11 d0 lda $d011
+2070 10 fb    bpl $206d
+2072 58       cli 
+2073 ad 11 d0 lda $d011
+2076 30 fb    bmi $2073
+2078 e6 10    inc $10
+207a e6 f6    inc $f6
+207c d0 1b    bne $2099
+207e 20 c2 e1 jsr $e1c2
+2081 a2 65    ldx #$65
+2083 a0 f5    ldy #$f5
+2085 20 67 f4 jsr $f467
+2088 e6 f7    inc $f7
+208a a5 f7    lda $f7
+208c 29 03    and #$03
+208e 85 f7    sta $f7
+2090 d0 07    bne $2099
+2092 a2 f6    ldx #$f6
+2094 a0 f4    ldy #$f4
+2096 20 67 f4 jsr $f467
+2099 a5 10    lda $10
+209b 29 10    and #$10
+209d f0 04    beq $20a3
+209f a9 f1    lda #$f1
+20a1 d0 02    bne $20a5
+20a3 a9 f2    lda #$f2
+20a5 8d f9 07 sta $07f9
+20a8 ad 00 d0 lda $d000
+20ab 18       clc 
+20ac 65 f4    adc $f4
+20ae 8d 00 d0 sta $d000
+20b1 8d 02 d0 sta $d002
+20b4 c9 5a    cmp #$5a
+20b6 f0 0a    beq $20c2
+20b8 c9 e6    cmp #$e6
+20ba d0 0a    bne $20c6
+20bc a9 ff    lda #$ff
+20be 85 f4    sta $f4
+20c0 d0 04    bne $20c6
+20c2 a9 01    lda #$01
+20c4 85 f4    sta $f4
+20c6 20 e4 e4 jsr $e4e4
+20c9 20 61 e2 jsr $e261
+20cc 98       tya 
+20cd f0 9e    beq $206d
+20cf a9 03    lda #$03
+20d1 85 2e    sta $2e
+20d3 a9 1f    lda #$1f
+20d5 8d 18 d4 sta $d418
+20d8 20 33 e3 jsr $e333
+20db 20 4b e3 jsr $e34b
+20de 58       cli 
+20df ad 11 d0 lda $d011
+20e2 10 fb    bpl $20df
+20e4 20 ab e1 jsr $e1ab
+20e7 ad 1e d0 lda $d01e
+20ea 85 0e    sta $0e
+20ec ad 1f d0 lda $d01f
+20ef 85 0f    sta $0f
+20f1 e6 10    inc $10
+20f3 a5 10    lda $10
+20f5 29 3f    and #$3f
+20f7 d0 00    bne $20f9
+20f9 e6 11    inc $11
+20fb d0 02    bne $20ff
+20fd e6 12    inc $12
+20ff e6 13    inc $13
+2101 a5 13    lda $13
+2103 29 07    and #$07
+2105 85 13    sta $13
+2107 20 df e7 jsr $e7df
+210a 20 ce e5 jsr $e5ce
+210d 20 e4 e4 jsr $e4e4
+2110 20 d6 e6 jsr $e6d6
+2113 20 e7 e8 jsr $e8e7
+2116 20 84 e9 jsr $e984
+2119 20 c7 ea jsr $eac7
+211c 20 3e ed jsr $ed3e
+211f 20 d2 e4 jsr $e4d2
+2122 20 e2 ed jsr $ede2
+2125 20 07 ed jsr $ed07
+2128 a5 2e    lda $2e
+212a 25 12    and $12
+212c 30 0f    bmi $213d
+212e a5 2f    lda $2f
+2130 25 12    and $12
+2132 30 a7    bmi $20db
+2134 a5 98    lda $98
+2136 25 12    and $12
+2138 30 a1    bmi $20db
+213a 4c df e0 jmp $e0df
+213d a2 02    ldx #$02
+213f b5 16    lda $16,x
+2141 d5 19    cmp $19,x
+2143 90 05    bcc $214a
+2145 d0 12    bne $2159
+2147 ca       dex 
+2148 10 f5    bpl $213f
+214a a5 19    lda $19
+214c 85 16    sta $16
+214e a5 1a    lda $1a
+2150 85 17    sta $17
+2152 a5 1b    lda $1b
+2154 85 18    sta $18
+2156 20 88 e4 jsr $e488
+2159 a9 00    lda #$00
+215b 8d 18 d4 sta $d418
+215e e6 15    inc $15
+2160 a2 e4    ldx #$e4
+2162 a0 f2    ldy #$f2
+2164 20 67 f4 jsr $f467
+2167 a2 ff    ldx #$ff
+2169 20 25 e3 jsr $e325
+216c 78       sei 
+216d 4c 31 e0 jmp $e031
+2170 60       rts 
+2171 a2 00    ldx #$00
+2173 a5 0c    lda $0c
+2175 9d 00 d8 sta $d800,x
+2178 9d 00 d9 sta $d900,x
+217b 9d 00 da sta $da00,x
+217e 9d e8 da sta $dae8,x
+2181 a9 0f    lda #$0f
+2183 9d 00 04 sta $0400,x
+2186 9d 00 05 sta $0500,x
+2189 9d 00 06 sta $0600,x
+218c 9d e8 06 sta $06e8,x
+218f e8       inx 
+2190 d0 e1    bne $2173
+2192 8e 15 d0 stx $d015
+2195 a2 08    ldx #$08
+2197 bd a2 e1 lda $e1a2,x
+219a 95 c9    sta $c9,x
+219c 9d f7 07 sta $07f7,x
+219f ca       dex 
+21a0 d0 f5    bne $2197
+21a2 60       rts 
+21a3 f0 f1    beq $2196
+21a5 0a       asl a
+21a6 0b       ???
+21a7 0c       ???
+21a8 0d 0e 0f ora $0f0e
+21ab a2 08    ldx #$08
+21ad b5 c9    lda $c9,x
+21af 9d f7 07 sta $07f7,x
+21b2 ca       dex 
+21b3 d0 f8    bne $21ad
+21b5 a2 08    ldx #$08
+21b7 b5 c9    lda $c9,x
+21b9 dd f7 07 cmp $07f7,x
+21bc d0 ed    bne $21ab
+21be ca       dex 
+21bf d0 f6    bne $21b7
+21c1 60       rts 
+21c2 a9 c1    lda #$c1
+21c4 85 ee    sta $ee
+21c6 a9 ef    lda #$ef
+21c8 85 ef    sta $ef
+21ca a0 00    ldy #$00
+21cc b1 ee    lda ($ee),y
+21ce 85 ec    sta $ec
+21d0 c8       iny 
+21d1 b1 ee    lda ($ee),y
+21d3 85 ed    sta $ed
+21d5 c8       iny 
+21d6 b1 ee    lda ($ee),y
+21d8 85 f2    sta $f2
+21da d0 09    bne $21e5
+21dc a5 ec    lda $ec
+21de d0 05    bne $21e5
+21e0 a5 ed    lda $ed
+21e2 d0 01    bne $21e5
+21e4 60       rts 
+21e5 a5 ee    lda $ee
+21e7 18       clc 
+21e8 69 03    adc #$03
+21ea 85 ee    sta $ee
+21ec 90 02    bcc $21f0
+21ee e6 ef    inc $ef
+21f0 a4 ed    ldy $ed
+21f2 b9 2f e2 lda $e22f,y
+21f5 18       clc 
+21f6 65 ec    adc $ec
+21f8 85 f0    sta $f0
+21fa b9 48 e2 lda $e248,y
+21fd 69 00    adc #$00
+21ff 85 f1    sta $f1
+2201 a0 00    ldy #$00
+2203 b1 ee    lda ($ee),y
+2205 29 0f    and #$0f
+2207 91 f0    sta ($f0),y
+2209 a5 f1    lda $f1
+220b 49 dc    eor #$dc
+220d 85 f1    sta $f1
+220f b1 ee    lda ($ee),y
+2211 4a       lsr a
+2212 4a       lsr a
+2213 4a       lsr a
+2214 4a       lsr a
+2215 91 f0    sta ($f0),y
+2217 a5 f1    lda $f1
+2219 49 dc    eor #$dc
+221b 85 f1    sta $f1
+221d e6 f0    inc $f0
+221f d0 02    bne $2223
+2221 e6 f1    inc $f1
+2223 e6 ee    inc $ee
+2225 d0 02    bne $2229
+2227 e6 ef    inc $ef
+2229 c6 f2    dec $f2
+222b d0 d6    bne $2203
+222d f0 9b    beq $21ca
+222f 00       brk 
+2230 28       plp 
+2231 50 78    bvc $22ab
+2233 a0 c8    ldy #$c8
+2235 f0 18    beq $224f
+2237 40       rti 
+2238 68       pla 
+2239 90 b8    bcc $21f3
+223b e0 08    cpx #$08
+223d 30 58    bmi $2297
+223f 80       ???
+2240 a8       tay 
+2241 d0 f8    bne $223b
+2243 20 48 70 jsr $7048
+2246 98       tya 
+2247 c0 04    cpy #$04
+2249 04       ???
+224a 04       ???
+224b 04       ???
+224c 04       ???
+224d 04       ???
+224e 04       ???
+224f 05 05    ora $05
+2251 05 05    ora $05
+2253 05 05    ora $05
+2255 06 06    asl $06
+2257 06 06    asl $06
+2259 06 06    asl $06
+225b 06 07    asl $07
+225d 07       ???
+225e 07       ???
+225f 07       ???
+2260 07       ???
+2261 a2 ff    ldx #$ff
+2263 8e 02 dc stx $dc02
+2266 e8       inx 
+2267 8e 03 dc stx $dc03
+226a a0 01    ldy #$01
+226c a2 fe    ldx #$fe
+226e 20 d6 e2 jsr $e2d6
+2271 e0 ef    cpx #$ef
+2273 f0 02    beq $2277
+2275 a0 00    ldy #$00
+2277 60       rts 
+2278 a2 ff    ldx #$ff
+227a 8e 02 dc stx $dc02
+227d e8       inx 
+227e 8e 03 dc stx $dc03
+2281 a9 1f    lda #$1f
+2283 a2 df    ldx #$df
+2285 20 d6 e2 jsr $e2d6
+2288 e0 fb    cpx #$fb
+228a d0 04    bne $2290
+228c 29 fb    and #$fb
+228e 10 16    bpl $22a6
+2290 a2 bf    ldx #$bf
+2292 20 d6 e2 jsr $e2d6
+2295 e0 fb    cpx #$fb
+2297 d0 02    bne $229b
+2299 29 f7    and #$f7
+229b a2 fd    ldx #$fd
+229d 20 d6 e2 jsr $e2d6
+22a0 e0 fb    cpx #$fb
+22a2 d0 02    bne $22a6
+22a4 29 ef    and #$ef
+22a6 85 c9    sta $c9
+22a8 78       sei 
+22a9 a9 7f    lda #$7f
+22ab 8d 00 dc sta $dc00
+22ae ad 01 dc lda $dc01
+22b1 c9 7f    cmp #$7f
+22b3 d0 1d    bne $22d2
+22b5 a9 00    lda #$00
+22b7 8d 18 d4 sta $d418
+22ba ad 01 dc lda $dc01
+22bd c9 7f    cmp #$7f
+22bf f0 f9    beq $22ba
+22c1 a9 00    lda #$00
+22c3 8d 00 dc sta $dc00
+22c6 ad 01 dc lda $dc01
+22c9 c9 ff    cmp #$ff
+22cb f0 f4    beq $22c1
+22cd a9 1f    lda #$1f
+22cf 8d 18 d4 sta $d418
+22d2 58       cli 
+22d3 4c e2 e2 jmp $e2e2
+22d6 8e 00 dc stx $dc00
+22d9 ae 01 dc ldx $dc01
+22dc ec 01 dc cpx $dc01
+22df d0 f8    bne $22d9
+22e1 60       rts 
+22e2 a2 00    ldx #$00
+22e4 8e 02 dc stx $dc02
+22e7 8e 03 dc stx $dc03
+22ea 86 1d    stx $1d
+22ec ad 01 dc lda $dc01
+22ef cd 01 dc cmp $dc01
+22f2 d0 f8    bne $22ec
+22f4 25 c9    and $c9
+22f6 29 1f    and #$1f
+22f8 a8       tay 
+22f9 29 10    and #$10
+22fb d0 0a    bne $2307
+22fd a5 1c    lda $1c
+22ff f0 02    beq $2303
+2301 85 1d    sta $1d
+2303 a2 80    ldx #$80
+2305 d0 02    bne $2309
+2307 a2 00    ldx #$00
+2309 86 1c    stx $1c
+230b a2 00    ldx #$00
+230d 86 1e    stx $1e
+230f 98       tya 
+2310 29 04    and #$04
+2312 d0 07    bne $231b
+2314 a9 80    lda #$80
+2316 85 1e    sta $1e
+2318 4c 24 e3 jmp $e324
+231b 98       tya 
+231c 29 08    and #$08
+231e d0 04    bne $2324
+2320 a9 01    lda #$01
+2322 85 1e    sta $1e
+2324 60       rts 
+2325 ad 11 d0 lda $d011
+2328 10 fb    bpl $2325
+232a ad 11 d0 lda $d011
+232d 30 fb    bmi $232a
+232f ca       dex 
+2330 d0 f3    bne $2325
+2332 60       rts 
+2333 a9 00    lda #$00
+2335 85 19    sta $19
+2337 85 1a    sta $1a
+2339 85 1b    sta $1b
+233b a9 01    lda #$01
+233d 8d 20 d0 sta $d020
+2340 a9 00    lda #$00
+2342 85 30    sta $30
+2344 85 31    sta $31
+2346 a9 ff    lda #$ff
+2348 85 2f    sta $2f
+234a 60       rts 
+234b a9 7f    lda #$7f
+234d 8d 0d dc sta $dc0d
+2350 ad 0d dc lda $dc0d
+2353 a9 a5    lda #$a5
+2355 8d 12 d0 sta $d012
+2358 a9 ff    lda #$ff
+235a 8d 19 d0 sta $d019
+235d a9 01    lda #$01
+235f 8d 1a d0 sta $d01a
+2362 85 c0    sta $c0
+2364 a5 2f    lda $2f
+2366 10 02    bpl $236a
+2368 e6 31    inc $31
+236a a6 31    ldx $31
+236c e0 07    cpx #$07
+236e 90 02    bcc $2372
+2370 a2 08    ldx #$08
+2372 bd 0e f3 lda $f30e,x
+2375 85 2f    sta $2f
+2377 ad 1b f3 lda $f31b
+237a 85 34    sta $34
+237c a9 01    lda #$01
+237e 85 35    sta $35
+2380 a9 c0    lda #$c0
+2382 85 33    sta $33
+2384 a5 31    lda $31
+2386 c9 08    cmp #$08
+2388 90 02    bcc $238c
+238a a9 08    lda #$08
+238c 0a       asl a
+238d a8       tay 
+238e b9 1d f3 lda $f31d,y
+2391 85 02    sta $02
+2393 b9 1e f3 lda $f31e,y
+2396 85 03    sta $03
+2398 a0 17    ldy #$17
+239a b1 02    lda ($02),y
+239c 99 36 00 sta $0036,y
+239f 88       dey 
+23a0 10 f8    bpl $239a
+23a2 a0 00    ldy #$00
+23a4 b9 ef f3 lda $f3ef,y
+23a7 99 4e 00 sta $004e,y
+23aa c8       iny 
+23ab c0 48    cpy #$48
+23ad d0 f5    bne $23a4
+23af a0 07    ldy #$07
+23b1 a9 ff    lda #$ff
+23b3 99 98 00 sta $0098,y
+23b6 88       dey 
+23b7 10 fa    bpl $23b3
+23b9 a0 17    ldy #$17
+23bb a9 01    lda #$01
+23bd 99 a0 00 sta $00a0,y
+23c0 88       dey 
+23c1 10 fa    bpl $23bd
+23c3 a9 00    lda #$00
+23c5 8d 10 d0 sta $d010
+23c8 85 98    sta $98
+23ca 85 99    sta $99
+23cc a9 aa    lda #$aa
+23ce 8d 00 d0 sta $d000
+23d1 8d 02 d0 sta $d002
+23d4 a9 cc    lda #$cc
+23d6 8d 01 d0 sta $d001
+23d9 a9 e2    lda #$e2
+23db 8d 03 d0 sta $d003
+23de a9 08    lda #$08
+23e0 8d 27 d0 sta $d027
+23e3 a9 04    lda #$04
+23e5 8d 28 d0 sta $d028
+23e8 a9 01    lda #$01
+23ea 85 a0    sta $a0
+23ec 85 a8    sta $a8
+23ee a9 ff    lda #$ff
+23f0 85 b8    sta $b8
+23f2 a9 ff    lda #$ff
+23f4 a0 05    ldy #$05
+23f6 99 25 00 sta $0025,y
+23f9 88       dey 
+23fa 10 fa    bpl $23f6
+23fc a9 00    lda #$00
+23fe 85 2b    sta $2b
+2400 a9 00    lda #$00
+2402 85 1c    sta $1c
+2404 85 1d    sta $1d
+2406 85 1f    sta $1f
+2408 85 20    sta $20
+240a 85 96    sta $96
+240c 85 11    sta $11
+240e 85 12    sta $12
+2410 85 22    sta $22
+2412 85 21    sta $21
+2414 85 24    sta $24
+2416 85 2c    sta $2c
+2418 a2 00    ldx #$00
+241a 9d 00 02 sta $0200,x
+241d 9d 00 03 sta $0300,x
+2420 e8       inx 
+2421 d0 f7    bne $241a
+2423 20 71 e1 jsr $e171
+2426 20 c2 e1 jsr $e1c2
+2429 20 56 e4 jsr $e456
+242c 20 88 e4 jsr $e488
+242f 20 ba e4 jsr $e4ba
+2432 a9 03    lda #$03
+2434 8d 15 d0 sta $d015
+2437 a5 31    lda $31
+2439 29 03    and #$03
+243b a8       tay 
+243c b9 4e e4 lda $e44e,y
+243f 8d 05 d4 sta $d405
+2442 b9 52 e4 lda $e452,y
+2445 8d 06 d4 sta $d406
+2448 a9 01    lda #$01
+244a 20 6b ed jsr $ed6b
+244d 60       rts 
+244e 09 00    ora #$00
+2450 09 00    ora #$00
+2452 f9 f9 f0 sbc $f0f9,y
+2455 f0 a2    beq $23f9
+2457 c1 a0    cmp ($a0,x)
+2459 07       ???
+245a 86 02    stx $02
+245c 84 03    sty $03
+245e a2 00    ldx #$00
+2460 a0 05    ldy #$05
+2462 b5 19    lda $19,x
+2464 29 0f    and #$0f
+2466 18       clc 
+2467 69 29    adc #$29
+2469 85 04    sta $04
+246b e6 04    inc $04
+246d a5 04    lda $04
+246f 91 02    sta ($02),y
+2471 88       dey 
+2472 b5 19    lda $19,x
+2474 4a       lsr a
+2475 4a       lsr a
+2476 4a       lsr a
+2477 4a       lsr a
+2478 18       clc 
+2479 69 29    adc #$29
+247b 85 04    sta $04
+247d e6 04    inc $04
+247f a5 04    lda $04
+2481 91 02    sta ($02),y
+2483 e8       inx 
+2484 88       dey 
+2485 10 db    bpl $2462
+2487 60       rts 
+2488 a2 e0    ldx #$e0
+248a a0 07    ldy #$07
+248c 86 02    stx $02
+248e 84 03    sty $03
+2490 a2 00    ldx #$00
+2492 a0 05    ldy #$05
+2494 b5 16    lda $16,x
+2496 29 0f    and #$0f
+2498 18       clc 
+2499 69 29    adc #$29
+249b 85 04    sta $04
+249d e6 04    inc $04
+249f a5 04    lda $04
+24a1 91 02    sta ($02),y
+24a3 88       dey 
+24a4 b5 16    lda $16,x
+24a6 4a       lsr a
+24a7 4a       lsr a
+24a8 4a       lsr a
+24a9 4a       lsr a
+24aa 18       clc 
+24ab 69 29    adc #$29
+24ad 85 04    sta $04
+24af e6 04    inc $04
+24b1 a5 04    lda $04
+24b3 91 02    sta ($02),y
+24b5 e8       inx 
+24b6 88       dey 
+24b7 10 db    bpl $2494
+24b9 60       rts 
+24ba a2 67    ldx #$67
+24bc a0 06    ldy #$06
+24be 86 02    stx $02
+24c0 84 03    sty $03
+24c2 a6 2e    ldx $2e
+24c4 f0 0b    beq $24d1
+24c6 a0 00    ldy #$00
+24c8 a9 5a    lda #$5a
+24ca 91 02    sta ($02),y
+24cc c8       iny 
+24cd c8       iny 
+24ce ca       dex 
+24cf d0 f9    bne $24ca
+24d1 60       rts 
+24d2 20 e9 eb jsr $ebe9
+24d5 a5 2e    lda $2e
+24d7 05 2f    ora $2f
+24d9 05 98    ora $98
+24db 30 06    bmi $24e3
+24dd a5 12    lda $12
+24df 29 3f    and #$3f
+24e1 85 12    sta $12
+24e3 60       rts 
+24e4 c6 35    dec $35
+24e6 f0 03    beq $24eb
+24e8 4c 2c e5 jmp $e52c
+24eb a5 34    lda $34
+24ed 85 35    sta $35
+24ef e6 96    inc $96
+24f1 a6 96    ldx $96
+24f3 e0 18    cpx #$18
+24f5 90 02    bcc $24f9
+24f7 a2 00    ldx #$00
+24f9 86 96    stx $96
+24fb b5 36    lda $36,x
+24fd c9 ff    cmp #$ff
+24ff d0 03    bne $2504
+2501 4c 2c e5 jmp $e52c
+2504 b5 36    lda $36,x
+2506 29 c0    and #$c0
+2508 d0 0f    bne $2519
+250a b5 36    lda $36,x
+250c 09 80    ora #$80
+250e 95 36    sta $36,x
+2510 f6 66    inc $66,x
+2512 d0 02    bne $2516
+2514 f6 7e    inc $7e,x
+2516 4c 29 e5 jmp $e529
+2519 b5 36    lda $36,x
+251b 29 3f    and #$3f
+251d 95 36    sta $36,x
+251f d6 66    dec $66,x
+2521 b5 66    lda $66,x
+2523 c9 ff    cmp #$ff
+2525 d0 02    bne $2529
+2527 d6 7e    dec $7e,x
+2529 20 2d e5 jsr $e52d
+252c 60       rts 
+252d 20 81 e5 jsr $e581
+2530 18       clc 
+2531 a5 02    lda $02
+2533 85 d2    sta $d2
+2535 69 28    adc #$28
+2537 85 d8    sta $d8
+2539 a5 03    lda $03
+253b 85 d3    sta $d3
+253d 69 00    adc #$00
+253f 85 d9    sta $d9
+2541 b5 36    lda $36,x
+2543 29 03    and #$03
+2545 a8       tay 
+2546 b9 79 e5 lda $e579,y
+2549 85 d4    sta $d4
+254b 85 da    sta $da
+254d b5 36    lda $36,x
+254f 4a       lsr a
+2550 4a       lsr a
+2551 29 03    and #$03
+2553 a8       tay 
+2554 b9 7d e5 lda $e57d,y
+2557 b4 36    ldy $36,x
+2559 10 03    bpl $255e
+255b 18       clc 
+255c 69 04    adc #$04
+255e a8       tay 
+255f 84 d5    sty $d5
+2561 c8       iny 
+2562 84 d6    sty $d6
+2564 c8       iny 
+2565 84 db    sty $db
+2567 c8       iny 
+2568 84 dc    sty $dc
+256a a0 fe    ldy #$fe
+256c 84 d7    sty $d7
+256e c8       iny 
+256f 84 dd    sty $dd
+2571 a2 d2    ldx #$d2
+2573 a0 00    ldy #$00
+2575 20 67 f4 jsr $f467
+2578 60       rts 
+2579 07       ???
+257a 02       ???
+257b 06 05    asl $05
+257d 3a       ???
+257e 42       ???
+257f 4a       lsr a
+2580 52       ???
+2581 a9 00    lda #$00
+2583 85 02    sta $02
+2585 a9 04    lda #$04
+2587 85 03    sta $03
+2589 b5 4e    lda $4e,x
+258b 38       sec 
+258c e9 30    sbc #$30
+258e 29 f8    and #$f8
+2590 85 04    sta $04
+2592 18       clc 
+2593 65 02    adc $02
+2595 85 02    sta $02
+2597 a5 03    lda $03
+2599 69 00    adc #$00
+259b 85 03    sta $03
+259d a9 00    lda #$00
+259f 06 04    asl $04
+25a1 2a       rol a
+25a2 06 04    asl $04
+25a4 2a       rol a
+25a5 18       clc 
+25a6 65 03    adc $03
+25a8 85 03    sta $03
+25aa 18       clc 
+25ab a5 04    lda $04
+25ad 65 02    adc $02
+25af 85 02    sta $02
+25b1 a5 03    lda $03
+25b3 69 00    adc #$00
+25b5 85 03    sta $03
+25b7 b5 7e    lda $7e,x
+25b9 4a       lsr a
+25ba b5 66    lda $66,x
+25bc 6a       ror a
+25bd 4a       lsr a
+25be 4a       lsr a
+25bf 38       sec 
+25c0 e9 03    sbc #$03
+25c2 18       clc 
+25c3 65 02    adc $02
+25c5 85 02    sta $02
+25c7 a5 03    lda $03
+25c9 69 00    adc #$00
+25cb 85 03    sta $03
+25cd 60       rts 
+25ce a5 98    lda $98
+25d0 30 31    bmi $2603
+25d2 a2 07    ldx #$07
+25d4 b5 98    lda $98,x
+25d6 29 f0    and #$f0
+25d8 c9 20    cmp #$20
+25da f0 07    beq $25e3
+25dc ca       dex 
+25dd e0 01    cpx #$01
+25df d0 f3    bne $25d4
+25e1 f0 20    beq $2603
+25e3 20 1f e6 jsr $e61f
+25e6 a5 07    lda $07
+25e8 30 10    bmi $25fa
+25ea a9 80    lda #$80
+25ec 85 98    sta $98
+25ee a9 ff    lda #$ff
+25f0 85 99    sta $99
+25f2 a9 00    lda #$00
+25f4 85 a0    sta $a0
+25f6 a9 00    lda #$00
+25f8 85 12    sta $12
+25fa 20 1e e6 jsr $e61e
+25fd 20 04 e6 jsr $e604
+2600 4c dc e5 jmp $e5dc
+2603 60       rts 
+2604 b5 98    lda $98,x
+2606 29 0c    and #$0c
+2608 c9 04    cmp #$04
+260a d0 11    bne $261d
+260c a5 10    lda $10
+260e 29 07    and #$07
+2610 d0 0b    bne $261d
+2612 a0 f6    ldy #$f6
+2614 a5 10    lda $10
+2616 29 08    and #$08
+2618 d0 01    bne $261b
+261a c8       iny 
+261b 94 ca    sty $ca,x
+261d 60       rts 
+261e 60       rts 
+261f a9 ff    lda #$ff
+2621 85 06    sta $06
+2623 85 07    sta $07
+2625 85 08    sta $08
+2627 b5 98    lda $98,x
+2629 10 01    bpl $262c
+262b 60       rts 
+262c a5 10    lda $10
+262e 35 b8    and $b8,x
+2630 d0 01    bne $2633
+2632 60       rts 
+2633 d6 a0    dec $a0,x
+2635 f0 01    beq $2638
+2637 60       rts 
+2638 8a       txa 
+2639 48       pha 
+263a b5 a8    lda $a8,x
+263c 95 a0    sta $a0,x
+263e e6 06    inc $06
+2640 b5 b0    lda $b0,x
+2642 a8       tay 
+2643 b9 47 f4 lda $f447,y
+2646 85 02    sta $02
+2648 b9 57 f4 lda $f457,y
+264b 85 03    sta $03
+264d 8a       txa 
+264e 0a       asl a
+264f a8       tay 
+2650 18       clc 
+2651 b9 01 d0 lda $d001,y
+2654 65 02    adc $02
+2656 99 01 d0 sta $d001,y
+2659 85 02    sta $02
+265b 18       clc 
+265c b9 00 d0 lda $d000,y
+265f 65 03    adc $03
+2661 99 00 d0 sta $d000,y
+2664 85 03    sta $03
+2666 c9 fe    cmp #$fe
+2668 90 08    bcc $2672
+266a bd 3f f4 lda $f43f,x
+266d 2d 10 d0 and $d010
+2670 b0 0a    bcs $267c
+2672 c9 03    cmp #$03
+2674 b0 09    bcs $267f
+2676 bd 37 f4 lda $f437,x
+2679 0d 10 d0 ora $d010
+267c 8d 10 d0 sta $d010
+267f ad 10 d0 lda $d010
+2682 3d 37 f4 and $f437,x
+2685 85 04    sta $04
+2687 a5 02    lda $02
+2689 c9 30    cmp #$30
+268b b0 07    bcs $2694
+268d a9 31    lda #$31
+268f 99 01 d0 sta $d001,y
+2692 d0 0b    bne $269f
+2694 c9 e6    cmp #$e6
+2696 90 12    bcc $26aa
+2698 a9 e5    lda #$e5
+269a 99 01 d0 sta $d001,y
+269d e6 07    inc $07
+269f 38       sec 
+26a0 a9 08    lda #$08
+26a2 f5 b0    sbc $b0,x
+26a4 29 0f    and #$0f
+26a6 95 b0    sta $b0,x
+26a8 10 29    bpl $26d3
+26aa a5 04    lda $04
+26ac f0 0f    beq $26bd
+26ae a5 03    lda $03
+26b0 c9 0c    cmp #$0c
+26b2 90 1f    bcc $26d3
+26b4 e6 08    inc $08
+26b6 a9 0b    lda #$0b
+26b8 99 00 d0 sta $d000,y
+26bb d0 0d    bne $26ca
+26bd a5 03    lda $03
+26bf c9 3e    cmp #$3e
+26c1 b0 10    bcs $26d3
+26c3 e6 08    inc $08
+26c5 a9 3d    lda #$3d
+26c7 99 00 d0 sta $d000,y
+26ca 38       sec 
+26cb a9 00    lda #$00
+26cd f5 b0    sbc $b0,x
+26cf 29 0f    and #$0f
+26d1 95 b0    sta $b0,x
+26d3 68       pla 
+26d4 aa       tax 
+26d5 60       rts 
+26d6 a5 26    lda $26
+26d8 10 3d    bpl $2717
+26da a5 98    lda $98
+26dc 30 39    bmi $2717
+26de a5 33    lda $33
+26e0 f0 04    beq $26e6
+26e2 c6 33    dec $33
+26e4 d0 31    bne $2717
+26e6 a2 07    ldx #$07
+26e8 b5 98    lda $98,x
+26ea c9 ff    cmp #$ff
+26ec f0 07    beq $26f5
+26ee ca       dex 
+26ef e0 01    cpx #$01
+26f1 d0 f5    bne $26e8
+26f3 f0 22    beq $2717
+26f5 a4 31    ldy $31
+26f7 c0 06    cpy #$06
+26f9 90 02    bcc $26fd
+26fb a0 06    ldy #$06
+26fd ad 1b d4 lda $d41b
+2700 29 7f    and #$7f
+2702 09 40    ora #$40
+2704 19 cd e7 ora $e7cd,y
+2707 85 33    sta $33
+2709 a0 00    ldy #$00
+270b b9 36 00 lda $0036,y
+270e c9 ff    cmp #$ff
+2710 d0 08    bne $271a
+2712 c8       iny 
+2713 c0 18    cpy #$18
+2715 90 f4    bcc $270b
+2717 4c cd e7 jmp $e7cd
+271a ad 1b d4 lda $d41b
+271d 29 07    and #$07
+271f 85 02    sta $02
+2721 98       tya 
+2722 18       clc 
+2723 65 02    adc $02
+2725 c9 18    cmp #$18
+2727 90 02    bcc $272b
+2729 a9 17    lda #$17
+272b a8       tay 
+272c b9 36 00 lda $0036,y
+272f c9 ff    cmp #$ff
+2731 d0 06    bne $2739
+2733 88       dey 
+2734 10 f6    bpl $272c
+2736 4c cd e7 jmp $e7cd
+2739 8a       txa 
+273a 0a       asl a
+273b aa       tax 
+273c b9 4e 00 lda $004e,y
+273f 9d 01 d0 sta $d001,x
+2742 b9 66 00 lda $0066,y
+2745 9d 00 d0 sta $d000,x
+2748 8a       txa 
+2749 4a       lsr a
+274a aa       tax 
+274b b9 7e 00 lda $007e,y
+274e f0 08    beq $2758
+2750 bd 37 f4 lda $f437,x
+2753 0d 10 d0 ora $d010
+2756 d0 06    bne $275e
+2758 bd 3f f4 lda $f43f,x
+275b 2d 10 d0 and $d010
+275e 8d 10 d0 sta $d010
+2761 b9 36 00 lda $0036,y
+2764 29 0f    and #$0f
+2766 09 20    ora #$20
+2768 95 98    sta $98,x
+276a a9 01    lda #$01
+276c 95 a0    sta $a0,x
+276e a9 08    lda #$08
+2770 95 b0    sta $b0,x
+2772 98       tya 
+2773 48       pha 
+2774 b9 36 00 lda $0036,y
+2777 29 03    and #$03
+2779 a8       tay 
+277a b9 79 e5 lda $e579,y
+277d 9d 27 d0 sta $d027,x
+2780 b9 db e7 lda $e7db,y
+2783 95 b8    sta $b8,x
+2785 b9 d7 e7 lda $e7d7,y
+2788 95 a8    sta $a8,x
+278a 68       pla 
+278b 48       pha 
+278c a8       tay 
+278d b9 36 00 lda $0036,y
+2790 4a       lsr a
+2791 4a       lsr a
+2792 29 03    and #$03
+2794 a8       tay 
+2795 b9 d4 e7 lda $e7d4,y
+2798 95 ca    sta $ca,x
+279a 9d f8 07 sta $07f8,x
+279d 88       dey 
+279e d0 04    bne $27a4
+27a0 a9 ff    lda #$ff
+27a2 85 33    sta $33
+27a4 68       pla 
+27a5 a8       tay 
+27a6 ad 15 d0 lda $d015
+27a9 1d 37 f4 ora $f437,x
+27ac 8d 15 d0 sta $d015
+27af a9 ff    lda #$ff
+27b1 99 36 00 sta $0036,y
+27b4 8a       txa 
+27b5 48       pha 
+27b6 98       tya 
+27b7 aa       tax 
+27b8 20 81 e5 jsr $e581
+27bb a9 0f    lda #$0f
+27bd a0 00    ldy #$00
+27bf 91 02    sta ($02),y
+27c1 c8       iny 
+27c2 91 02    sta ($02),y
+27c4 a0 28    ldy #$28
+27c6 91 02    sta ($02),y
+27c8 c8       iny 
+27c9 91 02    sta ($02),y
+27cb 68       pla 
+27cc aa       tax 
+27cd 60       rts 
+27ce 80       ???
+27cf 60       rts 
+27d0 50 40    bvc $2812
+27d2 30 20    bmi $27f4
+27d4 fa       ???
+27d5 f6 fb    inc $fb,x
+27d7 02       ???
+27d8 01 01    ora ($01,x)
+27da 01 0f    ora ($0f,x)
+27dc 03       ???
+27dd 07       ???
+27de 0f       ???
+27df a5 98    lda $98
+27e1 05 22    ora $22
+27e3 10 01    bpl $27e6
+27e5 60       rts 
+27e6 20 ce e8 jsr $e8ce
+27e9 a5 1c    lda $1c
+27eb f0 31    beq $281e
+27ed a5 1d    lda $1d
+27ef d0 06    bne $27f7
+27f1 a9 0a    lda #$0a
+27f3 85 eb    sta $eb
+27f5 85 21    sta $21
+27f7 a5 eb    lda $eb
+27f9 f0 23    beq $281e
+27fb c6 eb    dec $eb
+27fd a9 f4    lda #$f4
+27ff 85 cb    sta $cb
+2801 a9 02    lda #$02
+2803 8d 1d d0 sta $d01d
+2806 ad 00 d0 lda $d000
+2809 38       sec 
+280a e9 0c    sbc #$0c
+280c 8d 02 d0 sta $d002
+280f c9 f4    cmp #$f4
+2811 90 08    bcc $281b
+2813 ad 10 d0 lda $d010
+2816 29 fd    and #$fd
+2818 8d 10 d0 sta $d010
+281b 4c c7 e8 jmp $e8c7
+281e a5 21    lda $21
+2820 f0 09    beq $282b
+2822 c6 21    dec $21
+2824 f0 1b    beq $2841
+2826 f0 03    beq $282b
+2828 4c c7 e8 jmp $e8c7
+282b a9 00    lda #$00
+282d 8d 1d d0 sta $d01d
+2830 a0 04    ldy #$04
+2832 a5 1e    lda $1e
+2834 f0 25    beq $285b
+2836 10 02    bpl $283a
+2838 a0 0c    ldy #$0c
+283a 84 b0    sty $b0
+283c a2 00    ldx #$00
+283e 20 1f e6 jsr $e61f
+2841 ae 00 d0 ldx $d000
+2844 8e 02 d0 stx $d002
+2847 ad 10 d0 lda $d010
+284a 29 01    and #$01
+284c aa       tax 
+284d ad 10 d0 lda $d010
+2850 29 fc    and #$fc
+2852 1d c8 e8 ora $e8c8,x
+2855 8d 10 d0 sta $d010
+2858 4c 69 e8 jmp $e869
+285b a5 10    lda $10
+285d 29 0f    and #$0f
+285f d0 18    bne $2879
+2861 a5 10    lda $10
+2863 29 e0    and #$e0
+2865 4a       lsr a
+2866 4c 6c e8 jmp $e86c
+2869 ad 00 d0 lda $d000
+286c 4a       lsr a
+286d 4a       lsr a
+286e 4a       lsr a
+286f 29 03    and #$03
+2871 aa       tax 
+2872 bd ca e8 lda $e8ca,x
+2875 85 cb    sta $cb
+2877 a2 02    ldx #$02
+2879 b5 98    lda $98,x
+287b 29 f0    and #$f0
+287d f0 07    beq $2886
+287f e8       inx 
+2880 e0 08    cpx #$08
+2882 d0 f5    bne $2879
+2884 f0 41    beq $28c7
+2886 8a       txa 
+2887 0a       asl a
+2888 a8       tay 
+2889 ad 00 d0 lda $d000
+288c 99 00 d0 sta $d000,y
+288f ad 10 d0 lda $d010
+2892 29 01    and #$01
+2894 d0 09    bne $289f
+2896 ad 10 d0 lda $d010
+2899 3d 3f f4 and $f43f,x
+289c 4c a5 e8 jmp $e8a5
+289f ad 10 d0 lda $d010
+28a2 1d 37 f4 ora $f437,x
+28a5 8d 10 d0 sta $d010
+28a8 b5 98    lda $98,x
+28aa 29 0c    and #$0c
+28ac c9 04    cmp #$04
+28ae d0 cf    bne $287f
+28b0 a5 10    lda $10
+28b2 69 00    adc #$00
+28b4 29 07    and #$07
+28b6 d0 c7    bne $287f
+28b8 a0 f6    ldy #$f6
+28ba a5 10    lda $10
+28bc 29 08    and #$08
+28be d0 02    bne $28c2
+28c0 a0 f8    ldy #$f8
+28c2 94 ca    sty $ca,x
+28c4 4c 7f e8 jmp $e87f
+28c7 60       rts 
+28c8 00       brk 
+28c9 03       ???
+28ca f1 f3    sbc ($f3),y
+28cc f2       ???
+28cd f1 a5    sbc ($a5),y
+28cf 0d 29 03 ora $0329
+28d2 0a       asl a
+28d3 a8       tay 
+28d4 b9 e1 e8 lda $e8e1,y
+28d7 85 02    sta $02
+28d9 b9 e2 e8 lda $e8e2,y
+28dc 85 03    sta $03
+28de 6c 02 00 jmp ($0002)
+28e1 78       sei 
+28e2 e2       ???
+28e3 78       sei 
+28e4 e2       ???
+28e5 78       sei 
+28e6 e2       ???
+28e7 a5 98    lda $98
+28e9 30 0a    bmi $28f5
+28eb a5 21    lda $21
+28ed f0 06    beq $28f5
+28ef a5 0e    lda $0e
+28f1 29 02    and #$02
+28f3 d0 01    bne $28f6
+28f5 60       rts 
+28f6 ad 02 d0 lda $d002
+28f9 85 02    sta $02
+28fb a9 00    lda #$00
+28fd 85 03    sta $03
+28ff ad 10 d0 lda $d010
+2902 29 02    and #$02
+2904 f0 02    beq $2908
+2906 e6 03    inc $03
+2908 ad 03 d0 lda $d003
+290b 85 04    sta $04
+290d a2 07    ldx #$07
+290f 86 97    stx $97
+2911 a5 0e    lda $0e
+2913 3d 37 f4 and $f437,x
+2916 d0 09    bne $2921
+2918 c6 97    dec $97
+291a a6 97    ldx $97
+291c e0 01    cpx #$01
+291e d0 f1    bne $2911
+2920 60       rts 
+2921 b5 98    lda $98,x
+2923 29 f0    and #$f0
+2925 c9 20    cmp #$20
+2927 d0 ef    bne $2918
+2929 8a       txa 
+292a 0a       asl a
+292b a8       tay 
+292c b9 00 d0 lda $d000,y
+292f 85 05    sta $05
+2931 a9 00    lda #$00
+2933 85 06    sta $06
+2935 ad 10 d0 lda $d010
+2938 3d 37 f4 and $f437,x
+293b f0 02    beq $293f
+293d e6 06    inc $06
+293f b9 01 d0 lda $d001,y
+2942 85 07    sta $07
+2944 a9 0a    lda #$0a
+2946 85 08    sta $08
+2948 a9 0b    lda #$0b
+294a 85 09    sta $09
+294c a9 2e    lda #$2e
+294e 85 0a    sta $0a
+2950 a9 39    lda #$39
+2952 85 0b    sta $0b
+2954 20 49 eb jsr $eb49
+2957 90 bf    bcc $2918
+2959 a5 02    lda $02
+295b 85 08    sta $08
+295d a5 03    lda $03
+295f 4a       lsr a
+2960 66 08    ror $08
+2962 46 08    lsr $08
+2964 18       clc 
+2965 a5 08    lda $08
+2967 69 06    adc #$06
+2969 85 08    sta $08
+296b a5 06    lda $06
+296d 4a       lsr a
+296e a5 05    lda $05
+2970 6a       ror a
+2971 4a       lsr a
+2972 a0 0f    ldy #$0f
+2974 c5 08    cmp $08
+2976 90 02    bcc $297a
+2978 a0 01    ldy #$01
+297a 94 b0    sty $b0,x
+297c a9 04    lda #$04
+297e 20 6b ed jsr $ed6b
+2981 4c 18 e9 jmp $e918
+2984 a5 98    lda $98
+2986 10 01    bpl $2989
+2988 60       rts 
+2989 a2 00    ldx #$00
+298b b4 25    ldy $25,x
+298d 30 05    bmi $2994
+298f b9 98 00 lda $0098,y
+2992 10 03    bpl $2997
+2994 e8       inx 
+2995 d0 f4    bne $298b
+2997 a5 0e    lda $0e
+2999 39 37 f4 and $f437,y
+299c d0 01    bne $299f
+299e 60       rts 
+299f 84 97    sty $97
+29a1 a6 97    ldx $97
+29a3 98       tya 
+29a4 0a       asl a
+29a5 a8       tay 
+29a6 b9 00 d0 lda $d000,y
+29a9 85 02    sta $02
+29ab a9 00    lda #$00
+29ad 85 03    sta $03
+29af ad 10 d0 lda $d010
+29b2 3d 37 f4 and $f437,x
+29b5 f0 02    beq $29b9
+29b7 e6 03    inc $03
+29b9 b9 01 d0 lda $d001,y
+29bc 85 04    sta $04
+29be a2 07    ldx #$07
+29c0 b5 98    lda $98,x
+29c2 29 f0    and #$f0
+29c4 c9 20    cmp #$20
+29c6 f0 06    beq $29ce
+29c8 ca       dex 
+29c9 e0 01    cpx #$01
+29cb d0 f3    bne $29c0
+29cd 60       rts 
+29ce b5 b0    lda $b0,x
+29d0 c9 05    cmp #$05
+29d2 90 f4    bcc $29c8
+29d4 c9 0c    cmp #$0c
+29d6 b0 f0    bcs $29c8
+29d8 8a       txa 
+29d9 0a       asl a
+29da a8       tay 
+29db b9 00 d0 lda $d000,y
+29de 85 05    sta $05
+29e0 a9 00    lda #$00
+29e2 85 06    sta $06
+29e4 ad 10 d0 lda $d010
+29e7 3d 37 f4 and $f437,x
+29ea f0 02    beq $29ee
+29ec e6 06    inc $06
+29ee b9 01 d0 lda $d001,y
+29f1 85 07    sta $07
+29f3 a9 06    lda #$06
+29f5 85 08    sta $08
+29f7 a9 0b    lda #$0b
+29f9 85 09    sta $09
+29fb a9 12    lda #$12
+29fd 85 0a    sta $0a
+29ff a9 1d    lda #$1d
+2a01 85 0b    sta $0b
+2a03 20 49 eb jsr $eb49
+2a06 90 c0    bcc $29c8
+2a08 b5 98    lda $98,x
+2a0a 29 0f    and #$0f
+2a0c 20 8d eb jsr $eb8d
+2a0f a5 31    lda $31
+2a11 c9 01    cmp #$01
+2a13 d0 0b    bne $2a20
+2a15 a9 80    lda #$80
+2a17 95 98    sta $98,x
+2a19 a9 00    lda #$00
+2a1b 95 a0    sta $a0,x
+2a1d c6 2f    dec $2f
+2a1f 60       rts 
+2a20 b5 98    lda $98,x
+2a22 29 0c    and #$0c
+2a24 c9 04    cmp #$04
+2a26 d0 22    bne $2a4a
+2a28 a4 97    ldy $97
+2a2a f0 1e    beq $2a4a
+2a2c b9 98 00 lda $0098,y
+2a2f 29 0c    and #$0c
+2a31 c9 04    cmp #$04
+2a33 f0 15    beq $2a4a
+2a35 a9 80    lda #$80
+2a37 99 98 00 sta $0098,y
+2a3a a9 00    lda #$00
+2a3c 99 a0 00 sta $00a0,y
+2a3f 98       tya 
+2a40 aa       tax 
+2a41 20 a7 ea jsr $eaa7
+2a44 a9 07    lda #$07
+2a46 20 6b ed jsr $ed6b
+2a49 60       rts 
+2a4a 20 9a ea jsr $ea9a
+2a4d b5 98    lda $98,x
+2a4f 29 0f    and #$0f
+2a51 95 98    sta $98,x
+2a53 20 5e ea jsr $ea5e
+2a56 c6 2f    dec $2f
+2a58 a9 08    lda #$08
+2a5a 20 6b ed jsr $ed6b
+2a5d 60       rts 
+2a5e a5 97    lda $97
+2a60 0a       asl a
+2a61 a8       tay 
+2a62 b9 00 d0 lda $d000,y
+2a65 85 02    sta $02
+2a67 b9 01 d0 lda $d001,y
+2a6a 85 03    sta $03
+2a6c a4 97    ldy $97
+2a6e ad 10 d0 lda $d010
+2a71 a4 97    ldy $97
+2a73 39 37 f4 and $f437,y
+2a76 f0 08    beq $2a80
+2a78 ad 10 d0 lda $d010
+2a7b 1d 37 f4 ora $f437,x
+2a7e d0 06    bne $2a86
+2a80 ad 10 d0 lda $d010
+2a83 3d 3f f4 and $f43f,x
+2a86 8d 10 d0 sta $d010
+2a89 8a       txa 
+2a8a 0a       asl a
+2a8b a8       tay 
+2a8c a5 02    lda $02
+2a8e 99 00 d0 sta $d000,y
+2a91 38       sec 
+2a92 a5 03    lda $03
+2a94 e9 10    sbc #$10
+2a96 99 01 d0 sta $d001,y
+2a99 60       rts 
+2a9a a0 06    ldy #$06
+2a9c b9 25 00 lda $0025,y
+2a9f 30 03    bmi $2aa4
+2aa1 88       dey 
+2aa2 10 f8    bpl $2a9c
+2aa4 96 25    stx $25,y
+2aa6 60       rts 
+2aa7 a0 06    ldy #$06
+2aa9 b9 25 00 lda $0025,y
+2aac 85 02    sta $02
+2aae e4 02    cpx $02
+2ab0 f0 04    beq $2ab6
+2ab2 88       dey 
+2ab3 10 f4    bpl $2aa9
+2ab5 60       rts 
+2ab6 88       dey 
+2ab7 30 0d    bmi $2ac6
+2ab9 b9 25 00 lda $0025,y
+2abc 30 05    bmi $2ac3
+2abe 99 26 00 sta $0026,y
+2ac1 10 f3    bpl $2ab6
+2ac3 99 26 00 sta $0026,y
+2ac6 60       rts 
+2ac7 a5 26    lda $26
+2ac9 10 05    bpl $2ad0
+2acb a5 24    lda $24
+2acd d0 01    bne $2ad0
+2acf 60       rts 
+2ad0 a9 ff    lda #$ff
+2ad2 85 22    sta $22
+2ad4 85 24    sta $24
+2ad6 a4 2c    ldy $2c
+2ad8 f0 1b    beq $2af5
+2ada a6 23    ldx $23
+2adc 30 16    bmi $2af4
+2ade a5 10    lda $10
+2ae0 29 07    and #$07
+2ae2 d0 10    bne $2af4
+2ae4 a0 f6    ldy #$f6
+2ae6 a5 10    lda $10
+2ae8 29 08    and #$08
+2aea d0 02    bne $2aee
+2aec a0 f9    ldy #$f9
+2aee 98       tya 
+2aef 95 ca    sta $ca,x
+2af1 9d f8 07 sta $07f8,x
+2af4 60       rts 
+2af5 a9 ff    lda #$ff
+2af7 85 23    sta $23
+2af9 a2 06    ldx #$06
+2afb ca       dex 
+2afc b4 25    ldy $25,x
+2afe 30 33    bmi $2b33
+2b00 b9 98 00 lda $0098,y
+2b03 29 0c    and #$0c
+2b05 c9 04    cmp #$04
+2b07 d0 f2    bne $2afb
+2b09 84 2d    sty $2d
+2b0b 84 23    sty $23
+2b0d b4 24    ldy $24,x
+2b0f 30 22    bmi $2b33
+2b11 b9 98 00 lda $0098,y
+2b14 29 0c    and #$0c
+2b16 c9 04    cmp #$04
+2b18 f0 e1    beq $2afb
+2b1a a9 80    lda #$80
+2b1c 99 98 00 sta $0098,y
+2b1f a9 00    lda #$00
+2b21 99 a0 00 sta $00a0,y
+2b24 98       tya 
+2b25 aa       tax 
+2b26 20 a7 ea jsr $eaa7
+2b29 a9 10    lda #$10
+2b2b 85 2c    sta $2c
+2b2d a9 07    lda #$07
+2b2f 20 6b ed jsr $ed6b
+2b32 60       rts 
+2b33 a6 26    ldx $26
+2b35 30 0b    bmi $2b42
+2b37 a9 80    lda #$80
+2b39 95 98    sta $98,x
+2b3b a9 00    lda #$00
+2b3d 95 a0    sta $a0,x
+2b3f 20 a7 ea jsr $eaa7
+2b42 a9 00    lda #$00
+2b44 85 22    sta $22
+2b46 85 24    sta $24
+2b48 60       rts 
+2b49 38       sec 
+2b4a a5 07    lda $07
+2b4c e5 08    sbc $08
+2b4e c5 04    cmp $04
+2b50 b0 39    bcs $2b8b
+2b52 18       clc 
+2b53 a5 07    lda $07
+2b55 65 09    adc $09
+2b57 c5 04    cmp $04
+2b59 90 30    bcc $2b8b
+2b5b 38       sec 
+2b5c a5 05    lda $05
+2b5e e5 0a    sbc $0a
+2b60 85 05    sta $05
+2b62 a5 06    lda $06
+2b64 e9 00    sbc #$00
+2b66 85 06    sta $06
+2b68 38       sec 
+2b69 a5 05    lda $05
+2b6b e5 02    sbc $02
+2b6d a5 06    lda $06
+2b6f e5 03    sbc $03
+2b71 b0 18    bcs $2b8b
+2b73 a5 05    lda $05
+2b75 65 0b    adc $0b
+2b77 85 05    sta $05
+2b79 a5 06    lda $06
+2b7b 69 00    adc #$00
+2b7d 85 06    sta $06
+2b7f 38       sec 
+2b80 a5 05    lda $05
+2b82 e5 02    sbc $02
+2b84 a5 06    lda $06
+2b86 e5 03    sbc $03
+2b88 90 01    bcc $2b8b
+2b8a 60       rts 
+2b8b 18       clc 
+2b8c 60       rts 
+2b8d 86 d2    stx $d2
+2b8f 85 d3    sta $d3
+2b91 18       clc 
+2b92 f8       sed 
+2b93 a6 d3    ldx $d3
+2b95 a5 19    lda $19
+2b97 7d c8 eb adc $ebc8,x
+2b9a 85 19    sta $19
+2b9c a5 1a    lda $1a
+2b9e 7d d8 eb adc $ebd8,x
+2ba1 85 1a    sta $1a
+2ba3 a5 1b    lda $1b
+2ba5 69 00    adc #$00
+2ba7 85 1b    sta $1b
+2ba9 d8       cld 
+2baa 20 56 e4 jsr $e456
+2bad a5 30    lda $30
+2baf d0 14    bne $2bc5
+2bb1 a5 1b    lda $1b
+2bb3 c9 04    cmp #$04
+2bb5 90 0e    bcc $2bc5
+2bb7 a9 01    lda #$01
+2bb9 85 30    sta $30
+2bbb e6 2e    inc $2e
+2bbd 20 ba e4 jsr $e4ba
+2bc0 a9 06    lda #$06
+2bc2 20 6b ed jsr $ed6b
+2bc5 a6 d2    ldx $d2
+2bc7 60       rts 
+2bc8 50 00    bvc $2bca
+2bca 50 00    bvc $2bcc
+2bcc 50 00    bvc $2bce
+2bce 50 00    bvc $2bd0
+2bd0 50 00    bvc $2bd2
+2bd2 50 00    bvc $2bd4
+2bd4 50 00    bvc $2bd6
+2bd6 50 00    bvc $2bd8
+2bd8 00       brk 
+2bd9 01 01    ora ($01,x)
+2bdb 02       ???
+2bdc 02       ???
+2bdd 03       ???
+2bde 03       ???
+2bdf 04       ???
+2be0 04       ???
+2be1 05 05    ora $05
+2be3 06 06    asl $06
+2be5 07       ???
+2be6 07       ???
+2be7 08       php 
+2be8 10 a2    bpl $2b8c
+2bea 07       ???
+2beb b5 98    lda $98,x
+2bed 30 04    bmi $2bf3
+2bef ca       dex 
+2bf0 10 f9    bpl $2beb
+2bf2 60       rts 
+2bf3 c9 ff    cmp #$ff
+2bf5 f0 f8    beq $2bef
+2bf7 f6 a0    inc $a0,x
+2bf9 8a       txa 
+2bfa f0 03    beq $2bff
+2bfc 4c 7f ec jmp $ec7f
+2bff a5 a0    lda $a0
+2c01 c9 01    cmp #$01
+2c03 d0 3e    bne $2c43
+2c05 ad 15 d0 lda $d015
+2c08 29 fd    and #$fd
+2c0a 8d 15 d0 sta $d015
+2c0d a9 f5    lda #$f5
+2c0f 85 ca    sta $ca
+2c11 a9 03    lda #$03
+2c13 20 6b ed jsr $ed6b
+2c16 a0 0a    ldy #$0a
+2c18 ad 10 d0 lda $d010
+2c1b 29 01    and #$01
+2c1d d0 09    bne $2c28
+2c1f ad 00 d0 lda $d000
+2c22 c9 a2    cmp #$a2
+2c24 b0 02    bcs $2c28
+2c26 a0 06    ldy #$06
+2c28 84 b2    sty $b2
+2c2a 84 b3    sty $b3
+2c2c 84 b4    sty $b4
+2c2e 84 b5    sty $b5
+2c30 84 b6    sty $b6
+2c32 84 b7    sty $b7
+2c34 a0 01    ldy #$01
+2c36 84 aa    sty $aa
+2c38 84 ab    sty $ab
+2c3a 84 ac    sty $ac
+2c3c 84 ad    sty $ad
+2c3e 84 ae    sty $ae
+2c40 84 af    sty $af
+2c42 60       rts 
+2c43 c9 18    cmp #$18
+2c45 b0 06    bcs $2c4d
+2c47 ee 01 d0 inc $d001
+2c4a 4c 7b ec jmp $ec7b
+2c4d c9 24    cmp #$24
+2c4f b0 06    bcs $2c57
+2c51 ce 01 d0 dec $d001
+2c54 4c 7b ec jmp $ec7b
+2c57 c9 30    cmp #$30
+2c59 b0 06    bcs $2c61
+2c5b ee 01 d0 inc $d001
+2c5e 4c 7b ec jmp $ec7b
+2c61 c9 36    cmp #$36
+2c63 b0 06    bcs $2c6b
+2c65 ce 01 d0 dec $d001
+2c68 4c 7b ec jmp $ec7b
+2c6b c9 3c    cmp #$3c
+2c6d b0 06    bcs $2c75
+2c6f ee 01 d0 inc $d001
+2c72 4c 7b ec jmp $ec7b
+2c75 c9 3d    cmp #$3d
+2c77 b0 02    bcs $2c7b
+2c79 c6 a0    dec $a0
+2c7b 20 aa ec jsr $ecaa
+2c7e 60       rts 
+2c7f b5 a0    lda $a0,x
+2c81 c9 01    cmp #$01
+2c83 d0 0d    bne $2c92
+2c85 a9 fe    lda #$fe
+2c87 95 ca    sta $ca,x
+2c89 9d f8 07 sta $07f8,x
+2c8c a9 05    lda #$05
+2c8e 20 6b ed jsr $ed6b
+2c91 60       rts 
+2c92 c9 10    cmp #$10
+2c94 90 11    bcc $2ca7
+2c96 a9 ff    lda #$ff
+2c98 95 98    sta $98,x
+2c9a a9 01    lda #$01
+2c9c 95 a0    sta $a0,x
+2c9e ad 15 d0 lda $d015
+2ca1 3d 3f f4 and $f43f,x
+2ca4 8d 15 d0 sta $d015
+2ca7 4c ef eb jmp $ebef
+2caa a5 a0    lda $a0
+2cac 29 07    and #$07
+2cae d0 14    bne $2cc4
+2cb0 a5 a0    lda $a0
+2cb2 c9 39    cmp #$39
+2cb4 b0 0e    bcs $2cc4
+2cb6 4a       lsr a
+2cb7 4a       lsr a
+2cb8 4a       lsr a
+2cb9 29 07    and #$07
+2cbb a8       tay 
+2cbc b9 98 00 lda $0098,y
+2cbf 09 10    ora #$10
+2cc1 99 98 00 sta $0098,y
+2cc4 a2 07    ldx #$07
+2cc6 b5 98    lda $98,x
+2cc8 29 10    and #$10
+2cca d0 07    bne $2cd3
+2ccc ca       dex 
+2ccd e0 01    cpx #$01
+2ccf d0 f5    bne $2cc6
+2cd1 f0 1e    beq $2cf1
+2cd3 b5 98    lda $98,x
+2cd5 30 07    bmi $2cde
+2cd7 20 1f e6 jsr $e61f
+2cda a5 08    lda $08
+2cdc 30 ee    bmi $2ccc
+2cde a9 ff    lda #$ff
+2ce0 95 98    sta $98,x
+2ce2 ad 15 d0 lda $d015
+2ce5 3d 3f f4 and $f43f,x
+2ce8 8d 15 d0 sta $d015
+2ceb 29 fc    and #$fc
+2ced f0 09    beq $2cf8
+2cef d0 db    bne $2ccc
+2cf1 ad 15 d0 lda $d015
+2cf4 29 fc    and #$fc
+2cf6 d0 0e    bne $2d06
+2cf8 a9 40    lda #$40
+2cfa 85 11    sta $11
+2cfc a9 7f    lda #$7f
+2cfe 85 12    sta $12
+2d00 c6 2e    dec $2e
+2d02 a9 ff    lda #$ff
+2d04 85 98    sta $98
+2d06 60       rts 
+2d07 a5 2f    lda $2f
+2d09 f0 01    beq $2d0c
+2d0b 60       rts 
+2d0c a9 ff    lda #$ff
+2d0e 85 22    sta $22
+2d10 a5 2c    lda $2c
+2d12 f0 01    beq $2d15
+2d14 60       rts 
+2d15 a2 05    ldx #$05
+2d17 b4 25    ldy $25,x
+2d19 10 10    bpl $2d2b
+2d1b c6 2f    dec $2f
+2d1d a9 02    lda #$02
+2d1f 20 6b ed jsr $ed6b
+2d22 a9 4f    lda #$4f
+2d24 85 11    sta $11
+2d26 a9 7f    lda #$7f
+2d28 85 12    sta $12
+2d2a 60       rts 
+2d2b a9 80    lda #$80
+2d2d 99 98 00 sta $0098,y
+2d30 98       tya 
+2d31 aa       tax 
+2d32 20 a7 ea jsr $eaa7
+2d35 a9 10    lda #$10
+2d37 85 2c    sta $2c
+2d39 a9 00    lda #$00
+2d3b 85 2d    sta $2d
+2d3d 60       rts 
+2d3e a5 2c    lda $2c
+2d40 d0 01    bne $2d43
+2d42 60       rts 
+2d43 c6 2c    dec $2c
+2d45 f0 1d    beq $2d64
+2d47 a2 ff    ldx #$ff
+2d49 e8       inx 
+2d4a e0 06    cpx #$06
+2d4c f0 08    beq $2d56
+2d4e b4 25    ldy $25,x
+2d50 30 f7    bmi $2d49
+2d52 c4 2d    cpy $2d
+2d54 d0 01    bne $2d57
+2d56 60       rts 
+2d57 86 02    stx $02
+2d59 98       tya 
+2d5a 0a       asl a
+2d5b aa       tax 
+2d5c fe 01 d0 inc $d001,x
+2d5f a6 02    ldx $02
+2d61 4c 49 ed jmp $ed49
+2d64 a9 00    lda #$00
+2d66 85 22    sta $22
+2d68 a2 07    ldx #$07
+2d6a 60       rts 
+2d6b c9 01    cmp #$01
+2d6d d0 17    bne $2d86
+2d6f a9 62    lda #$62
+2d71 85 c1    sta $c1
+2d73 a9 ee    lda #$ee
+2d75 85 c2    sta $c2
+2d77 a9 11    lda #$11
+2d79 8d 04 d4 sta $d404
+2d7c a9 11    lda #$11
+2d7e 8d 0b d4 sta $d40b
+2d81 a9 01    lda #$01
+2d83 85 c3    sta $c3
+2d85 60       rts 
+2d86 c9 02    cmp #$02
+2d88 d0 09    bne $2d93
+2d8a a9 eb    lda #$eb
+2d8c 85 c1    sta $c1
+2d8e a9 ee    lda #$ee
+2d90 85 c2    sta $c2
+2d92 60       rts 
+2d93 c9 03    cmp #$03
+2d95 d0 09    bne $2da0
+2d97 a9 fe    lda #$fe
+2d99 85 c1    sta $c1
+2d9b a9 ee    lda #$ee
+2d9d 85 c2    sta $c2
+2d9f 60       rts 
+2da0 c9 04    cmp #$04
+2da2 d0 0a    bne $2dae
+2da4 a9 07    lda #$07
+2da6 85 c5    sta $c5
+2da8 a9 21    lda #$21
+2daa 8d 12 d4 sta $d412
+2dad 60       rts 
+2dae c9 05    cmp #$05
+2db0 d0 0a    bne $2dbc
+2db2 a9 0f    lda #$0f
+2db4 85 c7    sta $c7
+2db6 a9 81    lda #$81
+2db8 8d 12 d4 sta $d412
+2dbb 60       rts 
+2dbc c9 06    cmp #$06
+2dbe d0 01    bne $2dc1
+2dc0 60       rts 
+2dc1 c9 07    cmp #$07
+2dc3 d0 0e    bne $2dd3
+2dc5 a9 0f    lda #$0f
+2dc7 85 c4    sta $c4
+2dc9 0a       asl a
+2dca 8d 0f d4 sta $d40f
+2dcd a9 21    lda #$21
+2dcf 8d 12 d4 sta $d412
+2dd2 60       rts 
+2dd3 c9 08    cmp #$08
+2dd5 d0 0a    bne $2de1
+2dd7 a9 07    lda #$07
+2dd9 85 c4    sta $c4
+2ddb a9 21    lda #$21
+2ddd 8d 12 d4 sta $d412
+2de0 60       rts 
+2de1 60       rts 
+2de2 a5 c5    lda $c5
+2de4 f0 0f    beq $2df5
+2de6 0a       asl a
+2de7 0a       asl a
+2de8 0a       asl a
+2de9 8d 0f d4 sta $d40f
+2dec c6 c5    dec $c5
+2dee d0 05    bne $2df5
+2df0 a9 20    lda #$20
+2df2 8d 12 d4 sta $d412
+2df5 a5 c7    lda $c7
+2df7 f0 0f    beq $2e08
+2df9 0a       asl a
+2dfa 0a       asl a
+2dfb 0a       asl a
+2dfc 8d 0f d4 sta $d40f
+2dff c6 c7    dec $c7
+2e01 d0 05    bne $2e08
+2e03 a9 80    lda #$80
+2e05 8d 12 d4 sta $d412
+2e08 a5 c4    lda $c4
+2e0a f0 17    beq $2e23
+2e0c c6 c4    dec $c4
+2e0e a5 c4    lda $c4
+2e10 c9 08    cmp #$08
+2e12 b0 0f    bcs $2e23
+2e14 0a       asl a
+2e15 0a       asl a
+2e16 0a       asl a
+2e17 8d 0f d4 sta $d40f
+2e1a a5 c4    lda $c4
+2e1c d0 05    bne $2e23
+2e1e a9 20    lda #$20
+2e20 8d 12 d4 sta $d412
+2e23 c6 c3    dec $c3
+2e25 d0 3c    bne $2e63
+2e27 18       clc 
+2e28 a5 c1    lda $c1
+2e2a 69 02    adc #$02
+2e2c 85 c1    sta $c1
+2e2e a5 c2    lda $c2
+2e30 69 00    adc #$00
+2e32 85 c2    sta $c2
+2e34 a0 00    ldy #$00
+2e36 b1 c1    lda ($c1),y
+2e38 d0 0a    bne $2e44
+2e3a a9 64    lda #$64
+2e3c 85 c1    sta $c1
+2e3e a9 ee    lda #$ee
+2e40 85 c2    sta $c2
+2e42 b1 c1    lda ($c1),y
+2e44 85 c3    sta $c3
+2e46 a0 01    ldy #$01
+2e48 b1 c1    lda ($c1),y
+2e4a 0a       asl a
+2e4b aa       tax 
+2e4c bd 17 ef lda $ef17,x
+2e4f 8d 00 d4 sta $d400
+2e52 18       clc 
+2e53 69 30    adc #$30
+2e55 8d 07 d4 sta $d407
+2e58 bd 18 ef lda $ef18,x
+2e5b 8d 01 d4 sta $d401
+2e5e 69 00    adc #$00
+2e60 8d 08 d4 sta $d408
+2e63 60       rts 
+2e64 10 10    bpl $2e76
+2e66 18       clc 
+2e67 00       brk 
+2e68 08       php 
+2e69 10 08    bpl $2e73
+2e6b 10 08    bpl $2e75
+2e6d 10 08    bpl $2e77
+2e6f 0f       ???
+2e70 08       php 
+2e71 10 10    bpl $2e83
+2e73 12       ???
+2e74 10 12    bpl $2e88
+2e76 10 14    bpl $2e8c
+2e78 10 14    bpl $2e8e
+2e7a 18       clc 
+2e7b 17       ???
+2e7c 18       clc 
+2e7d 15 10    ora $10,x
+2e7f 00       brk 
+2e80 08       php 
+2e81 15 08    ora $08,x
+2e83 15 08    ora $08,x
+2e85 14       ???
+2e86 08       php 
+2e87 12       ???
+2e88 10 10    bpl $2e9a
+2e8a 08       php 
+2e8b 12       ???
+2e8c 08       php 
+2e8d 14       ???
+2e8e 08       php 
+2e8f 12       ???
+2e90 08       php 
+2e91 10 04    bpl $2e97
+2e93 10 04    bpl $2e99
+2e95 10 04    bpl $2e9b
+2e97 10 04    bpl $2e9d
+2e99 10 10    bpl $2eab
+2e9b 10 08    bpl $2ea5
+2e9d 12       ???
+2e9e 08       php 
+2e9f 14       ???
+2ea0 08       php 
+2ea1 12       ???
+2ea2 08       php 
+2ea3 10 04    bpl $2ea9
+2ea5 10 04    bpl $2eab
+2ea7 10 04    bpl $2ead
+2ea9 10 04    bpl $2eaf
+2eab 0f       ???
+2eac 04       ???
+2ead 10 10    bpl $2ebf
+2eaf 12       ???
+2eb0 10 12    bpl $2ec4
+2eb2 10 14    bpl $2ec8
+2eb4 10 14    bpl $2eca
+2eb6 18       clc 
+2eb7 17       ???
+2eb8 18       clc 
+2eb9 15 10    ora $10,x
+2ebb 00       brk 
+2ebc 08       php 
+2ebd 15 08    ora $08,x
+2ebf 15 08    ora $08,x
+2ec1 14       ???
+2ec2 08       php 
+2ec3 12       ???
+2ec4 10 10    bpl $2ed6
+2ec6 08       php 
+2ec7 12       ???
+2ec8 08       php 
+2ec9 14       ???
+2eca 08       php 
+2ecb 12       ???
+2ecc 08       php 
+2ecd 10 04    bpl $2ed3
+2ecf 10 04    bpl $2ed5
+2ed1 10 04    bpl $2ed7
+2ed3 10 04    bpl $2ed9
+2ed5 10 10    bpl $2ee7
+2ed7 10 08    bpl $2ee1
+2ed9 12       ???
+2eda 08       php 
+2edb 14       ???
+2edc 08       php 
+2edd 12       ???
+2ede 08       php 
+2edf 10 08    bpl $2ee9
+2ee1 10 08    bpl $2eeb
+2ee3 10 08    bpl $2eed
+2ee5 0f       ???
+2ee6 08       php 
+2ee7 0e 08 0d asl $0d08
+2eea 20 00 00 jsr $0000
+2eed 08       php 
+2eee 09 04    ora #$04
+2ef0 00       brk 
+2ef1 08       php 
+2ef2 09 18    ora #$18
+2ef4 0d 08 12 ora $1208
+2ef7 08       php 
+2ef8 10 08    bpl $2f02
+2efa 0e 28 15 asl $1528
+2efd ff       ???
+2efe 00       brk 
+2eff 00       brk 
+2f00 28       plp 
+2f01 15 08    ora $08,x
+2f03 14       ???
+2f04 08       php 
+2f05 12       ???
+2f06 08       php 
+2f07 10 08    bpl $2f11
+2f09 0e 08 0d asl $0d08
+2f0c 08       php 
+2f0d 0b       ???
+2f0e 08       php 
+2f0f 09 08    ora #$08
+2f11 00       brk 
+2f12 18       clc 
+2f13 09 ff    ora #$ff
+2f15 00       brk 
+2f16 00       brk 
+2f17 00       brk 
+2f18 00       brk 
+2f19 0d 0a 72 ora $720a
+2f1c 0b       ???
+2f1d 20 0c d6 jsr $d60c
+2f20 0c       ???
+2f21 9c       ???
+2f22 0d 65 0e ora $0e65
+2f25 46 0f    lsr $0f
+2f27 2f       ???
+2f28 10 25    bpl $2f4f
+2f2a 11 2a    ora ($2a),y
+2f2c 12       ???
+2f2d 3f       ???
+2f2e 13       ???
+2f2f 64       ???
+2f30 14       ???
+2f31 9a       txs 
+2f32 15 e3    ora $e3,x
+2f34 16 3f    asl $3f,x
+2f36 18       clc 
+2f37 b1 19    lda ($19),y
+2f39 38       sec 
+2f3a 1b       ???
+2f3b d6 1c    dec $1c,x
+2f3d 8d 1e 5e sta $5e1e
+2f40 20 4b 22 jsr $224b
+2f43 55 24    eor $24,x
+2f45 7e 26 c8 ror $c826,x
+2f48 28       plp 
+2f49 34       ???
+2f4a 2b       ???
+2f4b c6 2d    dec $2d
+2f4d 7f       ???
+2f4e 30 61    bmi $2fb1
+2f50 33       ???
+2f51 6f       ???
+2f52 36 ac    rol $ac,x
+2f54 39 1a 3d and $3d1a,y
+2f57 bc 40 95 ldy $9540,x
+2f5a 44       ???
+2f5b a9 48    lda #$48
+2f5d fc       ???
+2f5e 4c a1 51 jmp $51a1
+2f61 69 56    adc #$56
+2f63 8c 5b fe sty $fe5b
+2f66 60       rts 
+2f67 c2       ???
+2f68 66 df    ror $df
+2f6a 6c 58 73 jmp ($7358)
+2f6d 34       ???
+2f6e 7a       ???
+2f6f 78       sei 
+2f70 81 2b    sta ($2b,x)
+2f72 89       ???
+2f73 53       ???
+2f74 91 f7    sta ($f7),y
+2f76 99 1f a3 sta $a31f,y
+2f79 00       brk 
+2f7a 00       brk 
+2f7b 00       brk 
+2f7c 00       brk 
+2f7d 00       brk 
+2f7e 00       brk 
+2f7f 00       brk 
+2f80 00       brk 
+2f81 00       brk 
+2f82 00       brk 
+2f83 00       brk 
+2f84 00       brk 
+2f85 00       brk 
+2f86 00       brk 
+2f87 00       brk 
+2f88 00       brk 
+2f89 00       brk 
+2f8a 1b       ???
+2f8b 00       brk 
+2f8c 00       brk 
+2f8d 00       brk 
+2f8e 00       brk 
+2f8f 13       ???
+2f90 00       brk 
+2f91 1e ff 00 asl $00ff,x
+2f94 00       brk 
+2f95 03       ???
+2f96 00       brk 
+2f97 00       brk 
+2f98 00       brk 
+2f99 0e 01 0e asl $0e01
+2f9c 00       brk 
+2f9d 00       brk 
+2f9e 07       ???
+2f9f 02       ???
+2fa0 08       php 
+2fa1 08       php 
+2fa2 01 01    ora ($01,x)
+2fa4 01 01    ora ($01,x)
+2fa6 01 01    ora ($01,x)
+2fa8 00       brk 
+2fa9 20 00 00 jsr $0000
+2fac 20 00 f0 jsr $f000
+2faf 00       brk 
+2fb0 20 00 00 jsr $0000
+2fb3 20 00 f9 jsr $f900
+2fb6 00       brk 
+2fb7 20 00 00 jsr $0000
+2fba 80       ???
+2fbb 00       brk 
+2fbc f0 ff    beq $2fbd
+2fbe ff       ???
+2fbf 07       ???
+2fc0 1f       ???
+2fc1 01 04    ora ($04,x)
+2fc3 25 e2    and $e2
+2fc5 e2       ???
+2fc6 e2       ???
+2fc7 e2       ???
+2fc8 ff       ???
+2fc9 ff       ???
+2fca ff       ???
+2fcb ff       ???
+2fcc ff       ???
+2fcd ff       ???
+2fce ff       ???
+2fcf ff       ???
+2fd0 ff       ???
+2fd1 ff       ???
+2fd2 ff       ???
+2fd3 ff       ???
+2fd4 ff       ???
+2fd5 ff       ???
+2fd6 ff       ???
+2fd7 ff       ???
+2fd8 ff       ???
+2fd9 ff       ???
+2fda ff       ???
+2fdb ff       ???
+2fdc ff       ???
+2fdd ff       ???
+2fde ff       ???
+2fdf ff       ???
+2fe0 ff       ???
+2fe1 ff       ???
+2fe2 ff       ???
+2fe3 ff       ???
+2fe4 ff       ???
+2fe5 e2       ???
+2fe6 e2       ???
+2fe7 e2       ???
+2fe8 e2       ???
+2fe9 01 05    ora ($05,x)
+2feb 25 e2    and $e2
+2fed c2       ???
+2fee c2       ???
+2fef e2       ???
+2ff0 ff       ???
+2ff1 ff       ???
+2ff2 ff       ???
+2ff3 ff       ???
+2ff4 ff       ???
+2ff5 ff       ???
+2ff6 ff       ???
+2ff7 ff       ???
+2ff8 ff       ???
+2ff9 ff       ???
+2ffa ff       ???
+2ffb ff       ???
+2ffc ff       ???
+2ffd ff       ???
+2ffe ff       ???
+2fff ff       ???
+3000 ff       ???
+3001 ff       ???
+3002 ff       ???
+3003 ff       ???
+3004 ff       ???
+3005 ff       ???
+3006 ff       ???
+3007 ff       ???
+3008 ff       ???
+3009 ff       ???
+300a ff       ???
+300b ff       ???
+300c ff       ???
+300d e2       ???
+300e c2       ???
+300f c2       ???
+3010 e2       ???
+3011 01 06    ora ($06,x)
+3013 25 e2    and $e2
+3015 c2       ???
+3016 c2       ???
+3017 e2       ???
+3018 ff       ???
+3019 ff       ???
+301a ff       ???
+301b ff       ???
+301c ff       ???
+301d ff       ???
+301e 82       ???
+301f ff       ???
+3020 ff       ???
+3021 ff       ???
+3022 ff       ???
+3023 ff       ???
+3024 ff       ???
+3025 88       dey 
+3026 ff       ???
+3027 ff       ???
+3028 ff       ???
+3029 ff       ???
+302a ff       ???
+302b 82       ???
+302c ff       ???
+302d ff       ???
+302e ff       ???
+302f ff       ???
+3030 ff       ???
+3031 ff       ???
+3032 ff       ???
+3033 b6 d2    ldx $d2,y
+3035 e2       ???
+3036 c2       ???
+3037 c2       ???
+3038 e2       ???
+3039 01 07    ora ($07,x)
+303b 25 e2    and $e2
+303d b9 d9 e2 lda $e2d9,y
+3040 ff       ???
+3041 ff       ???
+3042 ff       ???
+3043 ff       ???
+3044 ff       ???
+3045 ff       ???
+3046 88       dey 
+3047 82       ???
+3048 ff       ???
+3049 ff       ???
+304a ff       ???
+304b ff       ???
+304c ff       ???
+304d 82       ???
+304e ff       ???
+304f ff       ???
+3050 ff       ???
+3051 ff       ???
+3052 88       dey 
+3053 82       ???
+3054 ff       ???
+3055 ff       ???
+3056 ff       ???
+3057 ff       ???
+3058 88       dey 
+3059 ff       ???
+305a ff       ???
+305b bd d2 e2 lda $e2d2,x
+305e b9 b9 e2 lda $e2b9,y
+3061 01 08    ora ($08,x)
+3063 25 e2    and $e2
+3065 e2       ???
+3066 e2       ???
+3067 e2       ???
+3068 b2       ???
+3069 b2       ???
+306a e1 ff    sbc ($ff,x)
+306c ff       ???
+306d 82       ???
+306e 88       dey 
+306f 88       dey 
+3070 82       ???
+3071 ff       ???
+3072 ff       ???
+3073 ff       ???
+3074 82       ???
+3075 88       dey 
+3076 82       ???
+3077 ff       ???
+3078 ff       ???
+3079 88       dey 
+307a 88       dey 
+307b 88       dey 
+307c ff       ???
+307d ff       ???
+307e ff       ???
+307f ff       ???
+3080 82       ???
+3081 ff       ???
+3082 ff       ???
+3083 b2       ???
+3084 d2       ???
+3085 e2       ???
+3086 e2       ???
+3087 e2       ???
+3088 e2       ???
+3089 01 09    ora ($09,x)
+308b 25 e2    and $e2
+308d c2       ???
+308e c2       ???
+308f e2       ???
+3090 b2       ???
+3091 b2       ???
+3092 e7       ???
+3093 e1 88    sbc ($88,x)
+3095 82       ???
+3096 82       ???
+3097 82       ???
+3098 82       ???
+3099 82       ???
+309a 82       ???
+309b 82       ???
+309c 88       dey 
+309d 88       dey 
+309e 88       dey 
+309f 82       ???
+30a0 ff       ???
+30a1 82       ???
+30a2 82       ???
+30a3 88       dey 
+30a4 88       dey 
+30a5 ff       ???
+30a6 ff       ???
+30a7 ff       ???
+30a8 82       ???
+30a9 82       ???
+30aa b5 b2    lda $b2,x
+30ac d2       ???
+30ad e2       ???
+30ae c2       ???
+30af c2       ???
+30b0 e2       ???
+30b1 01 0a    ora ($0a,x)
+30b3 25 e2    and $e2
+30b5 c2       ???
+30b6 c2       ???
+30b7 e2       ???
+30b8 b2       ???
+30b9 b2       ???
+30ba ed e7 82 sbc $82e7
+30bd 82       ???
+30be 88       dey 
+30bf 82       ???
+30c0 82       ???
+30c1 82       ???
+30c2 82       ???
+30c3 88       dey 
+30c4 82       ???
+30c5 82       ???
+30c6 82       ???
+30c7 82       ???
+30c8 88       dey 
+30c9 82       ???
+30ca 82       ???
+30cb 82       ???
+30cc 82       ???
+30cd 82       ???
+30ce 82       ???
+30cf ff       ???
+30d0 82       ???
+30d1 b6 b2    ldx $b2,y
+30d3 b2       ???
+30d4 d2       ???
+30d5 e2       ???
+30d6 c2       ???
+30d7 c2       ???
+30d8 e2       ???
+30d9 01 0b    ora ($0b,x)
+30db 25 e2    and $e2
+30dd b9 b9 e2 lda $e2b9,y
+30e0 d2       ???
+30e1 b2       ???
+30e2 e7       ???
+30e3 e7       ???
+30e4 82       ???
+30e5 88       dey 
+30e6 82       ???
+30e7 82       ???
+30e8 88       dey 
+30e9 82       ???
+30ea 88       dey 
+30eb 82       ???
+30ec 82       ???
+30ed 88       dey 
+30ee 82       ???
+30ef 88       dey 
+30f0 82       ???
+30f1 82       ???
+30f2 88       dey 
+30f3 82       ???
+30f4 82       ???
+30f5 82       ???
+30f6 82       ???
+30f7 82       ???
+30f8 82       ???
+30f9 b2       ???
+30fa b2       ???
+30fb bd d2 e2 lda $e2d2,x
+30fe b9 b9 e2 lda $e2b9,y
+3101 01 0c    ora ($0c,x)
+3103 25 e2    and $e2
+3105 e2       ???
+3106 e2       ???
+3107 e2       ???
+3108 b2       ???
+3109 b2       ???
+310a e7       ???
+310b e7       ???
+310c e7       ???
+310d ba       tsx 
+310e 82       ???
+310f 82       ???
+3110 88       dey 
+3111 88       dey 
+3112 82       ???
+3113 82       ???
+3114 82       ???
+3115 88       dey 
+3116 82       ???
+3117 82       ???
+3118 82       ???
+3119 82       ???
+311a db       ???
+311b dc       ???
+311c b2       ???
+311d b2       ???
+311e eb       ???
+311f ec c2 b2 cpx $b2c2
+3122 b2       ???
+3123 b2       ???
+3124 d2       ???
+3125 e2       ???
+3126 e2       ???
+3127 e2       ???
+3128 e2       ???
+3129 01 0d    ora ($0d,x)
+312b 25 e2    and $e2
+312d c2       ???
+312e c2       ???
+312f e2       ???
+3130 b2       ???
+3131 b2       ???
+3132 e7       ???
+3133 ed e7 b2 sbc $b2e7
+3136 ba       tsx 
+3137 82       ???
+3138 88       dey 
+3139 82       ???
+313a 82       ???
+313b 88       dey 
+313c 82       ???
+313d 88       dey 
+313e 82       ???
+313f 88       dey 
+3140 82       ???
+3141 82       ???
+3142 d7       ???
+3143 d7       ???
+3144 b2       ???
+3145 b2       ???
+3146 e7       ???
+3147 e7       ???
+3148 c2       ???
+3149 b2       ???
+314a bd b2 d2 lda $d2b2,x
+314d e2       ???
+314e c2       ???
+314f c2       ???
+3150 e2       ???
+3151 01 0e    ora ($0e,x)
+3153 25 e2    and $e2
+3155 c2       ???
+3156 c2       ???
+3157 e2       ???
+3158 b2       ???
+3159 d2       ???
+315a e7       ???
+315b e7       ???
+315c e7       ???
+315d bd b2 c2 lda $c2b2,x
+3160 da       ???
+3161 82       ???
+3162 82       ???
+3163 88       dey 
+3164 82       ???
+3165 82       ???
+3166 88       dey 
+3167 88       dey 
+3168 82       ???
+3169 bc d7 d7 ldy $d7d7,x
+316c b2       ???
+316d 99 e7 e7 sta $e7e7,y
+3170 c2       ???
+3171 b2       ???
+3172 b2       ???
+3173 b2       ???
+3174 d2       ???
+3175 e2       ???
+3176 c2       ???
+3177 c2       ???
+3178 e2       ???
+3179 01 0f    ora ($0f,x)
+317b 25 e2    and $e2
+317d b9 b9 e2 lda $e2b9,y
+3180 b2       ???
+3181 b2       ???
+3182 e7       ???
+3183 e7       ???
+3184 e7       ???
+3185 b2       ???
+3186 bd c2 d8 lda $d8c2,x
+3189 7e 7e 7e ror $7e7e,x
+318c 7e 7e 7e ror $7e7e,x
+318f 7e 7e b8 ror $b87e,x
+3192 d7       ???
+3193 d7       ???
+3194 b2       ???
+3195 b2       ???
+3196 e7       ???
+3197 e7       ???
+3198 c2       ???
+3199 b2       ???
+319a b2       ???
+319b bd d2 e2 lda $e2d2,x
+319e b9 b9 e2 lda $e2b9,y
+31a1 01 10    ora ($10,x)
+31a3 25 e2    and $e2
+31a5 e2       ???
+31a6 e2       ???
+31a7 e2       ???
+31a8 b2       ???
+31a9 b2       ???
+31aa e7       ???
+31ab ed e7 b2 sbc $b2e7
+31ae b2       ???
+31af c2       ???
+31b0 d0 82    bne $3134
+31b2 82       ???
+31b3 82       ???
+31b4 82       ???
+31b5 82       ???
+31b6 82       ???
+31b7 82       ???
+31b8 82       ???
+31b9 b8       clv 
+31ba d7       ???
+31bb d7       ???
+31bc b2       ???
+31bd b2       ???
+31be e7       ???
+31bf e7       ???
+31c0 c2       ???
+31c1 b2       ???
+31c2 b2       ???
+31c3 b2       ???
+31c4 d2       ???
+31c5 e2       ???
+31c6 e2       ???
+31c7 e2       ???
+31c8 e2       ???
+31c9 01 11    ora ($11,x)
+31cb 25 e2    and $e2
+31cd c2       ???
+31ce c2       ???
+31cf e2       ???
+31d0 b2       ???
+31d1 b2       ???
+31d2 e7       ???
+31d3 ed e7 bd sbc $bde7
+31d6 b2       ???
+31d7 82       ???
+31d8 82       ???
+31d9 82       ???
+31da 82       ???
+31db 82       ???
+31dc 82       ???
+31dd 82       ???
+31de 82       ???
+31df 82       ???
+31e0 82       ???
+31e1 b3       ???
+31e2 d7       ???
+31e3 d7       ???
+31e4 b2       ???
+31e5 99 e7 e7 sta $e7e7,y
+31e8 c2       ???
+31e9 b2       ???
+31ea b2       ???
+31eb b2       ???
+31ec d2       ???
+31ed e2       ???
+31ee c2       ???
+31ef c2       ???
+31f0 e2       ???
+31f1 01 12    ora ($12,x)
+31f3 25 e2    and $e2
+31f5 c2       ???
+31f6 c2       ???
+31f7 e2       ???
+31f8 d2       ???
+31f9 b2       ???
+31fa e7       ???
+31fb e7       ???
+31fc e7       ???
+31fd b2       ???
+31fe b0 82    bcs $3182
+3200 82       ???
+3201 82       ???
+3202 82       ???
+3203 82       ???
+3204 82       ???
+3205 82       ???
+3206 82       ???
+3207 82       ???
+3208 82       ???
+3209 82       ???
+320a d4       ???
+320b d3       ???
+320c b2       ???
+320d b2       ???
+320e e7       ???
+320f e7       ???
+3210 c2       ???
+3211 b2       ???
+3212 b2       ???
+3213 bd d2 e2 lda $e2d2,x
+3216 c2       ???
+3217 c2       ???
+3218 e2       ???
+3219 01 13    ora ($13,x)
+321b 25 e2    and $e2
+321d b9 b9 e2 lda $e2b9,y
+3220 b2       ???
+3221 d2       ???
+3222 e7       ???
+3223 e7       ???
+3224 e7       ???
+3225 b0 82    bcs $31a9
+3227 82       ???
+3228 82       ???
+3229 82       ???
+322a 82       ???
+322b 82       ???
+322c 82       ???
+322d 82       ???
+322e 82       ???
+322f 82       ???
+3230 82       ???
+3231 82       ???
+3232 82       ???
+3233 82       ???
+3234 82       ???
+3235 82       ???
+3236 e7       ???
+3237 e7       ???
+3238 c2       ???
+3239 bd b2 b2 lda $b2b2,x
+323c d2       ???
+323d e2       ???
+323e b9 b9 e2 lda $e2b9,y
+3241 01 14    ora ($14,x)
+3243 25 e2    and $e2
+3245 e2       ???
+3246 e2       ???
+3247 e2       ???
+3248 b2       ???
+3249 b2       ???
+324a ed e7 82 sbc $82e7
+324d 82       ???
+324e 82       ???
+324f 82       ???
+3250 82       ???
+3251 82       ???
+3252 82       ???
+3253 82       ???
+3254 82       ???
+3255 82       ???
+3256 82       ???
+3257 82       ???
+3258 82       ???
+3259 82       ???
+325a 82       ???
+325b 82       ???
+325c 82       ???
+325d 82       ???
+325e e4 e3    cpx $e3
+3260 c2       ???
+3261 b2       ???
+3262 b2       ???
+3263 b2       ???
+3264 d2       ???
+3265 e2       ???
+3266 e2       ???
+3267 e2       ???
+3268 e2       ???
+3269 01 15    ora ($15,x)
+326b 25 e2    and $e2
+326d c2       ???
+326e c2       ???
+326f e2       ???
+3270 b2       ???
+3271 b2       ???
+3272 e7       ???
+3273 e0 82    cpx #$82
+3275 82       ???
+3276 82       ???
+3277 82       ???
+3278 82       ???
+3279 82       ???
+327a 82       ???
+327b 82       ???
+327c 82       ???
+327d 82       ???
+327e 82       ???
+327f 82       ???
+3280 82       ???
+3281 82       ???
+3282 82       ???
+3283 82       ???
+3284 82       ???
+3285 82       ???
+3286 82       ???
+3287 82       ???
+3288 82       ???
+3289 b3       ???
+328a b2       ???
+328b b2       ???
+328c d2       ???
+328d e2       ???
+328e c2       ???
+328f c2       ???
+3290 e2       ???
+3291 01 16    ora ($16,x)
+3293 25 e2    and $e2
+3295 c2       ???
+3296 c2       ???
+3297 e2       ???
+3298 b2       ???
+3299 b2       ???
+329a e0 82    cpx #$82
+329c 82       ???
+329d 82       ???
+329e 82       ???
+329f 82       ???
+32a0 82       ???
+32a1 82       ???
+32a2 82       ???
+32a3 82       ???
+32a4 82       ???
+32a5 82       ???
+32a6 82       ???
+32a7 82       ???
+32a8 82       ???
+32a9 82       ???
+32aa 82       ???
+32ab 82       ???
+32ac 82       ???
+32ad 82       ???
+32ae 82       ???
+32af 82       ???
+32b0 82       ???
+32b1 82       ???
+32b2 b4 b3    ldy $b3,x
+32b4 d2       ???
+32b5 e2       ???
+32b6 c2       ???
+32b7 c2       ???
+32b8 e2       ???
+32b9 01 17    ora ($17,x)
+32bb 25 e2    and $e2
+32bd b9 b9 e2 lda $e2b9,y
+32c0 82       ???
+32c1 82       ???
+32c2 82       ???
+32c3 82       ???
+32c4 82       ???
+32c5 82       ???
+32c6 82       ???
+32c7 82       ???
+32c8 82       ???
+32c9 82       ???
+32ca 82       ???
+32cb 82       ???
+32cc 82       ???
+32cd 82       ???
+32ce 82       ???
+32cf 82       ???
+32d0 82       ???
+32d1 82       ???
+32d2 82       ???
+32d3 82       ???
+32d4 82       ???
+32d5 82       ???
+32d6 82       ???
+32d7 82       ???
+32d8 82       ???
+32d9 82       ???
+32da 82       ???
+32db 82       ???
+32dc 82       ???
+32dd e2       ???
+32de b9 b9 e2 lda $e2b9,y
+32e1 00       brk 
+32e2 00       brk 
+32e3 00       brk 
+32e4 c4 05    cpy $05
+32e6 01 0f    ora ($0f,x)
+32e8 1e 16 22 asl $2216,x
+32eb 19 0f 39 ora $390f,y
+32ee 24 19    bit $19
+32f0 17       ???
+32f1 0f       ???
+32f2 ff       ???
+32f3 00       brk 
+32f4 04       ???
+32f5 e8       inx 
+32f6 cc 3a 3b cpy $3b3a
+32f9 fe 28 04 inc $0428,x
+32fc e8       inx 
+32fd fc       ???
+32fe 3c       ???
+32ff 3d ff 00 and $00ff,x
+3302 04       ???
+3303 00       brk 
+3304 fc       ???
+3305 00       brk 
+3306 00       brk 
+3307 fe 28 04 inc $0428,x
+330a 00       brk 
+330b fc       ???
+330c 00       brk 
+330d 00       brk 
+330e ff       ???
+330f 0c       ???
+3310 12       ???
+3311 18       clc 
+3312 18       clc 
+3313 18       clc 
+3314 18       clc 
+3315 18       clc 
+3316 18       clc 
+3317 09 06    ora #$06
+3319 04       ???
+331a 03       ???
+331b 02       ???
+331c 02       ???
+331d 01 01    ora ($01,x)
+331f 2f       ???
+3320 f3       ???
+3321 47       ???
+3322 f3       ???
+3323 5f       ???
+3324 f3       ???
+3325 77       ???
+3326 f3       ???
+3327 8f       ???
+3328 f3       ???
+3329 a7       ???
+332a f3       ???
+332b bf       ???
+332c f3       ???
+332d d7       ???
+332e f3       ???
+332f ff       ???
+3330 02       ???
+3331 ff       ???
+3332 00       brk 
+3333 ff       ???
+3334 00       brk 
+3335 ff       ???
+3336 01 ff    ora ($ff,x)
+3338 02       ???
+3339 ff       ???
+333a 00       brk 
+333b ff       ???
+333c 00       brk 
+333d ff       ???
+333e 01 ff    ora ($ff,x)
+3340 03       ???
+3341 ff       ???
+3342 00       brk 
+3343 ff       ???
+3344 01 ff    ora ($ff,x)
+3346 03       ???
+3347 ff       ???
+3348 03       ???
+3349 01 02    ora ($02,x)
+334b 01 01    ora ($01,x)
+334d 03       ???
+334e ff       ???
+334f ff       ???
+3350 03       ???
+3351 01 02    ora ($02,x)
+3353 04       ???
+3354 02       ???
+3355 01 ff    ora ($ff,x)
+3357 ff       ???
+3358 03       ???
+3359 01 02    ora ($02,x)
+335b 03       ???
+335c 03       ???
+335d 04       ???
+335e ff       ???
+335f 03       ???
+3360 02       ???
+3361 01 00    ora ($00,x)
+3363 00       brk 
+3364 01 02    ora ($02,x)
+3366 03       ???
+3367 03       ???
+3368 02       ???
+3369 00       brk 
+336a 04       ???
+336b 02       ???
+336c 08       php 
+336d 03       ???
+336e 03       ???
+336f 03       ???
+3370 03       ???
+3371 05 09    ora $09
+3373 07       ???
+3374 00       brk 
+3375 01 03    ora ($03,x)
+3377 06 02    asl $02
+3379 03       ???
+337a 00       brk 
+337b 03       ???
+337c 00       brk 
+337d 03       ???
+337e 01 06    ora ($06,x)
+3380 06 05    asl $05
+3382 03       ???
+3383 03       ???
+3384 03       ???
+3385 05 09    ora $09
+3387 06 0b    asl $0b
+3389 00       brk 
+338a 0b       ???
+338b 03       ???
+338c 08       php 
+338d 06 08    asl $08
+338f 03       ???
+3390 01 00    ora ($00,x)
+3392 02       ???
+3393 03       ???
+3394 02       ???
+3395 03       ???
+3396 01 03    ora ($03,x)
+3398 01 03    ora ($03,x)
+339a 02       ???
+339b 03       ???
+339c 02       ???
+339d 03       ???
+339e 01 03    ora ($03,x)
+33a0 01 03    ora ($03,x)
+33a2 02       ???
+33a3 03       ???
+33a4 02       ???
+33a5 03       ???
+33a6 02       ???
+33a7 03       ???
+33a8 09 02    ora #$02
+33aa 02       ???
+33ab 09 09    ora #$09
+33ad 09 03    ora #$03
+33af 03       ???
+33b0 09 02    ora #$02
+33b2 01 02    ora ($02,x)
+33b4 09 01    ora #$01
+33b6 03       ???
+33b7 03       ???
+33b8 01 02    ora ($02,x)
+33ba 01 01    ora ($01,x)
+33bc 01 02    ora ($02,x)
+33be 03       ???
+33bf 0a       asl a
+33c0 05 09    ora $09
+33c2 05 02    ora $02
+33c4 0a       asl a
+33c5 05 05    ora $05
+33c7 05 09    ora $09
+33c9 0a       asl a
+33ca 02       ???
+33cb 0a       asl a
+33cc 05 09    ora $09
+33ce 09 09    ora #$09
+33d0 0a       asl a
+33d1 02       ???
+33d2 02       ???
+33d3 09 02    ora #$02
+33d5 0a       asl a
+33d6 02       ???
+33d7 07       ???
+33d8 07       ???
+33d9 07       ???
+33da 07       ???
+33db 03       ???
+33dc 07       ???
+33dd 07       ???
+33de 07       ???
+33df 07       ???
+33e0 0a       asl a
+33e1 03       ???
+33e2 0a       asl a
+33e3 03       ???
+33e4 0a       asl a
+33e5 0a       asl a
+33e6 03       ???
+33e7 0a       asl a
+33e8 03       ???
+33e9 0a       asl a
+33ea 03       ???
+33eb 0a       asl a
+33ec 03       ???
+33ed 0a       asl a
+33ee 03       ???
+33ef 50 50    bvc $3441
+33f1 50 50    bvc $3443
+33f3 50 50    bvc $3445
+33f5 50 50    bvc $3447
+33f7 40       rti 
+33f8 40       rti 
+33f9 40       rti 
+33fa 40       rti 
+33fb 40       rti 
+33fc 40       rti 
+33fd 40       rti 
+33fe 40       rti 
+33ff 30 30    bmi $3431
+3401 30 30    bmi $3433
+3403 30 30    bmi $3435
+3405 30 30    bmi $3437
+3407 50 68    bvc $3471
+3409 80       ???
+340a 98       tya 
+340b b0 c8    bcs $33d5
+340d e0 f8    cpx #$f8
+340f 50 68    bvc $3479
+3411 80       ???
+3412 98       tya 
+3413 b0 c8    bcs $33dd
+3415 e0 f8    cpx #$f8
+3417 50 68    bvc $3481
+3419 80       ???
+341a 98       tya 
+341b b0 c8    bcs $33e5
+341d e0 f8    cpx #$f8
+341f 00       brk 
+3420 00       brk 
+3421 00       brk 
+3422 00       brk 
+3423 00       brk 
+3424 00       brk 
+3425 00       brk 
+3426 00       brk 
+3427 00       brk 
+3428 00       brk 
+3429 00       brk 
+342a 00       brk 
+342b 00       brk 
+342c 00       brk 
+342d 00       brk 
+342e 00       brk 
+342f 00       brk 
+3430 00       brk 
+3431 00       brk 
+3432 00       brk 
+3433 00       brk 
+3434 00       brk 
+3435 00       brk 
+3436 00       brk 
+3437 01 02    ora ($02,x)
+3439 04       ???
+343a 08       php 
+343b 10 20    bpl $345d
+343d 40       rti 
+343e 80       ???
+343f fe fd fb inc $fbfd,x
+3442 f7       ???
+3443 ef       ???
+3444 df       ???
+3445 bf       ???
+3446 7f       ???
+3447 fe fe fe inc $fefe,x
+344a ff       ???
+344b 00       brk 
+344c 01 02    ora ($02,x)
+344e 02       ???
+344f 02       ???
+3450 02       ???
+3451 02       ???
+3452 01 00    ora ($00,x)
+3454 ff       ???
+3455 fe fe 00 inc $00fe,x
+3458 01 02    ora ($02,x)
+345a 02       ???
+345b 02       ???
+345c 02       ???
+345d 02       ???
+345e 01 00    ora ($00,x)
+3460 ff       ???
+3461 fe fe fe inc $fefe,x
+3464 fe fe ff inc $fffe,x
+3467 86 02    stx $02
+3469 84 03    sty $03
+346b a0 00    ldy #$00
+346d 84 07    sty $07
+346f b1 02    lda ($02),y
+3471 85 04    sta $04
+3473 85 09    sta $09
+3475 c8       iny 
+3476 b1 02    lda ($02),y
+3478 85 05    sta $05
+347a 18       clc 
+347b 69 d4    adc #$d4
+347d 85 0a    sta $0a
+347f c8       iny 
+3480 b1 02    lda ($02),y
+3482 85 08    sta $08
+3484 c8       iny 
+3485 b1 02    lda ($02),y
+3487 c9 ff    cmp #$ff
+3489 f0 66    beq $34f1
+348b c9 fe    cmp #$fe
+348d f0 22    beq $34b1
+348f c9 fd    cmp #$fd
+3491 f0 2e    beq $34c1
+3493 c9 fc    cmp #$fc
+3495 f0 3d    beq $34d4
+3497 84 06    sty $06
+3499 a4 07    ldy $07
+349b 91 04    sta ($04),y
+349d a5 08    lda $08
+349f 91 09    sta ($09),y
+34a1 e6 07    inc $07
+34a3 a4 06    ldy $06
+34a5 a5 15    lda $15
+34a7 f0 db    beq $3484
+34a9 a2 0a    ldx #$0a
+34ab 20 25 e3 jsr $e325
+34ae 4c 84 f4 jmp $f484
+34b1 c8       iny 
+34b2 18       clc 
+34b3 98       tya 
+34b4 65 02    adc $02
+34b6 85 02    sta $02
+34b8 a5 03    lda $03
+34ba 69 00    adc #$00
+34bc 85 03    sta $03
+34be 4c 6b f4 jmp $f46b
+34c1 18       clc 
+34c2 a5 04    lda $04
+34c4 69 28    adc #$28
+34c6 85 04    sta $04
+34c8 a5 05    lda $05
+34ca 69 00    adc #$00
+34cc 85 05    sta $05
+34ce a9 00    lda #$00
+34d0 85 07    sta $07
+34d2 f0 b0    beq $3484
+34d4 a5 e6    lda $e6
+34d6 18       clc 
+34d7 65 04    adc $04
+34d9 90 02    bcc $34dd
+34db e6 05    inc $05
+34dd 85 04    sta $04
+34df 85 e6    sta $e6
+34e1 18       clc 
+34e2 65 09    adc $09
+34e4 90 02    bcc $34e8
+34e6 e6 0a    inc $0a
+34e8 85 09    sta $09
+34ea a5 e8    lda $e8
+34ec 85 08    sta $08
+34ee 4c 84 f4 jmp $f484
+34f1 a9 00    lda #$00
+34f3 85 15    sta $15
+34f5 60       rts 
+34f6 d9 06 0b cmp $0b06,y
+34f9 0f       ???
+34fa 14       ???
+34fb 59 0f 39 eor $390f,y
+34fe 17       ???
+34ff 0f       ???
+3500 14       ???
+3501 18       clc 
+3502 17       ???
+3503 19 0f 15 ora $150f,y
+3506 39 0f 12 and $120f,y
+3509 15 16    ora $16,x
+350b 17       ???
+350c 15 0f    ora $0f,x
+350e fe ff 06 inc $06ff,x
+3511 0b       ???
+3512 0f       ???
+3513 16 27    asl $27,x
+3515 1a       ???
+3516 18       clc 
+3517 1b       ???
+3518 1a       ???
+3519 0f       ???
+351a 0f       ???
+351b 1c       ???
+351c 27       ???
+351d 1c       ???
+351e 19 14 15 ora $1514,y
+3521 0f       ???
+3522 0f       ???
+3523 25 27    and $27
+3525 17       ???
+3526 18       clc 
+3527 1e 13 15 asl $1513,x
+352a 0f       ???
+352b fe 2b 07 inc $072b,x
+352e 0b       ???
+352f 0f       ???
+3530 39 17 0f and $0f17,y
+3533 11 12    ora ($12),y
+3535 19 0f 1f ora $1f0f,y
+3538 39 20 12 and $1220,y
+353b 15 18    ora $18,x
+353d 1b       ???
+353e 1a       ???
+353f 0f       ???
+3540 fe 9b 07 inc $079b,x
+3543 0b       ???
+3544 0f       ???
+3545 34       ???
+3546 35 2b    and $2b,x
+3548 33       ???
+3549 32       ???
+354a 2c 0f 1b bit $1b0f
+354d 39 22 22 and $2222,y
+3550 39 23 39 and $3923,y
+3553 17       ???
+3554 19 0f 0f ora $0f0f,y
+3557 34       ???
+3558 35 2b    and $2b,x
+355a 33       ???
+355b 32       ???
+355c 2b       ???
+355d 0f       ???
+355e 21 16    and ($16,x)
+3560 1c       ???
+3561 1c       ???
+3562 20 0f ff jsr $ff0f
+3565 c3       ???
+3566 05 07    ora $07
+3568 67       ???
+3569 69 6b    adc #$6b
+356b 6d 6f 71 adc $716f
+356e 73       ???
+356f 75 77    adc $77,x
+3571 79 7b 7d adc $7d7b,y
+3574 7f       ???
+3575 5c       ???
+3576 fe eb 05 inc $05eb,x
+3579 07       ???
+357a 68       pla 
+357b 6a       ror a
+357c 6c 6e 70 jmp ($706e)
+357f 72       ???
+3580 74       ???
+3581 76 78    ror $78,x
+3583 7a       ???
+3584 7c       ???
+3585 7e 5b 5d ror $5d5b,x
+3588 ff       ???
+3589 ff       ???
+358a 00       brk 
+358b ff       ???
+358c 02       ???
+358d ff       ???
+358e 02       ???
+358f ff       ???
+3590 00       brk 
+3591 ff       ???
+3592 00       brk 
+3593 ff       ???
+3594 02       ???
+3595 ff       ???
+3596 00       brk 
+3597 ff       ???
+3598 02       ???
+3599 ff       ???
+359a 02       ???
+359b ff       ???
+359c 02       ???
+359d ff       ???
+359e 02       ???
+359f ff       ???
+35a0 00       brk 
+35a1 ff       ???
+35a2 00       brk 
+35a3 3f       ???
+35a4 bf       ???
+35a5 ff       ???
+35a6 02       ???
+35a7 ff       ???
+35a8 02       ???
+35a9 ff       ???
+35aa 02       ???
+35ab ff       ???
+35ac 00       brk 
+35ad ff       ???
+35ae 02       ???
+35af ff       ???
+35b0 00       brk 
+35b1 ff       ???
+35b2 00       brk 
+35b3 ff       ???
+35b4 02       ???
+35b5 bf       ???
+35b6 0f       ???
+35b7 bf       ???
+35b8 02       ???
+35b9 ff       ???
+35ba 00       brk 
+35bb ff       ???
+35bc 02       ???
+35bd b7       ???
+35be 32       ???
+35bf bf       ???
+35c0 24 ff    bit $ff
+35c2 00       brk 
+35c3 ff       ???
+35c4 27       ???
+35c5 ff       ???
+35c6 00       brk 
+35c7 7f       ???
+35c8 bf       ???
+35c9 bf       ???
+35ca 20 ff 27 jsr $27ff
+35cd ff       ???
+35ce 27       ???
+35cf ff       ???
+35d0 27       ???
+35d1 ff       ???
+35d2 00       brk 
+35d3 ff       ???
+35d4 27       ???
+35d5 ff       ???
+35d6 27       ???
+35d7 ff       ???
+35d8 27       ???
+35d9 ff       ???
+35da 27       ???
+35db ff       ???
+35dc 27       ???
+35dd ff       ???
+35de 27       ???
+35df 3f       ???
+35e0 27       ???
+35e1 ff       ???
+35e2 27       ???
+35e3 ff       ???
+35e4 27       ???
+35e5 ff       ???
+35e6 27       ???
+35e7 ff       ???
+35e8 27       ???
+35e9 ff       ???
+35ea 27       ???
+35eb ff       ???
+35ec 27       ???
+35ed bf       ???
+35ee 03       ???
+35ef ff       ???
+35f0 27       ???
+35f1 ff       ???
+35f2 27       ???
+35f3 ff       ???
+35f4 27       ???
+35f5 ff       ???
+35f6 27       ???
+35f7 ff       ???
+35f8 27       ???
+35f9 ff       ???
+35fa 00       brk 
+35fb ff       ???
+35fc 27       ???
+35fd ff       ???
+35fe 00       brk 
+35ff ff       ???
+3600 ff       ???
+3601 de ff 00 dec $00ff,x
+3604 e5 49    sbc $49
+3606 ce 00 fd dec $fd00
+3609 00       brk 
+360a ff       ???
+360b 00       brk 
+360c fd 00 fd sbc $fd00,x
+360f 00       brk 
+3610 ff       ???
+3611 00       brk 
+3612 ff       ???
+3613 00       brk 
+3614 fd 00 ff sbc $ff00,x
+3617 00       brk 
+3618 fd 00 ff sbc $ff00,x
+361b 00       brk 
+361c fd 00 fd sbc $fd00,x
+361f 00       brk 
+3620 ff       ???
+3621 00       brk 
+3622 ff       ???
+3623 ce cf 00 dec $00cf
+3626 ff       ???
+3627 00       brk 
+3628 fd 00 fd sbc $fd00,x
+362b 00       brk 
+362c ff       ???
+362d 00       brk 
+362e fd 00 ff sbc $ff00,x
+3631 00       brk 
+3632 ff       ???
+3633 00       brk 
+3634 fd cf fe sbc $fecf,x
+3637 ce fd 00 dec $00fd
+363a ff       ???
+363b 20 fd 4b jsr $4bfd
+363e cf       ???
+363f dc       ???
+3640 db       ???
+3641 00       brk 
+3642 ff       ???
+3643 00       brk 
+3644 d8       cld 
+3645 00       brk 
+3646 ff       ???
+3647 8c cd ce sty $cecd
+364a df       ???
+364b 00       brk 
+364c d8       cld 
+364d 00       brk 
+364e d8       cld 
+364f 00       brk 
+3650 d8       cld 
+3651 00       brk 
+3652 ff       ???
+3653 00       brk 
+3654 d8       cld 
+3655 00       brk 
+3656 d8       cld 
+3657 00       brk 
+3658 d8       cld 
+3659 00       brk 
+365a d8       cld 
+365b 00       brk 
+365c d8       cld 
+365d 00       brk 
+365e d8       cld 
+365f ce d8 00 dec $00d8
+3662 d8       cld 
+3663 00       brk 
+3664 d8       cld 
+3665 00       brk 
+3666 d8       cld 
+3667 00       brk 
+3668 d8       cld 
+3669 00       brk 
+366a d8       cld 
+366b 00       brk 
+366c d8       cld 
+366d ce fe 00 dec $00fe
+3670 d8       cld 
+3671 00       brk 
+3672 d8       cld 
+3673 00       brk 
+3674 d8       cld 
+3675 00       brk 
+3676 d8       cld 
+3677 00       brk 
+3678 d8       cld 
+3679 00       brk 
+367a ff       ???
+367b 00       brk 
+367c d8       cld 
+367d 60       rts 
+367e ff       ???
+367f 00       brk 
+3680 00       brk 
+3681 2d 00 ff and $ff00
+3684 1a       ???
+3685 ff       ???
+3686 bd ff 02 lda $02ff,x
+3689 ff       ???
+368a 00       brk 
+368b ff       ???
+368c 02       ???
+368d ff       ???
+368e 02       ???
+368f ff       ???
+3690 00       brk 
+3691 ff       ???
+3692 00       brk 
+3693 ff       ???
+3694 02       ???
+3695 ff       ???
+3696 00       brk 
+3697 ff       ???
+3698 02       ???
+3699 ff       ???
+369a 02       ???
+369b ff       ???
+369c 02       ???
+369d ff       ???
+369e 02       ???
+369f ff       ???
+36a0 00       brk 
+36a1 ff       ???
+36a2 00       brk 
+36a3 31 bf    and ($bf),y
+36a5 ff       ???
+36a6 00       brk 
+36a7 ff       ???
+36a8 02       ???
+36a9 ff       ???
+36aa 02       ???
+36ab ff       ???
+36ac 00       brk 
+36ad ff       ???
+36ae 02       ???
+36af ff       ???
+36b0 00       brk 
+36b1 ff       ???
+36b2 00       brk 
+36b3 ff       ???
+36b4 02       ???
+36b5 bf       ???
+36b6 09 bf    ora #$bf
+36b8 02       ???
+36b9 ff       ???
+36ba 00       brk 
+36bb df       ???
+36bc 02       ???
+36bd b7       ???
+36be b6 bf    ldx $bf,y
+36c0 24 ff    bit $ff
+36c2 00       brk 
+36c3 ff       ???
+36c4 27       ???
+36c5 ff       ???
+36c6 00       brk 
+36c7 ff       ???
+36c8 bf       ???
+36c9 bf       ???
+36ca 20 ff 27 jsr $27ff
+36cd ff       ???
+36ce 27       ???
+36cf ff       ???
+36d0 27       ???
+36d1 ff       ???
+36d2 00       brk 
+36d3 ff       ???
+36d4 27       ???
+36d5 ff       ???
+36d6 27       ???
+36d7 ff       ???
+36d8 27       ???
+36d9 ff       ???
+36da 27       ???
+36db ff       ???
+36dc 27       ???
+36dd ff       ???
+36de 27       ???
+36df 39 27 ff and $ff27,y
+36e2 27       ???
+36e3 ff       ???
+36e4 27       ???
+36e5 ff       ???
+36e6 27       ???
+36e7 ff       ???
+36e8 27       ???
+36e9 ff       ???
+36ea 27       ???
+36eb ff       ???
+36ec 27       ???
+36ed bd 01 ff lda $ff01,x
+36f0 27       ???
+36f1 ff       ???
+36f2 27       ???
+36f3 ff       ???
+36f4 27       ???
+36f5 ff       ???
+36f6 27       ???
+36f7 ff       ???
+36f8 27       ???
+36f9 ff       ???
+36fa 00       brk 
+36fb ff       ???
+36fc 27       ???
+36fd ff       ???
+36fe 00       brk 
+36ff ff       ???
+3700 ff       ???
+3701 da       ???
+3702 ff       ???
+3703 00       brk 
+3704 ed 09 cf sbc $cf09
+3707 00       brk 
+3708 fd 00 ff sbc $ff00,x
+370b 00       brk 
+370c fd 00 fd sbc $fd00,x
+370f 00       brk 
+3710 ff       ???
+3711 00       brk 
+3712 ff       ???
+3713 00       brk 
+3714 fd 00 ff sbc $ff00,x
+3717 00       brk 
+3718 fd 00 ff sbc $ff00,x
+371b 00       brk 
+371c fd 00 fd sbc $fd00,x
+371f 00       brk 
+3720 ff       ???
+3721 00       brk 
+3722 ff       ???
+3723 ce ce 00 dec $00ce
+3726 ff       ???
+3727 00       brk 
+3728 fd 00 fd sbc $fd00,x
+372b 00       brk 
+372c ff       ???
+372d 00       brk 
+372e fd 00 ff sbc $ff00,x
+3731 00       brk 
+3732 ff       ???
+3733 00       brk 
+3734 fd 46 fe sbc $fe46,x
+3737 c6 fd    dec $fd
+3739 00       brk 
+373a ff       ???
+373b 20 fd 4b jsr $4bfd
+373e cf       ???
+373f 40       rti 
+3740 db       ???
+3741 01 f9    ora ($f9,x)
+3743 01 d9    ora ($d9,x)
+3745 01 ff    ora ($ff,x)
+3747 8b       ???
+3748 cd cf df cmp $dfcf
+374b 01 d9    ora ($d9,x)
+374d 01 d9    ora ($d9,x)
+374f 01 d9    ora ($d9,x)
+3751 01 ff    ora ($ff,x)
+3753 01 d9    ora ($d9,x)
+3755 01 d9    ora ($d9,x)
+3757 01 d9    ora ($d9,x)
+3759 01 d9    ora ($d9,x)
+375b 01 d9    ora ($d9,x)
+375d 01 d9    ora ($d9,x)
+375f ce d9 01 dec $01d9
+3762 d9 01 d9 cmp $d901,y
+3765 01 d9    ora ($d9,x)
+3767 01 d9    ora ($d9,x)
+3769 01 d9    ora ($d9,x)
+376b 01 d9    ora ($d9,x)
+376d cf       ???
+376e f9 01 d9 sbc $d901,y
+3771 01 d9    ora ($d9,x)
+3773 01 d9    ora ($d9,x)
+3775 01 d9    ora ($d9,x)
+3777 01 d9    ora ($d9,x)
+3779 01 ff    ora ($ff,x)
+377b 01 d9    ora ($d9,x)
+377d 01 ff    ora ($ff,x)
+377f 00       brk 
+3780 00       brk 
+3781 af       ???
+3782 00       brk 
+3783 ff       ???
+3784 12       ???
+3785 ff       ???
+3786 bf       ???
+3787 ff       ???
+3788 02       ???
+3789 ff       ???
+378a 00       brk 
+378b ff       ???
+378c 02       ???
+378d ff       ???
+378e 02       ???
+378f ff       ???
+3790 00       brk 
+3791 ff       ???
+3792 00       brk 
+3793 ff       ???
+3794 02       ???
+3795 ff       ???
+3796 00       brk 
+3797 ff       ???
+3798 02       ???
+3799 ff       ???
+379a 02       ???
+379b ff       ???
+379c 02       ???
+379d ff       ???
+379e 02       ???
+379f ff       ???
+37a0 00       brk 
+37a1 ff       ???
+37a2 00       brk 
+37a3 3f       ???
+37a4 bf       ???
+37a5 ff       ???
+37a6 02       ???
+37a7 ff       ???
+37a8 02       ???
+37a9 ff       ???
+37aa 02       ???
+37ab ff       ???
+37ac 00       brk 
+37ad ff       ???
+37ae 02       ???
+37af ff       ???
+37b0 00       brk 
+37b1 ff       ???
+37b2 00       brk 
+37b3 ff       ???
+37b4 00       brk 
+37b5 bf       ???
+37b6 0f       ???
+37b7 bf       ???
+37b8 02       ???
+37b9 ff       ???
+37ba 00       brk 
+37bb ff       ???
+37bc 02       ???
+37bd b7       ???
+37be 32       ???
+37bf bf       ???
+37c0 24 ff    bit $ff
+37c2 00       brk 
+37c3 ff       ???
+37c4 27       ???
+37c5 ff       ???
+37c6 00       brk 
+37c7 ff       ???
+37c8 b7       ???
+37c9 bf       ???
+37ca 20 ff 27 jsr $27ff
+37cd ff       ???
+37ce 27       ???
+37cf ff       ???
+37d0 27       ???
+37d1 ff       ???
+37d2 00       brk 
+37d3 ff       ???
+37d4 27       ???
+37d5 ff       ???
+37d6 27       ???
+37d7 ff       ???
+37d8 27       ???
+37d9 ff       ???
+37da 27       ???
+37db ff       ???
+37dc 27       ???
+37dd ff       ???
+37de 27       ???
+37df bf       ???
+37e0 27       ???
+37e1 ff       ???
+37e2 27       ???
+37e3 ff       ???
+37e4 27       ???
+37e5 ff       ???
+37e6 27       ???
+37e7 ff       ???
+37e8 27       ???
+37e9 ff       ???
+37ea 27       ???
+37eb ff       ???
+37ec 27       ???
+37ed bf       ???
+37ee 01 ff    ora ($ff,x)
+37f0 27       ???
+37f1 ff       ???
+37f2 27       ???
+37f3 ff       ???
+37f4 27       ???
+37f5 ff       ???
+37f6 27       ???
+37f7 ff       ???
+37f8 27       ???
+37f9 ff       ???
+37fa 00       brk 
+37fb ff       ???
+37fc 27       ???
+37fd ff       ???
+37fe 00       brk 
+37ff ff       ???
+3800 ff       ???
+3801 ff       ???
+3802 fe fe fa inc $fafe,x
+3805 fa       ???
+3806 ea       nop 
+3807 ea       nop 
+3808 c0 c0    cpy #$c0
+380a f0 f0    beq $37fc
+380c fc       ???
+380d fc       ???
+380e ff       ???
+380f ff       ???
+3810 ff       ???
+3811 ff       ???
+3812 ff       ???
+3813 ff       ???
+3814 ff       ???
+3815 ff       ???
+3816 ff       ???
+3817 ff       ???
+3818 55 55    eor $55,x
+381a 55 55    eor $55,x
+381c 55 95    eor $95,x
+381e a5 a9    lda $a9
+3820 55 95    eor $95,x
+3822 a5 a9    lda $a9
+3824 aa       tax 
+3825 aa       tax 
+3826 aa       tax 
+3827 aa       tax 
+3828 00       brk 
+3829 00       brk 
+382a 00       brk 
+382b 00       brk 
+382c 03       ???
+382d 0f       ???
+382e 3f       ???
+382f ff       ???
+3830 03       ???
+3831 0f       ???
+3832 3f       ???
+3833 ff       ???
+3834 ff       ???
+3835 ff       ???
+3836 ff       ???
+3837 ff       ???
+3838 55 55    eor $55,x
+383a 55 55    eor $55,x
+383c 55 55    eor $55,x
+383e 55 55    eor $55,x
+3840 ff       ???
+3841 ff       ???
+3842 ff       ???
+3843 e7       ???
+3844 e7       ???
+3845 ff       ???
+3846 ff       ???
+3847 ff       ???
+3848 aa       tax 
+3849 be be be ldx $bebe,y
+384c be be be ldx $bebe,y
+384f aa       tax 
+3850 d5 d5    cmp $d5,x
+3852 f5 f5    sbc $f5,x
+3854 fd fd ff sbc $fffd,x
+3857 ff       ???
+3858 aa       tax 
+3859 aa       tax 
+385a aa       tax 
+385b aa       tax 
+385c ab       ???
+385d af       ???
+385e bf       ???
+385f ff       ???
+3860 ab       ???
+3861 af       ???
+3862 bf       ???
+3863 ff       ???
+3864 ff       ???
+3865 ff       ???
+3866 ff       ???
+3867 ff       ???
+3868 ff       ???
+3869 ff       ???
+386a c3       ???
+386b c3       ???
+386c c3       ???
+386d c3       ???
+386e ff       ???
+386f ff       ???
+3870 00       brk 
+3871 00       brk 
+3872 00       brk 
+3873 ff       ???
+3874 00       brk 
+3875 00       brk 
+3876 00       brk 
+3877 00       brk 
+3878 00       brk 
+3879 00       brk 
+387a 00       brk 
+387b 00       brk 
+387c 00       brk 
+387d 00       brk 
+387e 00       brk 
+387f 00       brk 
+3880 71 3f    adc ($3f),y
+3882 1e 00 00 asl $0000,x
+3885 00       brk 
+3886 00       brk 
+3887 00       brk 
+3888 00       brk 
+3889 cc cc cc cpy $cccc
+388c cc cc cc cpy $cccc
+388f fc       ???
+3890 00       brk 
+3891 fc       ???
+3892 c0 c0    cpy #$c0
+3894 fc       ???
+3895 0c       ???
+3896 0c       ???
+3897 fc       ???
+3898 00       brk 
+3899 cc cc cc cpy $cccc
+389c fc       ???
+389d cc cc cc cpy $cccc
+38a0 00       brk 
+38a1 fc       ???
+38a2 c0 c0    cpy #$c0
+38a4 f0 c0    beq $3866
+38a6 c0 c0    cpy #$c0
+38a8 00       brk 
+38a9 fc       ???
+38aa 30 30    bmi $38dc
+38ac 30 30    bmi $38de
+38ae 30 30    bmi $38e0
+38b0 00       brk 
+38b1 fc       ???
+38b2 cc cc fc cpy $fccc
+38b5 cc cc cc cpy $cccc
+38b8 00       brk 
+38b9 fc       ???
+38ba cc cc fc cpy $fccc
+38bd f0 cc    beq $388b
+38bf cc 00 fc cpy $fc00
+38c2 30 30    bmi $38f4
+38c4 30 30    bmi $38f6
+38c6 30 fc    bmi $38c4
+38c8 00       brk 
+38c9 fc       ???
+38ca c0 c0    cpy #$c0
+38cc f0 c0    beq $388e
+38ce c0 fc    cpy #$fc
+38d0 00       brk 
+38d1 cc cc cc cpy $cccc
+38d4 f0 cc    beq $38a2
+38d6 cc cc 00 cpy $00cc
+38d9 fc       ???
+38da c0 c0    cpy #$c0
+38dc c0 c0    cpy #$c0
+38de c0 fc    cpy #$fc
+38e0 00       brk 
+38e1 c0 c0    cpy #$c0
+38e3 c0 c0    cpy #$c0
+38e5 c0 c0    cpy #$c0
+38e7 fc       ???
+38e8 00       brk 
+38e9 00       brk 
+38ea 00       brk 
+38eb 0c       ???
+38ec 00       brk 
+38ed 0c       ???
+38ee 0c       ???
+38ef 30 00    bmi $38f1
+38f1 fc       ???
+38f2 c0 c0    cpy #$c0
+38f4 cc cc cc cpy $cccc
+38f7 fc       ???
+38f8 00       brk 
+38f9 0c       ???
+38fa 0c       ???
+38fb 0c       ???
+38fc 0c       ???
+38fd cc cc fc cpy $fccc
+3900 00       brk 
+3901 cc cc cc cpy $cccc
+3904 fc       ???
+3905 30 30    bmi $3937
+3907 30 00    bmi $3909
+3909 f0 cc    beq $38d7
+390b cc f0 cc cpy $ccf0
+390e cc f0 00 cpy $00f0
+3911 fc       ???
+3912 fc       ???
+3913 fc       ???
+3914 cc cc cc cpy $cccc
+3917 cc 00 f0 cpy $f000
+391a cc cc cc cpy $cccc
+391d cc cc f0 cpy $f0cc
+3920 00       brk 
+3921 cc cc cc cpy $cccc
+3924 cc cc 30 cpy $30cc
+3927 30 0c    bmi $3935
+3929 00       brk 
+392a 18       clc 
+392b 00       brk 
+392c 18       clc 
+392d 18       clc 
+392e 30 60    bmi $3990
+3930 ff       ???
+3931 ff       ???
+3932 00       brk 
+3933 81 c7    sta ($c7,x)
+3935 c3       ???
+3936 c3       ???
+3937 c7       ???
+3938 00       brk 
+3939 00       brk 
+393a 00       brk 
+393b 7e 00 00 ror $0000,x
+393e 00       brk 
+393f 00       brk 
+3940 d7       ???
+3941 f7       ???
+3942 e7       ???
+3943 02       ???
+3944 00       brk 
+3945 00       brk 
+3946 00       brk 
+3947 00       brk 
+3948 f0 fc    beq $3946
+394a 06 33    asl $33
+394c 7b       ???
+394d fb       ???
+394e 9b       ???
+394f 3b       ???
+3950 00       brk 
+3951 54       ???
+3952 44       ???
+3953 44       ???
+3954 44       ???
+3955 44       ???
+3956 44       ???
+3957 54       ???
+3958 00       brk 
+3959 50 10    bvc $396b
+395b 10 10    bpl $396d
+395d 10 10    bpl $396f
+395f 54       ???
+3960 00       brk 
+3961 54       ???
+3962 04       ???
+3963 04       ???
+3964 54       ???
+3965 40       rti 
+3966 40       rti 
+3967 54       ???
+3968 00       brk 
+3969 54       ???
+396a 04       ???
+396b 04       ???
+396c 54       ???
+396d 04       ???
+396e 04       ???
+396f 54       ???
+3970 00       brk 
+3971 04       ???
+3972 44       ???
+3973 44       ???
+3974 54       ???
+3975 04       ???
+3976 04       ???
+3977 04       ???
+3978 00       brk 
+3979 54       ???
+397a 40       rti 
+397b 54       ???
+397c 04       ???
+397d 04       ???
+397e 04       ???
+397f 54       ???
+3980 00       brk 
+3981 54       ???
+3982 40       rti 
+3983 40       rti 
+3984 54       ???
+3985 44       ???
+3986 44       ???
+3987 54       ???
+3988 00       brk 
+3989 54       ???
+398a 44       ???
+398b 04       ???
+398c 04       ???
+398d 04       ???
+398e 04       ???
+398f 04       ???
+3990 00       brk 
+3991 54       ???
+3992 44       ???
+3993 44       ???
+3994 54       ???
+3995 44       ???
+3996 44       ???
+3997 54       ???
+3998 00       brk 
+3999 54       ???
+399a 44       ???
+399b 44       ???
+399c 54       ???
+399d 04       ???
+399e 04       ???
+399f 54       ???
+39a0 00       brk 
+39a1 0f       ???
+39a2 30 c3    bmi $3967
+39a4 cc c3 30 cpy $30c3
+39a7 0f       ???
+39a8 00       brk 
+39a9 c0 30    cpy #$30
+39ab 0c       ???
+39ac 0c       ???
+39ad 0c       ???
+39ae 30 c0    bmi $3970
+39b0 ff       ???
+39b1 ff       ???
+39b2 00       brk 
+39b3 38       sec 
+39b4 fe ce ce inc $cece,x
+39b7 dd 9f 9f cmp $9f9f,x
+39ba 8e 00 00 stx $0000
+39bd 00       brk 
+39be 00       brk 
+39bf 00       brk 
+39c0 ff       ???
+39c1 ff       ???
+39c2 00       brk 
+39c3 3f       ???
+39c4 7f       ???
+39c5 40       rti 
+39c6 3e 72 00 rol $0072,x
+39c9 fc       ???
+39ca cc cc cc cpy $cccc
+39cd cc cc fc cpy $fccc
+39d0 07       ???
+39d1 1f       ???
+39d2 3f       ???
+39d3 77       ???
+39d4 ef       ???
+39d5 ef       ???
+39d6 ef       ???
+39d7 ff       ???
+39d8 00       brk 
+39d9 c0 e0    cpy #$e0
+39db f0 f8    beq $39d5
+39dd f8       sed 
+39de f8       sed 
+39df f8       sed 
+39e0 7f       ???
+39e1 7f       ???
+39e2 3f       ???
+39e3 1f       ???
+39e4 07       ???
+39e5 02       ???
+39e6 01 00    ora ($00,x)
+39e8 f0 f0    beq $39da
+39ea e0 c0    cpx #$c0
+39ec 00       brk 
+39ed 0c       ???
+39ee 90 60    bcc $3a50
+39f0 00       brk 
+39f1 03       ???
+39f2 07       ???
+39f3 0e 1d 1d asl $1d1d
+39f6 1d 1f e0 ora $e01f,x
+39f9 f8       sed 
+39fa fc       ???
+39fb fe ff ff inc $ffff,x
+39fe ff       ???
+39ff ff       ???
+3a00 0f       ???
+3a01 0f       ???
+3a02 07       ???
+3a03 03       ???
+3a04 00       brk 
+3a05 00       brk 
+3a06 00       brk 
+3a07 00       brk 
+3a08 fe fe fc inc $fcfe,x
+3a0b f8       sed 
+3a0c e0 4c    cpx #$4c
+3a0e 32       ???
+3a0f 01 00    ora ($00,x)
+3a11 00       brk 
+3a12 0f       ???
+3a13 3f       ???
+3a14 7f       ???
+3a15 ff       ???
+3a16 1f       ???
+3a17 03       ???
+3a18 00       brk 
+3a19 00       brk 
+3a1a 00       brk 
+3a1b c0 e0    cpy #$e0
+3a1d f0 f0    beq $3a0f
+3a1f f0 03    beq $3a24
+3a21 1f       ???
+3a22 ff       ???
+3a23 7f       ???
+3a24 3f       ???
+3a25 0f       ???
+3a26 00       brk 
+3a27 00       brk 
+3a28 f0 f0    beq $3a1a
+3a2a f0 e0    beq $3a0c
+3a2c c0 00    cpy #$00
+3a2e 00       brk 
+3a2f 00       brk 
+3a30 00       brk 
+3a31 00       brk 
+3a32 00       brk 
+3a33 03       ???
+3a34 01 00    ora ($00,x)
+3a36 00       brk 
+3a37 00       brk 
+3a38 00       brk 
+3a39 00       brk 
+3a3a f0 fc    beq $3a38
+3a3c fe ff 7f inc $7fff,x
+3a3f 3f       ???
+3a40 00       brk 
+3a41 00       brk 
+3a42 00       brk 
+3a43 01 03    ora ($03,x)
+3a45 00       brk 
+3a46 00       brk 
+3a47 00       brk 
+3a48 3f       ???
+3a49 7f       ???
+3a4a ff       ???
+3a4b fe fc f0 inc $f0fc,x
+3a4e 00       brk 
+3a4f 00       brk 
+3a50 00       brk 
+3a51 00       brk 
+3a52 07       ???
+3a53 1f       ???
+3a54 3f       ???
+3a55 7f       ???
+3a56 7f       ???
+3a57 e7       ???
+3a58 00       brk 
+3a59 00       brk 
+3a5a 80       ???
+3a5b e0 f0    cpx #$f0
+3a5d f8       sed 
+3a5e f8       sed 
+3a5f 9c       ???
+3a60 e7       ???
+3a61 ff       ???
+3a62 ff       ???
+3a63 ff       ???
+3a64 cf       ???
+3a65 86 00    stx $00
+3a67 00       brk 
+3a68 9c       ???
+3a69 fc       ???
+3a6a fc       ???
+3a6b fc       ???
+3a6c 3c       ???
+3a6d 1c       ???
+3a6e 00       brk 
+3a6f 00       brk 
+3a70 00       brk 
+3a71 00       brk 
+3a72 01 07    ora ($07,x)
+3a74 0f       ???
+3a75 1f       ???
+3a76 19 39 00 ora $0039,y
+3a79 00       brk 
+3a7a e0 f8    cpx #$f8
+3a7c fc       ???
+3a7d fe e6 e7 inc $e7e6,x
+3a80 3f       ???
+3a81 3f       ???
+3a82 3f       ???
+3a83 3f       ???
+3a84 3c       ???
+3a85 38       sec 
+3a86 00       brk 
+3a87 00       brk 
+3a88 ff       ???
+3a89 ff       ???
+3a8a ff       ???
+3a8b ff       ???
+3a8c f3       ???
+3a8d 61 00    adc ($00,x)
+3a8f 00       brk 
+3a90 00       brk 
+3a91 01 03    ora ($03,x)
+3a93 04       ???
+3a94 08       php 
+3a95 0c       ???
+3a96 12       ???
+3a97 31 00    and ($00),y
+3a99 c0 60    cpy #$60
+3a9b 90 88    bcc $3a25
+3a9d 98       tya 
+3a9e a4 46    ldy $46
+3aa0 2e 31 12 rol $1231
+3aa3 0c       ???
+3aa4 08       php 
+3aa5 04       ???
+3aa6 03       ???
+3aa7 01 ba    ora ($ba,x)
+3aa9 46 a4    lsr $a4
+3aab 98       tya 
+3aac 88       dey 
+3aad 90 60    bcc $3b0f
+3aaf c0 00    cpy #$00
+3ab1 00       brk 
+3ab2 c2       ???
+3ab3 ca       dex 
+3ab4 8a       txa 
+3ab5 4b       ???
+3ab6 48       pha 
+3ab7 4b       ???
+3ab8 00       brk 
+3ab9 80       ???
+3aba a0 a8    ldy #$a8
+3abc e8       inx 
+3abd f8       sed 
+3abe c8       iny 
+3abf f8       sed 
+3ac0 43       ???
+3ac1 43       ???
+3ac2 48       pha 
+3ac3 5b       ???
+3ac4 56 16    lsr $16,x
+3ac6 05 01    ora $01
+3ac8 00       brk 
+3ac9 f0 30    beq $3afb
+3acb 30 30    bmi $3afd
+3acd 30 30    bmi $3aff
+3acf fc       ???
+3ad0 00       brk 
+3ad1 38       sec 
+3ad2 54       ???
+3ad3 92       ???
+3ad4 fe 92 54 inc $5492,x
+3ad7 38       sec 
+3ad8 c3       ???
+3ad9 c3       ???
+3ada e1 c0    sbc ($c0,x)
+3adc 00       brk 
+3add 00       brk 
+3ade 00       brk 
+3adf 00       brk 
+3ae0 00       brk 
+3ae1 00       brk 
+3ae2 00       brk 
+3ae3 80       ???
+3ae4 c0 c0    cpy #$c0
+3ae6 c0 c0    cpy #$c0
+3ae8 88       dey 
+3ae9 98       tya 
+3aea f0 e0    beq $3acc
+3aec 00       brk 
+3aed 00       brk 
+3aee 00       brk 
+3aef 00       brk 
+3af0 e1 e1    sbc ($e1,x)
+3af2 f0 78    beq $3b6c
+3af4 7f       ???
+3af5 3f       ???
+3af6 1f       ???
+3af7 0f       ???
+3af8 00       brk 
+3af9 00       brk 
+3afa 00       brk 
+3afb c3       ???
+3afc c7       ???
+3afd c7       ???
+3afe ce ce cf dec $cfce
+3b01 e7       ???
+3b02 c3       ???
+3b03 10 f0    bpl $3af5
+3b05 f0 e0    beq $3ae7
+3b07 80       ???
+3b08 00       brk 
+3b09 00       brk 
+3b0a 07       ???
+3b0b c7       ???
+3b0c e7       ???
+3b0d 77       ???
+3b0e 67       ???
+3b0f 17       ???
+3b10 f7       ???
+3b11 e7       ???
+3b12 ce 00 00 dec $0000
+3b15 00       brk 
+3b16 00       brk 
+3b17 00       brk 
+3b18 00       brk 
+3b19 00       brk 
+3b1a 07       ???
+3b1b 3a       ???
+3b1c 39 70 c3 and $c370,y
+3b1f e4 7b    cpx $7b
+3b21 3e 1d 0b rol $0b1d,x
+3b24 07       ???
+3b25 03       ???
+3b26 01 00    ora ($00,x)
+3b28 86 cf    stx $cf
+3b2a bf       ???
+3b2b 1f       ???
+3b2c 3f       ???
+3b2d bf       ???
+3b2e 2e 36 ba rol $ba36
+3b31 3c       ???
+3b32 cc fa f2 cpy $f2fa
+3b35 e9 d1    sbc #$d1
+3b37 a0 03    ldy #$03
+3b39 07       ???
+3b3a 0f       ???
+3b3b 0f       ???
+3b3c 0c       ???
+3b3d 06 00    asl $00
+3b3f 00       brk 
+3b40 00       brk 
+3b41 03       ???
+3b42 0f       ???
+3b43 3f       ???
+3b44 7f       ???
+3b45 ff       ???
+3b46 ff       ???
+3b47 c0 ff    cpy #$ff
+3b49 ff       ???
+3b4a ff       ???
+3b4b ff       ???
+3b4c ff       ???
+3b4d 7f       ???
+3b4e 7f       ???
+3b4f 7f       ???
+3b50 fb       ???
+3b51 fb       ???
+3b52 f9 f9 f8 sbc $f8f9,y
+3b55 f8       sed 
+3b56 00       brk 
+3b57 00       brk 
+3b58 e7       ???
+3b59 c7       ???
+3b5a cf       ???
+3b5b 9f       ???
+3b5c 7e f8 e0 ror $e0f8,x
+3b5f f0 f8    beq $3b59
+3b61 fc       ???
+3b62 fe ff ff inc $ffff,x
+3b65 7f       ???
+3b66 3f       ???
+3b67 0f       ???
+3b68 e0 c0    cpx #$c0
+3b6a 9f       ???
+3b6b 7f       ???
+3b6c 3e 3e 3e rol $3e3e,x
+3b6f 7f       ???
+3b70 7f       ???
+3b71 7c       ???
+3b72 31 87    and ($87),y
+3b74 ff       ???
+3b75 ff       ???
+3b76 fe f0 00 inc $00f0,x
+3b79 00       brk 
+3b7a 03       ???
+3b7b 0f       ???
+3b7c 1e 1c bc asl $bc1c,x
+3b7f 3c       ???
+3b80 3f       ???
+3b81 1f       ???
+3b82 8f       ???
+3b83 80       ???
+3b84 00       brk 
+3b85 00       brk 
+3b86 00       brk 
+3b87 00       brk 
+3b88 00       brk 
+3b89 00       brk 
+3b8a 87       ???
+3b8b c7       ???
+3b8c cf       ???
+3b8d 0f       ???
+3b8e 4f       ???
+3b8f df       ???
+3b90 de 9e 3e dec $3e9e,x
+3b93 7e 00 00 ror $0000,x
+3b96 00       brk 
+3b97 00       brk 
+3b98 00       brk 
+3b99 00       brk 
+3b9a 87       ???
+3b9b 8f       ???
+3b9c bf       ???
+3b9d 7c       ???
+3b9e f0 e0    beq $3b80
+3ba0 f8       sed 
+3ba1 7f       ???
+3ba2 3e 1c 08 rol $081c,x
+3ba5 00       brk 
+3ba6 00       brk 
+3ba7 00       brk 
+3ba8 00       brk 
+3ba9 00       brk 
+3baa c1 87    cmp ($87,x)
+3bac 03       ???
+3bad 03       ???
+3bae 03       ???
+3baf 07       ???
+3bb0 07       ???
+3bb1 0f       ???
+3bb2 0f       ???
+3bb3 06 00    asl $00
+3bb5 00       brk 
+3bb6 00       brk 
+3bb7 00       brk 
+3bb8 00       brk 
+3bb9 00       brk 
+3bba dd ff ff cmp $ffff,x
+3bbd ff       ???
+3bbe de 9c 9c dec $9c9c,x
+3bc1 3d 01 00 and $0001,x
+3bc4 00       brk 
+3bc5 00       brk 
+3bc6 00       brk 
+3bc7 00       brk 
+3bc8 00       brk 
+3bc9 00       brk 
+3bca c0 e0    cpy #$e0
+3bcc f1 f0    sbc ($f0),y
+3bce f0 f0    beq $3bc0
+3bd0 e1 eb    sbc ($eb,x)
+3bd2 f1 e0    sbc ($e0),y
+3bd4 00       brk 
+3bd5 00       brk 
+3bd6 00       brk 
+3bd7 00       brk 
+3bd8 00       brk 
+3bd9 00       brk 
+3bda 3f       ???
+3bdb ff       ???
+3bdc c3       ???
+3bdd c1 39    cmp ($39,x)
+3bdf f9 99 83 sbc $8399,y
+3be2 fe f8 00 inc $00f8,x
+3be5 00       brk 
+3be6 00       brk 
+3be7 00       brk 
+3be8 00       brk 
+3be9 00       brk 
+3bea 87       ???
+3beb c3       ???
+3bec e1 e1    sbc ($e1,x)
+3bee e1 c1    sbc ($c1,x)
+3bf0 c3       ???
+3bf1 cb       ???
+3bf2 fb       ???
+3bf3 71 00    adc ($00),y
+3bf5 00       brk 
+3bf6 00       brk 
+3bf7 00       brk 
+3bf8 00       brk 
+3bf9 00       brk 
+3bfa c0 ef    cpy #$ef
+3bfc ff       ???
+3bfd ff       ???
+3bfe f3       ???
+3bff e3       ???
+3c00 00       brk 
+3c01 04       ???
+3c02 00       brk 
+3c03 00       brk 
+3c04 04       ???
+3c05 00       brk 
+3c06 00       brk 
+3c07 15 00    ora $00,x
+3c09 00       brk 
+3c0a 55 40    eor $40,x
+3c0c 00       brk 
+3c0d 2f       ???
+3c0e 00       brk 
+3c0f 00       brk 
+3c10 0b       ???
+3c11 00       brk 
+3c12 00       brk 
+3c13 eb       ???
+3c14 00       brk 
+3c15 00       brk 
+3c16 eb       ???
+3c17 00       brk 
+3c18 00       brk 
+3c19 2b       ???
+3c1a 00       brk 
+3c1b 00       brk 
+3c1c 3b       ???
+3c1d 00       brk 
+3c1e 00       brk 
+3c1f 2a       rol a
+3c20 00       brk 
+3c21 00       brk 
+3c22 77       ???
+3c23 40       rti 
+3c24 00       brk 
+3c25 1d 00 00 ora $0000,x
+3c28 5d 40 01 eor $0140,x
+3c2b 5d 50 01 eor $0150,x
+3c2e 5f       ???
+3c2f 50 01    bvc $3c32
+3c31 1f       ???
+3c32 10 01    bpl $3c35
+3c34 1f       ???
+3c35 10 02    bpl $3c39
+3c37 17       ???
+3c38 20 02 17 jsr $1702
+3c3b 20 00 15 jsr $1500
+3c3e 00       brk 
+3c3f 00       brk 
+3c40 01 55    ora ($55,x)
+3c42 00       brk 
+3c43 01 55    ora ($55,x)
+3c45 00       brk 
+3c46 01 55    ora ($55,x)
+3c48 00       brk 
+3c49 00       brk 
+3c4a 58       cli 
+3c4b 00       brk 
+3c4c 00       brk 
+3c4d 56 80    lsr $80,x
+3c4f 02       ???
+3c50 14       ???
+3c51 20 02 15 jsr $1502
+3c54 20 02 05 jsr $0502
+3c57 20 02 3f jsr $3f02
+3c5a 20 08 3f jsr $3f08
+3c5d 08       php 
+3c5e 08       php 
+3c5f 08       php 
+3c60 08       php 
+3c61 0a       asl a
+3c62 aa       tax 
+3c63 a8       tay 
+3c64 0a       asl a
+3c65 aa       tax 
+3c66 a8       tay 
+3c67 08       php 
+3c68 08       php 
+3c69 08       php 
+3c6a 08       php 
+3c6b 08       php 
+3c6c 08       php 
+3c6d 02       ???
+3c6e 08       php 
+3c6f 20 02 08 jsr $0802
+3c72 20 02 08 jsr $0802
+3c75 20 02 08 jsr $0802
+3c78 20 00 aa jsr $aa00
+3c7b 80       ???
+3c7c 00       brk 
+3c7d 08       php 
+3c7e 00       brk 
+3c7f 00       brk 
+3c80 00       brk 
+3c81 15 00    ora $00,x
+3c83 00       brk 
+3c84 15 00    ora $00,x
+3c86 00       brk 
+3c87 55 00    eor $00,x
+3c89 00       brk 
+3c8a 54       ???
+3c8b 00       brk 
+3c8c 01 56    ora ($56,x)
+3c8e 80       ???
+3c8f 05 50    ora $50
+3c91 20 05 50 jsr $5005
+3c94 20 05 40 jsr $4005
+3c97 a0 01    ldy #$01
+3c99 50 a0    bvc $3c3b
+3c9b 09 52    ora #$52
+3c9d 08       php 
+3c9e 08       php 
+3c9f 52       ???
+3ca0 08       php 
+3ca1 08       php 
+3ca2 58       cli 
+3ca3 08       php 
+3ca4 08       php 
+3ca5 18       clc 
+3ca6 08       php 
+3ca7 08       php 
+3ca8 12       ???
+3ca9 08       php 
+3caa 0b       ???
+3cab f2       ???
+3cac 08       php 
+3cad 03       ???
+3cae f0 a0    beq $3c50
+3cb0 02       ???
+3cb1 80       ???
+3cb2 a0 02    ldy #$02
+3cb4 00       brk 
+3cb5 20 02 00 jsr $0002
+3cb8 20 00 aa jsr $aa00
+3cbb 80       ???
+3cbc 00       brk 
+3cbd 08       php 
+3cbe 00       brk 
+3cbf 00       brk 
+3cc0 00       brk 
+3cc1 15 00    ora $00,x
+3cc3 00       brk 
+3cc4 15 00    ora $00,x
+3cc6 00       brk 
+3cc7 15 00    ora $00,x
+3cc9 00       brk 
+3cca 55 00    eor $00,x
+3ccc 00       brk 
+3ccd 55 80    eor $80,x
+3ccf 02       ???
+3cd0 54       ???
+3cd1 20 01 54 jsr $5401
+3cd4 20 01 54 jsr $5401
+3cd7 a0 01    ldy #$01
+3cd9 50 a0    bvc $3c7b
+3cdb 08       php 
+3cdc 56 08    lsr $08,x
+3cde 08       php 
+3cdf 55 08    eor $08,x
+3ce1 08       php 
+3ce2 15 48    ora $48,x
+3ce4 08       php 
+3ce5 05 48    ora $48
+3ce7 08       php 
+3ce8 21 48    and ($48,x)
+3cea 08       php 
+3ceb 2f       ???
+3cec c8       iny 
+3ced 02       ???
+3cee 8f       ???
+3cef e0 02    cpx #$02
+3cf1 80       ???
+3cf2 a0 02    ldy #$02
+3cf4 00       brk 
+3cf5 20 02 00 jsr $0002
+3cf8 20 00 aa jsr $aa00
+3cfb 80       ???
+3cfc 00       brk 
+3cfd 08       php 
+3cfe 00       brk 
+3cff 00       brk 
+3d00 00       brk 
+3d01 15 00    ora $00,x
+3d03 00       brk 
+3d04 55 00    eor $00,x
+3d06 c1 55    cmp ($55,x)
+3d08 43       ???
+3d09 c5 55    cmp $55
+3d0b 53       ???
+3d0c d5 65    cmp $65,x
+3d0e 57       ???
+3d0f d5 89    cmp $89,x
+3d11 57       ???
+3d12 d5 88    cmp $88,x
+3d14 57       ???
+3d15 d4       ???
+3d16 88       dey 
+3d17 97       ???
+3d18 00       brk 
+3d19 88       dey 
+3d1a 80       ???
+3d1b 02       ???
+3d1c 22       ???
+3d1d 20 02 22 jsr $2202
+3d20 20 02 88 jsr $8802
+3d23 a0 02    ldy #$02
+3d25 88       dey 
+3d26 a0 02    ldy #$02
+3d28 22       ???
+3d29 20 02 22 jsr $2202
+3d2c 20 00 88 jsr $8800
+3d2f 80       ???
+3d30 00       brk 
+3d31 88       dey 
+3d32 80       ???
+3d33 00       brk 
+3d34 88       dey 
+3d35 80       ???
+3d36 00       brk 
+3d37 88       dey 
+3d38 80       ???
+3d39 00       brk 
+3d3a 2a       rol a
+3d3b 00       brk 
+3d3c 00       brk 
+3d3d 08       php 
+3d3e 00       brk 
+3d3f 00       brk 
+3d40 00       brk 
+3d41 04       ???
+3d42 00       brk 
+3d43 00       brk 
+3d44 04       ???
+3d45 00       brk 
+3d46 00       brk 
+3d47 15 00    ora $00,x
+3d49 00       brk 
+3d4a 55 40    eor $40,x
+3d4c 00       brk 
+3d4d 55 40    eor $40,x
+3d4f 00       brk 
+3d50 c8       iny 
+3d51 c0 00    cpy #$00
+3d53 ee c0 00 inc $00c0
+3d56 ee c0 00 inc $00c0
+3d59 ea       nop 
+3d5a c0 00    cpy #$00
+3d5c ee c0 00 inc $00c0
+3d5f 2e 00 00 rol $0000
+3d62 dd c0 00 cmp $00c0,x
+3d65 77       ???
+3d66 54       ???
+3d67 01 77    ora ($77,x)
+3d69 54       ???
+3d6a 05 77    ora $77
+3d6c 54       ???
+3d6d c5 f7    cmp $f7
+3d6f c7       ???
+3d70 c5 f7    cmp $f7
+3d72 c7       ???
+3d73 d4       ???
+3d74 f7       ???
+3d75 d7       ???
+3d76 d5 65    cmp $65,x
+3d78 db       ???
+3d79 d5 65    cmp $65,x
+3d7b db       ???
+3d7c d5 65    cmp $65,x
+3d7e db       ???
+3d7f 00       brk 
+3d80 00       brk 
+3d81 00       brk 
+3d82 00       brk 
+3d83 00       brk 
+3d84 00       brk 
+3d85 00       brk 
+3d86 00       brk 
+3d87 00       brk 
+3d88 00       brk 
+3d89 00       brk 
+3d8a 00       brk 
+3d8b 00       brk 
+3d8c 00       brk 
+3d8d 00       brk 
+3d8e 00       brk 
+3d8f 00       brk 
+3d90 0c       ???
+3d91 00       brk 
+3d92 00       brk 
+3d93 3f       ???
+3d94 00       brk 
+3d95 00       brk 
+3d96 7f       ???
+3d97 80       ???
+3d98 00       brk 
+3d99 ff       ???
+3d9a c0 00    cpy #$00
+3d9c ff       ???
+3d9d c0 01    cpy #$01
+3d9f ff       ???
+3da0 e0 01    cpx #$01
+3da2 ff       ???
+3da3 e0 03    cpx #$03
+3da5 ff       ???
+3da6 f0 03    beq $3dab
+3da8 ff       ???
+3da9 f0 01    beq $3dac
+3dab ff       ???
+3dac e0 01    cpx #$01
+3dae ff       ???
+3daf e0 00    cpx #$00
+3db1 ff       ???
+3db2 c0 00    cpy #$00
+3db4 ff       ???
+3db5 c0 00    cpy #$00
+3db7 7f       ???
+3db8 80       ???
+3db9 00       brk 
+3dba 3f       ???
+3dbb 00       brk 
+3dbc 00       brk 
+3dbd 0c       ???
+3dbe 00       brk 
+3dbf 00       brk 
+3dc0 00       brk 
+3dc1 00       brk 
+3dc2 00       brk 
+3dc3 00       brk 
+3dc4 00       brk 
+3dc5 00       brk 
+3dc6 00       brk 
+3dc7 00       brk 
+3dc8 00       brk 
+3dc9 00       brk 
+3dca 00       brk 
+3dcb 00       brk 
+3dcc 00       brk 
+3dcd 00       brk 
+3dce 00       brk 
+3dcf 00       brk 
+3dd0 0c       ???
+3dd1 00       brk 
+3dd2 00       brk 
+3dd3 3f       ???
+3dd4 00       brk 
+3dd5 00       brk 
+3dd6 7f       ???
+3dd7 80       ???
+3dd8 00       brk 
+3dd9 ff       ???
+3dda c0 00    cpy #$00
+3ddc ff       ???
+3ddd c0 01    cpy #$01
+3ddf ff       ???
+3de0 e0 01    cpx #$01
+3de2 ff       ???
+3de3 e0 03    cpx #$03
+3de5 f3       ???
+3de6 f0 03    beq $3deb
+3de8 e1 f0    sbc ($f0,x)
+3dea 01 c0    ora ($c0,x)
+3dec e0 01    cpx #$01
+3dee 80       ???
+3def 60       rts 
+3df0 00       brk 
+3df1 80       ???
+3df2 40       rti 
+3df3 00       brk 
+3df4 00       brk 
+3df5 00       brk 
+3df6 00       brk 
+3df7 00       brk 
+3df8 00       brk 
+3df9 00       brk 
+3dfa 00       brk 
+3dfb 00       brk 
+3dfc 00       brk 
+3dfd 00       brk 
+3dfe 00       brk 
+3dff 00       brk 
+3e00 00       brk 
+3e01 00       brk 
+3e02 00       brk 
+3e03 00       brk 
+3e04 00       brk 
+3e05 00       brk 
+3e06 00       brk 
+3e07 00       brk 
+3e08 00       brk 
+3e09 00       brk 
+3e0a 00       brk 
+3e0b 00       brk 
+3e0c 00       brk 
+3e0d 00       brk 
+3e0e 00       brk 
+3e0f 00       brk 
+3e10 0c       ???
+3e11 00       brk 
+3e12 00       brk 
+3e13 3f       ???
+3e14 00       brk 
+3e15 00       brk 
+3e16 7f       ???
+3e17 80       ???
+3e18 00       brk 
+3e19 3f       ???
+3e1a c0 00    cpy #$00
+3e1c 1f       ???
+3e1d c0 00    cpy #$00
+3e1f 0f       ???
+3e20 e0 00    cpx #$00
+3e22 07       ???
+3e23 e0 00    cpx #$00
+3e25 03       ???
+3e26 f0 00    beq $3e28
+3e28 03       ???
+3e29 f0 00    beq $3e2b
+3e2b 07       ???
+3e2c e0 00    cpx #$00
+3e2e 0f       ???
+3e2f e0 00    cpx #$00
+3e31 1f       ???
+3e32 c0 00    cpy #$00
+3e34 3f       ???
+3e35 c0 00    cpy #$00
+3e37 7f       ???
+3e38 80       ???
+3e39 00       brk 
+3e3a 3f       ???
+3e3b 00       brk 
+3e3c 00       brk 
+3e3d 0c       ???
+3e3e 00       brk 
+3e3f 00       brk 
+3e40 00       brk 
+3e41 00       brk 
+3e42 00       brk 
+3e43 00       brk 
+3e44 00       brk 
+3e45 00       brk 
+3e46 00       brk 
+3e47 00       brk 
+3e48 00       brk 
+3e49 00       brk 
+3e4a 00       brk 
+3e4b 00       brk 
+3e4c 00       brk 
+3e4d 00       brk 
+3e4e 00       brk 
+3e4f 00       brk 
+3e50 00       brk 
+3e51 00       brk 
+3e52 00       brk 
+3e53 00       brk 
+3e54 00       brk 
+3e55 00       brk 
+3e56 00       brk 
+3e57 00       brk 
+3e58 00       brk 
+3e59 00       brk 
+3e5a 00       brk 
+3e5b 00       brk 
+3e5c 80       ???
+3e5d 40       rti 
+3e5e 01 80    ora ($80,x)
+3e60 60       rts 
+3e61 01 c0    ora ($c0,x)
+3e63 e0 03    cpx #$03
+3e65 e1 f0    sbc ($f0,x)
+3e67 03       ???
+3e68 f3       ???
+3e69 f0 01    beq $3e6c
+3e6b ff       ???
+3e6c e0 01    cpx #$01
+3e6e ff       ???
+3e6f e0 00    cpx #$00
+3e71 ff       ???
+3e72 c0 00    cpy #$00
+3e74 ff       ???
+3e75 c0 00    cpy #$00
+3e77 7f       ???
+3e78 80       ???
+3e79 00       brk 
+3e7a 3f       ???
+3e7b 00       brk 
+3e7c 00       brk 
+3e7d 0c       ???
+3e7e 00       brk 
+3e7f 00       brk 
+3e80 00       brk 
+3e81 00       brk 
+3e82 00       brk 
+3e83 00       brk 
+3e84 00       brk 
+3e85 00       brk 
+3e86 00       brk 
+3e87 00       brk 
+3e88 00       brk 
+3e89 00       brk 
+3e8a 00       brk 
+3e8b 00       brk 
+3e8c 00       brk 
+3e8d 00       brk 
+3e8e 00       brk 
+3e8f 00       brk 
+3e90 78       sei 
+3e91 00       brk 
+3e92 01 fe    ora ($fe,x)
+3e94 00       brk 
+3e95 03       ???
+3e96 ff       ???
+3e97 00       brk 
+3e98 07       ???
+3e99 7f       ???
+3e9a 80       ???
+3e9b 0e ff c0 asl $c0ff
+3e9e 0e ff c0 asl $c0ff
+3ea1 0e ff c0 asl $c0ff
+3ea4 0f       ???
+3ea5 ff       ???
+3ea6 c0 0f    cpy #$0f
+3ea8 ff       ???
+3ea9 80       ???
+3eaa 07       ???
+3eab ff       ???
+3eac 80       ???
+3ead 03       ???
+3eae ff       ???
+3eaf 00       brk 
+3eb0 01 fe    ora ($fe,x)
+3eb2 00       brk 
+3eb3 00       brk 
+3eb4 78       sei 
+3eb5 00       brk 
+3eb6 00       brk 
+3eb7 11 80    ora ($80),y
+3eb9 00       brk 
+3eba 0e 40 00 asl $0040
+3ebd 00       brk 
+3ebe 20 00 00 jsr $0000
+3ec1 00       brk 
+3ec2 00       brk 
+3ec3 00       brk 
+3ec4 00       brk 
+3ec5 00       brk 
+3ec6 00       brk 
+3ec7 00       brk 
+3ec8 00       brk 
+3ec9 00       brk 
+3eca 00       brk 
+3ecb 00       brk 
+3ecc 00       brk 
+3ecd 00       brk 
+3ece 00       brk 
+3ecf 00       brk 
+3ed0 3c       ???
+3ed1 00       brk 
+3ed2 00       brk 
+3ed3 ff       ???
+3ed4 00       brk 
+3ed5 01 ff    ora ($ff,x)
+3ed7 80       ???
+3ed8 03       ???
+3ed9 ff       ???
+3eda c0 03    cpy #$03
+3edc ff       ???
+3edd c0 07    cpy #$07
+3edf ff       ???
+3ee0 e0 07    cpx #$07
+3ee2 3c       ???
+3ee3 e0 07    cpx #$07
+3ee5 3c       ???
+3ee6 e0 07    cpx #$07
+3ee8 ff       ???
+3ee9 e0 07    cpx #$07
+3eeb ff       ???
+3eec e0 06    cpx #$06
+3eee 79 e0 00 adc $00e0,y
+3ef1 00       brk 
+3ef2 00       brk 
+3ef3 00       brk 
+3ef4 00       brk 
+3ef5 00       brk 
+3ef6 00       brk 
+3ef7 00       brk 
+3ef8 00       brk 
+3ef9 00       brk 
+3efa 00       brk 
+3efb 00       brk 
+3efc 00       brk 
+3efd 00       brk 
+3efe 00       brk 
+3eff 00       brk 
+3f00 01 04    ora ($04,x)
+3f02 10 00    bpl $3f04
+3f04 1d 00 04 ora $0400,x
+3f07 77       ???
+3f08 44       ???
+3f09 00       brk 
+3f0a 1d 00 01 ora $0100,x
+3f0d f3       ???
+3f0e d0 00    bne $3f10
+3f10 11 00    ora ($00),y
+3f12 04       ???
+3f13 73       ???
+3f14 44       ???
+3f15 00       brk 
+3f16 08       php 
+3f17 00       brk 
+3f18 01 2a    ora ($2a,x)
+3f1a 10 00    bpl $3f1c
+3f1c 2a       rol a
+3f1d 00       brk 
+3f1e 00       brk 
+3f1f ba       tsx 
+3f20 80       ???
+3f21 00       brk 
+3f22 ba       tsx 
+3f23 80       ???
+3f24 00       brk 
+3f25 aa       tax 
+3f26 80       ???
+3f27 00       brk 
+3f28 ba       tsx 
+3f29 80       ???
+3f2a 00       brk 
+3f2b ba       tsx 
+3f2c 80       ???
+3f2d 00       brk 
+3f2e ba       tsx 
+3f2f 80       ???
+3f30 00       brk 
+3f31 ba       tsx 
+3f32 80       ???
+3f33 00       brk 
+3f34 ba       tsx 
+3f35 80       ???
+3f36 00       brk 
+3f37 2a       rol a
+3f38 00       brk 
+3f39 00       brk 
+3f3a 2a       rol a
+3f3b 00       brk 
+3f3c 00       brk 
+3f3d 08       php 
+3f3e 00       brk 
+3f3f 00       brk 
+3f40 00       brk 
+3f41 88       dey 
+3f42 80       ???
+3f43 02       ???
+3f44 66 60    ror $60
+3f46 00       brk 
+3f47 99 80 00 sta $0080,y
+3f4a 2a       rol a
+3f4b 00       brk 
+3f4c 00       brk 
+3f4d aa       tax 
+3f4e 80       ???
+3f4f 02       ???
+3f50 2a       rol a
+3f51 20 00 aa jsr $aa00
+3f54 80       ???
+3f55 00       brk 
+3f56 2a       rol a
+3f57 00       brk 
+3f58 00       brk 
+3f59 aa       tax 
+3f5a 80       ???
+3f5b 02       ???
+3f5c 26 20    rol $20
+3f5e 00       brk 
+3f5f 19 00 00 ora $0000,y
+3f62 26 00    rol $00
+3f64 00       brk 
+3f65 19 00 00 ora $0000,y
+3f68 26 00    rol $00
+3f6a 00       brk 
+3f6b 19 00 00 ora $0000,y
+3f6e 26 00    rol $00
+3f70 00       brk 
+3f71 19 00 00 ora $0000,y
+3f74 26 00    rol $00
+3f76 00       brk 
+3f77 19 00 00 ora $0000,y
+3f7a 26 00    rol $00
+3f7c 00       brk 
+3f7d 08       php 
+3f7e 00       brk 
+3f7f 00       brk 
+3f80 00       brk 
+3f81 00       brk 
+3f82 00       brk 
+3f83 00       brk 
+3f84 00       brk 
+3f85 00       brk 
+3f86 00       brk 
+3f87 08       php 
+3f88 00       brk 
+3f89 00       brk 
+3f8a 88       dey 
+3f8b 80       ???
+3f8c 04       ???
+3f8d 49 10    eor #$10
+3f8f 02       ???
+3f90 2a       rol a
+3f91 20 01 2a jsr $2a01
+3f94 40       rti 
+3f95 08       php 
+3f96 88       dey 
+3f97 88       dey 
+3f98 04       ???
+3f99 41 10    eor ($10,x)
+3f9b 03       ???
+3f9c 22       ???
+3f9d 60       rts 
+3f9e 00       brk 
+3f9f 00       brk 
+3fa0 00       brk 
+3fa1 1f       ???
+3fa2 80       ???
+3fa3 fc       ???
+3fa4 00       brk 
+3fa5 00       brk 
+3fa6 00       brk 
+3fa7 03       ???
+3fa8 22       ???
+3fa9 60       rts 
+3faa 04       ???
+3fab 41 10    eor ($10,x)
+3fad 08       php 
+3fae 88       dey 
+3faf 88       dey 
+3fb0 01 2a    ora ($2a,x)
+3fb2 40       rti 
+3fb3 02       ???
+3fb4 2a       rol a
+3fb5 20 04 49 jsr $4904
+3fb8 10 00    bpl $3fba
+3fba 88       dey 
+3fbb 80       ???
+3fbc 00       brk 
+3fbd 08       php 
+3fbe 00       brk 
+3fbf 00       brk 
+3fc0 48       pha 
+3fc1 8a       txa 
+3fc2 48       pha 
+3fc3 a9 7f    lda #$7f
+3fc5 8d 0d dc sta $dc0d
+3fc8 ad 0d dc lda $dc0d
+3fcb ad 19 d0 lda $d019
+3fce 8d 19 d0 sta $d019
+3fd1 29 01    and #$01
+3fd3 f0 13    beq $3fe8
+3fd5 e6 c0    inc $c0
+3fd7 a5 c0    lda $c0
+3fd9 29 01    and #$01
+3fdb aa       tax 
+3fdc bd ed ff lda $ffed,x
+3fdf 8d 12 d0 sta $d012
+3fe2 bd ef ff lda $ffef,x
+3fe5 8d 21 d0 sta $d021
+3fe8 68       pla 
+3fe9 aa       tax 
+3fea 68       pla 
+3feb 58       cli 
+3fec 40       rti 
+3fed 00       brk 
+3fee 89       ???
+3fef 00       brk 
+3ff0 01 f8    ora ($f8,x)
+3ff2 20 f8 20 jsr $20f8
+3ff5 f8       sed 
+3ff6 20 f8 20 jsr $20f8
+3ff9 f8       sed 
+3ffa 00       brk 
+3ffb e0 00    cpx #$00
+3ffd e0 c0    cpx #$c0
+3fff ff       ???

@@ -1,0 +1,551 @@
+PADDLE_SUM = $fa   ; word
+
+basic_stub:
+0801 20 08 0a jsr $0a08
+0804 00       brk 
+0805 97       ???
+0806 35 33    and $33,x
+0808 32       ???
+0809 38       sec 
+080a 30 2c    bmi $0838
+080c 30 3a    bmi $0848
+080e 97       ???
+080f 35 33    and $33,x
+0811 32       ???
+0812 38       sec 
+0813 31 2c    and ($2c),y
+0815 30 3a    bmi $0851
+0817 8b       ???
+0818 4c b2 31 jmp $31b2
+081b a7       ???
+081c 31 32    and ($32),y
+081e 30 00    bmi $0820
+0820 58       cli 
+0821 08       php 
+0822 14       ???
+0823 00       brk 
+0824 99 22 93 sta $9322,y
+0827 11 05    ora ($05),y
+0829 22       ???
+082a a3       ???
+082b 31 30    and ($30),y
+082d 29 22    and #$22
+082f 43       ???
+0830 4f       ???
+0831 4d 4d 4f eor $4f4d
+0834 44       ???
+0835 4f       ???
+0836 52       ???
+0837 45 20    eor $20
+0839 50 52    bvc $088d
+083b 45 53    eor $53
+083d 45 4e    eor $4e
+083f 54       ???
+0840 53       ???
+0841 2e 2e 2e rol $2e2e
+0844 22       ???
+0845 3a       ???
+0846 99 a3 31 sta $31a3,y
+0849 36 29    rol $29,x
+084b 22       ???
+084c 11 12    ora ($12),y
+084e 4b       ???
+084f 49 43    eor #$43
+0851 4b       ???
+0852 4d 41 4e eor $4e41
+0855 92       ???
+0856 22       ???
+0857 00       brk 
+0858 81 08    sta ($08,x)
+085a 1e 00 99 asl $9900,x
+085d a3       ???
+085e 39 29 22 and $2229,y
+0861 11 11    ora ($11),y
+0863 11 11    ora ($11),y
+0865 11 11    ora ($11),y
+0867 11 43    ora ($43),y
+0869 48       pha 
+086a 4f       ???
+086b 4f       ???
+086c 53       ???
+086d 45 20    eor $20
+086f 47       ???
+0870 41 4d    eor ($4d,x)
+0872 45 20    eor $20
+0874 43       ???
+0875 4f       ???
+0876 4e 54 52 lsr $5254
+0879 4f       ???
+087a 4c 4c 45 jmp $454c
+087d 52       ???
+087e 11 22    ora ($22),y
+0880 00       brk 
+0881 a6 08    ldx $08
+0883 28       plp 
+0884 00       brk 
+0885 99 a3 39 sta $39a3,y
+0888 29 22    and #$22
+088a 12       ???
+088b 4a       lsr a
+088c 92       ???
+088d 20 4a 4f jsr $4f4a
+0890 59 53 54 eor $5453,y
+0893 49 43    eor #$43
+0895 4b       ???
+0896 20 20 20 jsr $2020
+0899 12       ???
+089a 50 92    bvc $082e
+089c 20 50 41 jsr $4150
+089f 44       ???
+08a0 44       ???
+08a1 4c 45 53 jmp $5345
+08a4 22       ???
+08a5 00       brk 
+08a6 c2       ???
+08a7 08       php 
+08a8 32       ???
+08a9 00       brk 
+08aa a1 43    lda ($43,x)
+08ac 24 3a    bit $3a
+08ae 8b       ???
+08af 43       ???
+08b0 24 b3    bit $b3
+08b2 b1 22    lda ($22),y
+08b4 4a       lsr a
+08b5 22       ???
+08b6 af       ???
+08b7 43       ???
+08b8 24 b3    bit $b3
+08ba b1 22    lda ($22),y
+08bc 50 22    bvc $08e0
+08be a7       ???
+08bf 35 30    and $30,x
+08c1 00       brk 
+08c2 e1 08    sbc ($08,x)
+08c4 3c       ???
+08c5 00       brk 
+08c6 8b       ???
+08c7 43       ???
+08c8 24 b2    bit $b2
+08ca 22       ???
+08cb 4a       lsr a
+08cc 22       ???
+08cd a7       ???
+08ce 99 a3 31 sta $31a3,y
+08d1 31 29    and ($29),y
+08d3 22       ???
+08d4 91 12    sta ($12),y
+08d6 4a       lsr a
+08d7 4f       ???
+08d8 59 53 54 eor $5453,y
+08db 49 43    eor #$43
+08dd 4b       ???
+08de 92       ???
+08df 22       ???
+08e0 00       brk 
+08e1 ff       ???
+08e2 08       php 
+08e3 46 00    lsr $00
+08e5 8b       ???
+08e6 43       ???
+08e7 24 b2    bit $b2
+08e9 22       ???
+08ea 50 22    bvc $090e
+08ec a7       ???
+08ed 99 a3 32 sta $32a3,y
+08f0 34       ???
+08f1 29 22    and #$22
+08f3 91 12    sta ($12),y
+08f5 50 41    bvc $0938
+08f7 44       ???
+08f8 44       ???
+08f9 4c 45 53 jmp $5345
+08fc 92       ???
+08fd 22       ???
+08fe 00       brk 
+08ff 1a       ???
+0900 09 50    ora #$50
+0902 00       brk 
+0903 54       ???
+0904 49 4d    eor #$4d
+0906 45 24    eor $24
+0908 b2       ???
+0909 22       ???
+090a 30 30    bmi $093c
+090c 30 30    bmi $093e
+090e 30 30    bmi $0940
+0910 22       ???
+0911 3a       ???
+0912 92       ???
+0913 31 36    and ($36),y
+0915 32       ???
+0916 2c 33 32 bit $3233
+0919 00       brk 
+091a 5c       ???
+091b 09 5a    ora #$5a
+091d 00       brk 
+091e 99 a3 39 sta $39a3,y
+0921 29 22    and #$22
+0923 91 91    sta ($91),y
+0925 91 20    sta ($20),y
+0927 20 20 20 jsr $2020
+092a 20 20 20 jsr $2020
+092d 20 20 20 jsr $2020
+0930 20 20 20 jsr $2020
+0933 20 20 20 jsr $2020
+0936 20 20 20 jsr $2020
+0939 20 20 20 jsr $2020
+093c 22       ???
+093d 3a       ???
+093e 99 a3 39 sta $39a3,y
+0941 29 22    and #$22
+0943 11 20    ora ($20),y
+0945 20 20 20 jsr $2020
+0948 20 20 20 jsr $2020
+094b 20 20 20 jsr $2020
+094e 20 20 20 jsr $2020
+0951 20 20 20 jsr $2020
+0954 20 20 20 jsr $2020
+0957 20 20 20 jsr $2020
+095a 22       ???
+095b 00       brk 
+095c 75 09    adc $09,x
+095e 64       ???
+095f 00       brk 
+0960 99 a3 31 sta $31a3,y
+0963 35 29    and $29,x
+0965 22       ???
+0966 91 91    sta ($91),y
+0968 91 4c    sta ($4c),y
+096a 4f       ???
+096b 41 44    eor ($44,x)
+096d 49 4e    eor #$4e
+096f 47       ???
+0970 2e 2e 2e rol $2e2e
+0973 22       ???
+0974 00       brk 
+0975 87       ???
+0976 09 6e    ora #$6e
+0978 00       brk 
+0979 4c b2 31 jmp $31b2
+097c 3a       ???
+097d 93       ???
+097e 22       ???
+097f 4b       ???
+0980 4d 22 2c eor $2c22
+0983 38       sec 
+0984 2c 31 00 bit $0031
+0987 99 09 78 sta $7809,y
+098a 00       brk 
+098b 8b       ???
+098c 43       ???
+098d 24 b2    bit $b2
+098f 22       ???
+0990 4a       lsr a
+0991 22       ???
+0992 a7       ???
+0993 9e       ???
+0994 32       ???
+0995 34       ???
+0996 38       sec 
+0997 30 00    bmi $0999
+0999 a3       ???
+099a 09 82    ora #$82
+099c 00       brk 
+099d 9e       ???
+099e 32       ???
+099f 34       ???
+09a0 38       sec 
+09a1 33       ???
+09a2 00       brk 
+09a3 00       brk 
+09a4 00       brk 
+09a5 00       brk 
+09a6 00       brk 
+09a7 00       brk 
+09a8 00       brk 
+09a9 00       brk 
+09aa 00       brk 
+09ab 00       brk 
+09ac 00       brk 
+09ad 00       brk 
+09ae 00       brk 
+09af 00       brk 
+
+start:
+09b0 4c 3b 0a jmp copy_game_to_e000  ; $0a3b ; SYS 2480 = joystick mode, no patch needed
+
+09b3 78       sei   ; SYS 2483 = paddle mode (patch needed)
+09b4 a9 ff    lda #$ff    ; apply patch, byte-by-byte
+09b6 8d 72 22 sta $2272
+09b9 a9 d0    lda #$d0
+09bb 8d 73 22 sta $2273
+09be a9 c0    lda #$c0
+09c0 8d 79 22 sta $2279
+09c3 a9 a9    lda #$a9
+09c5 8d 7d 22 sta $227d
+09c8 a9 1f    lda #$1f
+09ca 8d 7e 22 sta $227e
+09cd a9 4c    lda #$4c
+09cf 8d 7f 22 sta $227f
+09d2 a9 a6    lda #$a6
+09d4 8d 80 22 sta $2280
+09d7 a9 e2    lda #$e2
+09d9 8d 81 22 sta $2281
+09dc a9 40    lda #$40
+09de 8d c2 22 sta $22c2
+09e1 a9 86    lda #$86
+09e3 8d e4 22 sta $22e4
+09e6 a9 1d    lda #$1d
+09e8 8d e5 22 sta $22e5
+09eb a9 4c    lda #$4c
+09ed 8d e6 22 sta $22e6
+09f0 a9 ec    lda #$ec
+09f2 8d e7 22 sta $22e7
+09f5 a9 e2    lda #$e2
+09f7 8d e8 22 sta $22e8
+09fa a9 04    lda #$04
+09fc 8d fa 22 sta $22fa
+09ff a9 00    lda #$00
+0a01 8d 04 dc sta $dc04
+0a04 a9 02    lda #$02
+0a06 8d 05 dc sta $dc05
+0a09 a9 11    lda #$11
+0a0b 8d 0e dc sta $dc0e
+0a0e a9 4c    lda #$4c
+0a10 8d 0f 23 sta $230f
+0a13 a9 68    lda #$68
+0a15 8d 10 23 sta $2310
+0a18 a9 0a    lda #$0a
+0a1a 8d 11 23 sta $2311
+0a1d a9 4c    lda #$4c
+0a1f 8d 36 28 sta $2836
+0a22 a9 78    lda #$78
+0a24 8d 37 28 sta $2837
+0a27 a9 0a    lda #$0a
+0a29 8d 38 28 sta $2838
+0a2c a9 4c    lda #$4c
+0a2e 8d df 20 sta $20df
+0a31 a9 f5    lda #$f5
+0a33 8d e0 20 sta $20e0
+0a36 a9 0a    lda #$0a
+0a38 8d e1 20 sta $20e1
+
+copy_game_to_e000:
+0a3b a9 00    lda #$00
+0a3d 85 fa    sta $fa
+0a3f 85 fc    sta $fc
+0a41 a9 20    lda #$20  ; routine to copy $2000-$3fff to $e000-$efff
+0a43 85 fb    sta $fb
+0a45 a9 e0    lda #$e0
+0a47 85 fd    sta $fd
+0a49 a0 00    ldy #$00
+
+-:
+0a4b b1 fa    lda ($fa),y
+0a4d 91 fc    sta ($fc),y
+0a4f c8       iny 
+0a50 d0 f9    bne -  ; $0a4b
+
+0a52 e6 fb    inc $fb
+0a54 e6 fd    inc $fd
+0a56 d0 f3    bne -  ; $0a4b
+
+init_vars:
+0a58 a9 00    lda #$00
+0a5a 85 f8    sta $f8
+0a5c 85 f9    sta $f9
+0a5e 85 fa    sta $fa
+
+start_game:
+0a60 78       sei 
+0a61 a9 35    lda #$35
+0a63 85 01    sta $01
+0a65 6c fc ff jmp ($fffc)
+
+routine2:  ; jmps here from game 230f
+0a68 a5 fb    lda $fb
+0a6a 49 ff    eor #$ff
+0a6c 29 fe    and #$fe
+0a6e c5 fc    cmp $fc
+0a70 d0 01    bne $0a73
+0a72 60       rts 
+0a73 85 fc    sta $fc
+0a75 85 1e    sta $1e
+0a77 60       rts 
+
+routine3:  ; jmps here from game 2836
+0a78 85 b0    sta $b0
+0a7a a2 00    ldx #$00
+0a7c 20 99 0a jsr $0a99
+0a7f ae 00 d0 ldx $d000
+0a82 8e 02 d0 stx $d002
+0a85 ad 10 d0 lda $d010
+0a88 29 01    and #$01
+0a8a aa       tax 
+0a8b ad 10 d0 lda $d010
+0a8e 29 fc    and #$fc
+0a90 1d c8 e8 ora $e8c8,x
+0a93 8d 10 d0 sta $d010
+0a96 4c 69 e8 jmp $e869
+0a99 a9 ff    lda #$ff
+0a9b 85 06    sta $06
+0a9d 85 07    sta $07
+0a9f 85 08    sta $08
+0aa1 b5 98    lda $98,x
+0aa3 10 01    bpl $0aa6
+0aa5 60       rts 
+0aa6 a5 10    lda $10
+0aa8 35 b8    and $b8,x
+0aaa d0 01    bne $0aad
+0aac 60       rts 
+0aad d6 a0    dec $a0,x
+0aaf f0 01    beq $0ab2
+0ab1 60       rts 
+0ab2 b5 a8    lda $a8,x
+0ab4 95 a0    sta $a0,x
+0ab6 e6 06    inc $06
+0ab8 18       clc 
+0ab9 a5 b0    lda $b0
+0abb 69 30    adc #$30
+0abd 8d 00 d0 sta $d000
+0ac0 85 03    sta $03
+0ac2 a9 00    lda #$00
+0ac4 90 02    bcc $0ac8
+0ac6 a9 01    lda #$01
+0ac8 85 04    sta $04
+0aca ad 10 d0 lda $d010
+0acd 29 fe    and #$fe
+0acf 05 04    ora $04
+0ad1 8d 10 d0 sta $d010
+0ad4 a5 04    lda $04
+0ad6 f0 0f    beq $0ae7
+0ad8 a5 03    lda $03
+0ada c9 0c    cmp #$0c
+0adc 90 16    bcc $0af4
+0ade e6 08    inc $08
+0ae0 a9 0b    lda #$0b
+0ae2 8d 00 d0 sta $d000
+0ae5 d0 0d    bne $0af4
+0ae7 a5 03    lda $03
+0ae9 c9 3e    cmp #$3e
+0aeb b0 07    bcs $0af4
+0aed e6 08    inc $08
+0aef a9 3d    lda #$3d
+0af1 8d 00 d0 sta $d000
+0af4 60       rts 
+
+; called from 20df in game
+routine1:
+0af5 a6 fa    ldx $fa
+
+-:
+0af7 ad 11 d0 lda $d011
+0afa 30 31    bmi skip1  ; $0b2d  ; branch if Raster Compare bit8 is on (in border)
+
+0afc ad 0d dc lda $dc0d
+0aff 29 01    and #$01
+0b01 f0 f4    beq -  ; $0af7  ; if dc0d.0 (cia1.timerA underflow) is on, then loop back
+
+0b03 18       clc 
+0b04 ad 19 d4 lda $d419  ; paddle1
+0b07 65 f8    adc $f8
+0b09 85 f8    sta $f8
+0b0b 90 02    bcc $0b0f
+0b0d e6 f9    inc $f9
+0b0f e8       inx 
+0b10 e0 20    cpx #$20  ; so we read the paddle value 32 times and add it to (int*)$f8
+0b12 d0 e3    bne -  ; $0af7
+
+0b14 a5 f8    lda PADDLE_SUM   ; $f8   ; divide *(int*)$f8 by 32
+0b16 46 f9    lsr PADDLE_SUM+1 ; $f9
+0b18 6a       ror a
+0b19 46 f9    lsr PADDLE_SUM+1 ; $f9
+0b1b 6a       ror a
+0b1c 46 f9    lsr PADDLE_SUM+1 ; $f9
+0b1e 6a       ror a
+0b1f 46 f9    lsr PADDLE_SUM+1 ; $f9
+0b21 6a       ror a
+0b22 46 f9    lsr PADDLE_SUM+1 ; $f9
+0b24 6a       ror a
+0b25 85 fb    sta $fb
+0b27 a2 00    ldx #$00
+0b29 86 f8    stx $f8
+0b2b f0 ca    beq $0af7
+
+skip1:
+0b2d 86 fa    stx $fa
+0b2f 4c e4 e0 jmp $e0e4   ; jump back to code just after raster compare bit 8 wait loop
+
+credits:
+; string="DEVELOPED BY CRISPYFPGA, 11/21/19."
+0b32 4b       ???
+0b33 49 43    eor #$43
+0b35 4b       ???
+0b36 4d 41 4e eor $4e41
+0b39 20 50 41 jsr $4150
+0b3c 54       ???
+0b3d 43       ???
+0b3e 48       pha 
+0b3f 20 46 4f jsr $4f46
+0b42 52       ???
+0b43 20 50 41 jsr $4150
+0b46 44       ???
+0b47 44       ???
+0b48 4c 45 20 jmp $2045
+0b4b 43       ???
+0b4c 4f       ???
+0b4d 4e 54 52 lsr $5254
+0b50 4f       ???
+0b51 4c 2e 20 jmp $202e
+0b54 44       ???
+0b55 45 56    eor $56
+0b57 45 4c    eor $4c
+0b59 4f       ???
+0b5a 50 45    bvc $0ba1
+0b5c 44       ???
+0b5d 20 42 59 jsr $5942
+0b60 20 43 52 jsr $5243
+0b63 49 53    eor #$53
+0b65 50 59    bvc $0bc0
+0b67 46 50    lsr $50
+0b69 47       ???
+0b6a 41 2c    eor ($2c,x)
+0b6c 20 31 31 jsr $3131
+0b6f 2f       ???
+0b70 32       ???
+0b71 31 2f    and ($2f),y
+0b73 31 39    and ($39),y
+0b75 2e 00 00 rol $0000
+
+zeros:
+0b78 00       brk 
+0b79 00       brk 
+0b7a 00       brk 
+0b7b 00       brk 
+0b7c 00       brk 
+0b7d 00       brk 
+0b7e 00       brk 
+0b7f 00       brk 
+0b80 00       brk 
+0b81 00       brk 
+0b82 00       brk 
+0b83 00       brk 
+0b84 00       brk 
+0b85 00       brk 
+0b86 00       brk 
+0b87 00       brk 
+0b88 00       brk 
+0b89 00       brk 
+0b8a 00       brk 
+0b8b 00       brk 
+0b8c 00       brk 
+0b8d 00       brk 
+0b8e 00       brk 
+0b8f 00       brk 
+0b90 00       brk 
+0b91 00       brk 
+0b92 00       brk 
+0b93 00       brk 
+0b94 00       brk 
+0b95 00       brk 
