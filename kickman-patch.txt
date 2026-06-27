@@ -364,7 +364,7 @@ start_game:
 0a65 6c fc ff jmp ($fffc)
 
 routine2:  ; jmps here from game 230f
-0a68 a5 fb    lda $fb
+0a68 a5 fb    lda $fb   ; stores the averaged paddle value
 0a6a 49 ff    eor #$ff
 0a6c 29 fe    and #$fe
 0a6e c5 fc    cmp $fc
@@ -468,7 +468,7 @@ routine1:
 0b21 6a       ror a
 0b22 46 f9    lsr PADDLE_SUM+1 ; $f9
 0b24 6a       ror a
-0b25 85 fb    sta $fb
+0b25 85 fb    sta $fb   ; store final result of averaging
 0b27 a2 00    ldx #$00
 0b29 86 f8    stx $f8
 0b2b f0 ca    beq $0af7
