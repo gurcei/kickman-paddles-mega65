@@ -6,9 +6,9 @@
 
 !cpu 6510
 
-PADDLE_SUM      = $f8   ; word
-PADDLE_COUNT    = $fa
-PADDLE_AVG      = $fb
+PADDLE_FILTER_CARRY = $f8
+FILTERED_PADDLE_POS = $f9
+PADDLE_READING      = $fb   ; latest transformed, unfiltered paddle reading
 LAST_PADDLE_CMD = $fc
 
 COPY_SRC        = $fa
@@ -20,12 +20,6 @@ VIC_SPR0_X      = $d000
 VIC_SPR1_X      = $d002
 VIC_D011        = $d011
 VIC_SPR_X_MSB   = $d010
-
-CIA1_PRA        = $dc00
-CIA1_ICR        = $dc0d
-CIA1_TIMER_A_LO = $dc04
-CIA1_TIMER_A_HI = $dc05
-CIA1_CRA        = $dc0e
 
 SID_POTX        = $d419
 
@@ -120,14 +114,6 @@ install_paddle_patch:
     lda #$04
     sta ORIG_FIRE_TEST_MASK
 
-configure_paddle_sample_timer:
-    lda #$00
-    sta CIA1_TIMER_A_LO
-    lda #$02
-    sta CIA1_TIMER_A_HI
-    lda #$11
-    sta CIA1_CRA
-
 install_runtime_hooks:
     lda #$4c
     sta ORIG_INPUT_DECODE_HOOK
@@ -172,9 +158,10 @@ copy_game_loop:
 
 init_paddle_state:
     lda #$00
-    sta PADDLE_SUM
-    sta PADDLE_SUM + 1
-    sta PADDLE_COUNT
+    sta PADDLE_FILTER_CARRY
+    sta FILTERED_PADDLE_POS
+    sta PADDLE_READING
+    sta LAST_PADDLE_CMD
 
 start_game:
     sei
@@ -183,9 +170,7 @@ start_game:
     jmp ($fffc)
 
 update_horizontal_input_from_paddle:
-    lda PADDLE_AVG
-    eor #$ff
-    and #$fe
+    lda FILTERED_PADDLE_POS
     cmp LAST_PADDLE_CMD
     bne new_paddle_command
     rts
@@ -271,47 +256,44 @@ done_updating_primary_sprite_x:
     rts
 
 sample_paddle_during_frame_wait:
-    ldx PADDLE_COUNT
+    ; Read once per frame and smooth like Sea Wolf:
+    ; filtered = (new_reading + 3 * previous_filtered) / 4.
+    jsr read_filtered_paddle_position
 
-sample_wait_loop:
+frame_wait_loop:
     lda VIC_D011
     bmi leave_frame_wait_hook
-
-    lda CIA1_ICR
-    and #$01
-    beq sample_wait_loop
-
-    clc
-    lda SID_POTX
-    adc PADDLE_SUM
-    sta PADDLE_SUM
-    bcc sample_carry_done
-    inc PADDLE_SUM + 1
-
-sample_carry_done:
-    inx
-    cpx #$20
-    bne sample_wait_loop
-
-    lda PADDLE_SUM
-    lsr PADDLE_SUM + 1
-    ror
-    lsr PADDLE_SUM + 1
-    ror
-    lsr PADDLE_SUM + 1
-    ror
-    lsr PADDLE_SUM + 1
-    ror
-    lsr PADDLE_SUM + 1
-    ror
-    sta PADDLE_AVG
-    ldx #$00
-    stx PADDLE_SUM
-    beq sample_wait_loop
+    bpl frame_wait_loop
 
 leave_frame_wait_hook:
-    stx PADDLE_COUNT
     jmp ORIG_AFTER_FRAME_WAIT
+
+read_filtered_paddle_position:
+    lda SID_POTX
+    eor #$ff
+    and #$fe
+    sta PADDLE_READING
+
+    ldy #$00
+    sty PADDLE_FILTER_CARRY
+    ldy #$03
+add_prior_filtered_position:
+    clc
+    adc FILTERED_PADDLE_POS
+    bcc carry_done
+    inc PADDLE_FILTER_CARRY
+carry_done:
+    dey
+    bne add_prior_filtered_position
+
+    clc
+    ror PADDLE_FILTER_CARRY
+    ror
+    ror PADDLE_FILTER_CARRY
+    ror
+    and #$fe
+    sta FILTERED_PADDLE_POS
+    rts
 
 credits:
     !byte $4b, $49, $43, $4b, $4d, $41, $4e, $20, $50, $41, $54, $43, $48, $20, $46, $4f
