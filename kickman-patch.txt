@@ -4,7 +4,8 @@
 ; treats $1e as zero/nonzero and signed: negative means one direction, positive
 ; means the other.  The joystick path writes $80 for left, $01 for right, or $00
 ; for neutral.  This patch reads the paddle into $fb, then hooks the original
-; joystick-left decode at $230f so routine2 can write a paddle-derived $1e.
+; joystick-left decode at $230f so update_horizontal_input_from_paddle can write
+; a paddle-derived $1e.
 ;
 ; Working zero-page names used by the patch:
 ;   PADDLE_SUM = $f8/$f9 ; 16-bit sum of raw $d419 samples
@@ -12,9 +13,9 @@
 ;   PADDLE_AVG = $fb     ; final 8-bit average after dividing sum by 32
 ;   LAST_PADDLE_CMD = $fc; last command written to $1e, used as a change filter
 ;
-; One thing to watch: routine1 takes 32 samples during one polling run, spaced
-; by CIA1 timer A underflows.  That smooths short electrical noise but still
-; does not keep a history of previous frame results.
+; One thing to watch: sample_paddle_during_frame_wait takes 32 samples during
+; one polling run, spaced by CIA1 timer A underflows.  That smooths short
+; electrical noise but still does not keep a history of previous frame results.
 
 PADDLE_SUM = $f8   ; word
 PADDLE_COUNT = $fa
@@ -22,6 +23,10 @@ PADDLE_AVG = $fb
 LAST_PADDLE_CMD = $fc
 
 basic_stub:
+; BASIC loader/menu.  The bytes below are tokenized BASIC and screen-control
+; characters, so the generic disassembly view is mostly noise.  The useful
+; human-facing strings are the startup/menu prompts, and the final menu choice
+; reaches one of the SYS entry points at "start:" below.
 0801 20 08 0a jsr $0a08
 0804 00       brk
 0805 97       ???
@@ -296,25 +301,26 @@ basic_stub:
 start:
 09b0 4c 3b 0a jmp copy_game_to_e000  ; $0a3b ; SYS 2480 = joystick mode, no patch needed
 
+install_paddle_patch:
 09b3 78       sei   ; SYS 2483 = paddle mode (patch needed)
 09b4 a9 ff    lda #$ff    ; apply patch, byte-by-byte
-09b6 8d 72 22 sta $2272
+09b6 8d 72 22 sta $2272  ; control probe: compare against $ff instead of $ef
 09b9 a9 d0    lda #$d0
-09bb 8d 73 22 sta $2273
+09bb 8d 73 22 sta $2273  ; invert the following branch from BEQ to BNE
 09be a9 c0    lda #$c0
-09c0 8d 79 22 sta $2279
+09c0 8d 79 22 sta $2279  ; build_joystick_mask: use LDX #$c0
 09c3 a9 a9    lda #$a9
-09c5 8d 7d 22 sta $227d
+09c5 8d 7d 22 sta $227d  ; replace INX/DDRB setup with LDA #$1f
 09c8 a9 1f    lda #$1f
 09ca 8d 7e 22 sta $227e
 09cd a9 4c    lda #$4c
-09cf 8d 7f 22 sta $227f
+09cf 8d 7f 22 sta $227f  ; then JMP $e2a6, skipping the rest of that probe
 09d2 a9 a6    lda #$a6
 09d4 8d 80 22 sta $2280
 09d7 a9 e2    lda #$e2
 09d9 8d 81 22 sta $2281
 09dc a9 40    lda #$40
-09de 8d c2 22 sta $22c2
+09de 8d c2 22 sta $22c2  ; menu/control wait: drive CIA1 port A with $40
 09e1 a9 86    lda #$86
 09e3 8d e4 22 sta $22e4  ; replace CIA DDR setup with STX $1d
 09e6 a9 1d    lda #$1d
@@ -327,12 +333,16 @@ start:
 09f7 8d e8 22 sta $22e8
 09fa a9 04    lda #$04
 09fc 8d fa 22 sta $22fa  ; test a different joystick bit for fire after patch
+
+configure_paddle_sample_timer:
 09ff a9 00    lda #$00
 0a01 8d 04 dc sta $dc04  ; CIA1 timer A low byte = $00
 0a04 a9 02    lda #$02
 0a06 8d 05 dc sta $dc05  ; CIA1 timer A high byte = $02
 0a09 a9 11    lda #$11
 0a0b 8d 0e dc sta $dc0e  ; start timer A, force-load latch
+
+install_runtime_hooks:
 0a0e a9 4c    lda #$4c
 0a10 8d 0f 23 sta $230f  ; hook original joystick left/right decode
 0a13 a9 68    lda #$68
@@ -354,12 +364,12 @@ start:
 
 copy_game_to_e000:
 0a3b a9 00    lda #$00
-0a3d 85 fa    sta $fa
-0a3f 85 fc    sta $fc
-0a41 a9 20    lda #$20  ; routine to copy $2000-$3fff to $e000-$efff
-0a43 85 fb    sta $fb
+0a3d 85 fa    sta $fa  ; source pointer low byte
+0a3f 85 fc    sta $fc  ; destination pointer low byte
+0a41 a9 20    lda #$20  ; copy $2000-$3fff to $e000-$ffff
+0a43 85 fb    sta $fb  ; source pointer high byte, initially $20
 0a45 a9 e0    lda #$e0
-0a47 85 fd    sta $fd
+0a47 85 fd    sta $fd  ; destination pointer high byte, initially $e0
 0a49 a0 00    ldy #$00
 
 -:
@@ -372,7 +382,7 @@ copy_game_to_e000:
 0a54 e6 fd    inc $fd
 0a56 d0 f3    bne -  ; $0a4b
 
-init_vars:
+init_paddle_state:
 0a58 a9 00    lda #$00
 0a5a 85 f8    sta PADDLE_SUM
 0a5c 85 f9    sta PADDLE_SUM+1
@@ -384,7 +394,7 @@ start_game:
 0a63 85 01    sta $01
 0a65 6c fc ff jmp ($fffc)
 
-routine2:  ; jmps here from game 230f, replacing joystick left/right decode
+update_horizontal_input_from_paddle:  ; jmps here from game 230f, replacing joystick left/right decode
 0a68 a5 fb    lda PADDLE_AVG       ; latest averaged raw paddle value
 0a6a 49 ff    eor #$ff             ; invert so paddle direction matches joystick sense
 0a6c 29 fe    and #$fe             ; even signed-ish movement byte for original $1e consumer
@@ -395,40 +405,41 @@ routine2:  ; jmps here from game 230f, replacing joystick left/right decode
 0a75 85 1e    sta $1e              ; original game consumes $1e as horizontal input command
 0a77 60       rts
 
-routine3:  ; jmps here from game 2836; adjusts sprite X handling for paddle mode
-0a78 85 b0    sta $b0
+apply_paddle_position_to_player_sprite:  ; jmps here from game 2836
+0a78 85 b0    sta $b0              ; A is the paddle-derived $1e movement/position byte
 0a7a a2 00    ldx #$00
-0a7c 20 99 0a jsr $0a99
-0a7f ae 00 d0 ldx $d000
+0a7c 20 99 0a jsr update_primary_sprite_x_from_paddle
+0a7f ae 00 d0 ldx $d000           ; keep sprite 1's X low byte matched to sprite 0
 0a82 8e 02 d0 stx $d002
 0a85 ad 10 d0 lda $d010
-0a88 29 01    and #$01
+0a88 29 01    and #$01            ; mirror sprite 0's X high bit into sprite 1
 0a8a aa       tax 
 0a8b ad 10 d0 lda $d010
 0a8e 29 fc    and #$fc
 0a90 1d c8 e8 ora $e8c8,x
 0a93 8d 10 d0 sta $d010
 0a96 4c 69 e8 jmp $e869
+update_primary_sprite_x_from_paddle:
 0a99 a9 ff    lda #$ff
-0a9b 85 06    sta $06
+0a9b 85 06    sta $06              ; mark collision/helper scratch values unused
 0a9d 85 07    sta $07
 0a9f 85 08    sta $08
 0aa1 b5 98    lda $98,x
-0aa3 10 01    bpl $0aa6
+0aa3 10 01    bpl $0aa6            ; only update if sprite/state slot 0 is active
 0aa5 60       rts 
 0aa6 a5 10    lda $10
 0aa8 35 b8    and $b8,x
-0aaa d0 01    bne $0aad
+0aaa d0 01    bne $0aad            ; throttle by the existing per-slot frame mask
 0aac 60       rts 
 0aad d6 a0    dec $a0,x
-0aaf f0 01    beq $0ab2
+0aaf f0 01    beq $0ab2            ; wait for the slot's countdown to expire
 0ab1 60       rts 
 0ab2 b5 a8    lda $a8,x
 0ab4 95 a0    sta $a0,x
 0ab6 e6 06    inc $06
 0ab8 18       clc 
 0ab9 a5 b0    lda $b0
-0abb 69 30    adc #$30
+0abb 69 30    adc #$30             ; map paddle byte into screen X coordinate space
 0abd 8d 00 d0 sta $d000
 0ac0 85 03    sta $03
 0ac2 a9 00    lda #$00
@@ -437,32 +448,32 @@ routine3:  ; jmps here from game 2836; adjusts sprite X handling for paddle mode
 0ac8 85 04    sta $04
 0aca ad 10 d0 lda $d010
 0acd 29 fe    and #$fe
-0acf 05 04    ora $04
+0acf 05 04    ora $04              ; update sprite 0 X high bit
 0ad1 8d 10 d0 sta $d010
 0ad4 a5 04    lda $04
 0ad6 f0 0f    beq $0ae7
 0ad8 a5 03    lda $03
 0ada c9 0c    cmp #$0c
-0adc 90 16    bcc $0af4
+0adc 90 16    bcc $0af4            ; high-bit range: clamp if X wrapped too far left
 0ade e6 08    inc $08
 0ae0 a9 0b    lda #$0b
 0ae2 8d 00 d0 sta $d000
 0ae5 d0 0d    bne $0af4
 0ae7 a5 03    lda $03
 0ae9 c9 3e    cmp #$3e
-0aeb b0 07    bcs $0af4
+0aeb b0 07    bcs $0af4            ; low-bit range: clamp near the left playfield edge
 0aed e6 08    inc $08
 0aef a9 3d    lda #$3d
 0af1 8d 00 d0 sta $d000
 0af4 60       rts 
 
 ; called from 20df in game, replacing the original raster-bit wait
-routine1:
+sample_paddle_during_frame_wait:
 0af5 a6 fa    ldx PADDLE_COUNT
 
 -:
 0af7 ad 11 d0 lda $d011
-0afa 30 31    bmi skip1  ; $0b2d  ; branch if Raster Compare bit8 is on (in border)
+0afa 30 31    bmi leave_frame_wait_hook  ; $0b2d  ; branch if raster bit 8 is on
 
 0afc ad 0d dc lda $dc0d
 0aff 29 01    and #$01
@@ -489,12 +500,12 @@ routine1:
 0b21 6a       ror a
 0b22 46 f9    lsr PADDLE_SUM+1
 0b24 6a       ror a
-0b25 85 fb    sta PADDLE_AVG       ; store final averaged value for routine2
+0b25 85 fb    sta PADDLE_AVG       ; store final averaged value for input update hook
 0b27 a2 00    ldx #$00
 0b29 86 f8    stx PADDLE_SUM       ; low byte reset only; high byte reset happens by shifts above
-0b2b f0 ca    beq $0af7
+0b2b f0 ca    beq $0af7            ; always continue sampling until raster bit 8 ends the hook
 
-skip1:
+leave_frame_wait_hook:
 0b2d 86 fa    stx PADDLE_COUNT     ; save partial sample count across raster wait exits
 0b2f 4c e4 e0 jmp $e0e4   ; jump back to code just after raster compare bit 8 wait loop
 
