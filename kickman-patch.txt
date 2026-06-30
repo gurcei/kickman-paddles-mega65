@@ -1,8 +1,29 @@
-PADDLE_SUM = $fa   ; word
+; Kickman paddle patch map notes
+; ------------------------------
+; The original game decodes joystick left/right into zero-page $1e.  Later code
+; treats $1e as zero/nonzero and signed: negative means one direction, positive
+; means the other.  The joystick path writes $80 for left, $01 for right, or $00
+; for neutral.  This patch reads the paddle into $fb, then hooks the original
+; joystick-left decode at $230f so routine2 can write a paddle-derived $1e.
+;
+; Working zero-page names used by the patch:
+;   PADDLE_SUM = $f8/$f9 ; 16-bit sum of raw $d419 samples
+;   PADDLE_COUNT = $fa   ; number of samples accumulated so far, 0..31
+;   PADDLE_AVG = $fb     ; final 8-bit average after dividing sum by 32
+;   LAST_PADDLE_CMD = $fc; last command written to $1e, used as a change filter
+;
+; One thing to watch: routine1 takes 32 samples during one polling run, spaced
+; by CIA1 timer A underflows.  That smooths short electrical noise but still
+; does not keep a history of previous frame results.
+
+PADDLE_SUM = $f8   ; word
+PADDLE_COUNT = $fa
+PADDLE_AVG = $fb
+LAST_PADDLE_CMD = $fc
 
 basic_stub:
 0801 20 08 0a jsr $0a08
-0804 00       brk 
+0804 00       brk
 0805 97       ???
 0806 35 33    and $33,x
 0808 32       ???
@@ -295,37 +316,37 @@ start:
 09dc a9 40    lda #$40
 09de 8d c2 22 sta $22c2
 09e1 a9 86    lda #$86
-09e3 8d e4 22 sta $22e4
+09e3 8d e4 22 sta $22e4  ; replace CIA DDR setup with STX $1d
 09e6 a9 1d    lda #$1d
 09e8 8d e5 22 sta $22e5
 09eb a9 4c    lda #$4c
-09ed 8d e6 22 sta $22e6
+09ed 8d e6 22 sta $22e6  ; then JMP $e2ec, skipping joystick DDR writes
 09f0 a9 ec    lda #$ec
 09f2 8d e7 22 sta $22e7
 09f5 a9 e2    lda #$e2
 09f7 8d e8 22 sta $22e8
 09fa a9 04    lda #$04
-09fc 8d fa 22 sta $22fa
+09fc 8d fa 22 sta $22fa  ; test a different joystick bit for fire after patch
 09ff a9 00    lda #$00
-0a01 8d 04 dc sta $dc04
+0a01 8d 04 dc sta $dc04  ; CIA1 timer A low byte = $00
 0a04 a9 02    lda #$02
-0a06 8d 05 dc sta $dc05
+0a06 8d 05 dc sta $dc05  ; CIA1 timer A high byte = $02
 0a09 a9 11    lda #$11
-0a0b 8d 0e dc sta $dc0e
+0a0b 8d 0e dc sta $dc0e  ; start timer A, force-load latch
 0a0e a9 4c    lda #$4c
-0a10 8d 0f 23 sta $230f
+0a10 8d 0f 23 sta $230f  ; hook original joystick left/right decode
 0a13 a9 68    lda #$68
 0a15 8d 10 23 sta $2310
 0a18 a9 0a    lda #$0a
 0a1a 8d 11 23 sta $2311
 0a1d a9 4c    lda #$4c
-0a1f 8d 36 28 sta $2836
+0a1f 8d 36 28 sta $2836  ; hook sprite/player X-position helper
 0a22 a9 78    lda #$78
 0a24 8d 37 28 sta $2837
 0a27 a9 0a    lda #$0a
 0a29 8d 38 28 sta $2838
 0a2c a9 4c    lda #$4c
-0a2e 8d df 20 sta $20df
+0a2e 8d df 20 sta $20df  ; hook the main frame wait/poll point
 0a31 a9 f5    lda #$f5
 0a33 8d e0 20 sta $20e0
 0a36 a9 0a    lda #$0a
@@ -353,9 +374,9 @@ copy_game_to_e000:
 
 init_vars:
 0a58 a9 00    lda #$00
-0a5a 85 f8    sta $f8
-0a5c 85 f9    sta $f9
-0a5e 85 fa    sta $fa
+0a5a 85 f8    sta PADDLE_SUM
+0a5c 85 f9    sta PADDLE_SUM+1
+0a5e 85 fa    sta PADDLE_COUNT
 
 start_game:
 0a60 78       sei 
@@ -363,18 +384,18 @@ start_game:
 0a63 85 01    sta $01
 0a65 6c fc ff jmp ($fffc)
 
-routine2:  ; jmps here from game 230f
-0a68 a5 fb    lda $fb   ; stores the averaged paddle value
-0a6a 49 ff    eor #$ff
-0a6c 29 fe    and #$fe
-0a6e c5 fc    cmp $fc
+routine2:  ; jmps here from game 230f, replacing joystick left/right decode
+0a68 a5 fb    lda PADDLE_AVG       ; latest averaged raw paddle value
+0a6a 49 ff    eor #$ff             ; invert so paddle direction matches joystick sense
+0a6c 29 fe    and #$fe             ; even signed-ish movement byte for original $1e consumer
+0a6e c5 fc    cmp LAST_PADDLE_CMD
 0a70 d0 01    bne $0a73
-0a72 60       rts 
-0a73 85 fc    sta $fc
-0a75 85 1e    sta $1e
-0a77 60       rts 
+0a72 60       rts
+0a73 85 fc    sta LAST_PADDLE_CMD
+0a75 85 1e    sta $1e              ; original game consumes $1e as horizontal input command
+0a77 60       rts
 
-routine3:  ; jmps here from game 2836
+routine3:  ; jmps here from game 2836; adjusts sprite X handling for paddle mode
 0a78 85 b0    sta $b0
 0a7a a2 00    ldx #$00
 0a7c 20 99 0a jsr $0a99
@@ -435,9 +456,9 @@ routine3:  ; jmps here from game 2836
 0af1 8d 00 d0 sta $d000
 0af4 60       rts 
 
-; called from 20df in game
+; called from 20df in game, replacing the original raster-bit wait
 routine1:
-0af5 a6 fa    ldx $fa
+0af5 a6 fa    ldx PADDLE_COUNT
 
 -:
 0af7 ad 11 d0 lda $d011
@@ -445,36 +466,36 @@ routine1:
 
 0afc ad 0d dc lda $dc0d
 0aff 29 01    and #$01
-0b01 f0 f4    beq -  ; $0af7  ; if dc0d.0 (cia1.timerA underflow) is on, then loop back
+0b01 f0 f4    beq -  ; $0af7  ; loop until dc0d.0 reports CIA1 timer A underflow
 
 0b03 18       clc 
-0b04 ad 19 d4 lda $d419  ; paddle1
-0b07 65 f8    adc $f8
-0b09 85 f8    sta $f8
+0b04 ad 19 d4 lda $d419  ; paddle 1 raw value from SID POTX
+0b07 65 f8    adc PADDLE_SUM
+0b09 85 f8    sta PADDLE_SUM
 0b0b 90 02    bcc $0b0f
-0b0d e6 f9    inc $f9
-0b0f e8       inx 
-0b10 e0 20    cpx #$20  ; so we read the paddle value 32 times and add it to (int*)$f8
+0b0d e6 f9    inc PADDLE_SUM+1
+0b0f e8       inx
+0b10 e0 20    cpx #$20  ; collect 32 samples in one frame-side polling burst
 0b12 d0 e3    bne -  ; $0af7
 
-0b14 a5 f8    lda PADDLE_SUM   ; $f8   ; divide *(int*)$f8 by 32
-0b16 46 f9    lsr PADDLE_SUM+1 ; $f9
+0b14 a5 f8    lda PADDLE_SUM       ; divide 16-bit sum by 32
+0b16 46 f9    lsr PADDLE_SUM+1
 0b18 6a       ror a
-0b19 46 f9    lsr PADDLE_SUM+1 ; $f9
+0b19 46 f9    lsr PADDLE_SUM+1
 0b1b 6a       ror a
-0b1c 46 f9    lsr PADDLE_SUM+1 ; $f9
+0b1c 46 f9    lsr PADDLE_SUM+1
 0b1e 6a       ror a
-0b1f 46 f9    lsr PADDLE_SUM+1 ; $f9
+0b1f 46 f9    lsr PADDLE_SUM+1
 0b21 6a       ror a
-0b22 46 f9    lsr PADDLE_SUM+1 ; $f9
+0b22 46 f9    lsr PADDLE_SUM+1
 0b24 6a       ror a
-0b25 85 fb    sta $fb   ; store final result of averaging
+0b25 85 fb    sta PADDLE_AVG       ; store final averaged value for routine2
 0b27 a2 00    ldx #$00
-0b29 86 f8    stx $f8
+0b29 86 f8    stx PADDLE_SUM       ; low byte reset only; high byte reset happens by shifts above
 0b2b f0 ca    beq $0af7
 
 skip1:
-0b2d 86 fa    stx $fa
+0b2d 86 fa    stx PADDLE_COUNT     ; save partial sample count across raster wait exits
 0b2f 4c e4 e0 jmp $e0e4   ; jump back to code just after raster compare bit 8 wait loop
 
 credits:
